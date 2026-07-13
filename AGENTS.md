@@ -11,6 +11,7 @@
 - **Ponytail:** YAGNI. Min code. Existing deps first. No speculative features.
 - **Surgical:** Touch only what the request requires.
 - **Think first:** State assumptions. Ask if unclear. Never pick silently.
+- **Marketing/Copy:** When writing ANY social media posts, launch announcements, or marketing copy, ALWAYS read and strictly follow `C:\Users\kwakh\.gemini\config\resources\voice-profile.md` for tone, audience, and constraints.
 
 ---
 
