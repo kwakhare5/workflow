@@ -48,6 +48,12 @@ and any blockers.
 | `@RESEARCH` | Reads docs/APIs and files a summary | Unknown library or API |
 | `@PROTOTYPE` | Builds throwaway UI/logic to explore | Design questions |
 
+### Social & Launch
+
+| Type this | Does this | Use when |
+|-----------|-----------|----------|
+| `@TWEET` | Drafts, refines, or brainstorms X/Twitter posts | You want to post an update or brainstorm ideas |
+
 ### While building
 
 | Type this | Does this | Use when |
