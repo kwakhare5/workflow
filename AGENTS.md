@@ -1,6 +1,5 @@
 # AGENTS.md — Global Rules for Karan Wakhare
 # Applies to EVERY project, EVERY session. Read this first.
-# Source: d:\New folder\01_Global_Workflow\AGENTS.md
 # Live:   C:\Users\kwakh\.gemini\config\AGENTS.md
 
 ---
