@@ -76,6 +76,8 @@ Load skills only when task matches the trigger. Do not pre-announce.
 - `to-tickets` — break plan into GitHub issues. Triggered by @TO-ISSUES.
 - `resolving-merge-conflicts` — fix git merge conflicts.
 - `tweet-crafter` — draft and refine social copy in your voice. Triggered by @TWEET.
+- `codebase-cleanup` — purge dead code, unreferenced exports, and bloat. Triggered by @CLEANUP or @PRUNE.
+- `batch-grill-me` — batch multiple architecture questions into one session. Triggered by @BATCH-GRILL.
 
 **Stack-specific (auto-trigger on relevant work):**
 - `nextjs-best-practices` — Next.js App Router patterns
@@ -143,6 +145,8 @@ Load skills only when task matches the trigger. Do not pre-announce.
 | `@WAYFINDER` | `wayfinder` | Map a huge foggy project |
 | `@RESEARCH` | `research` | Read docs/APIs before building |
 | `@TWEET` | `tweet-crafter` | Draft, refine, or brainstorm X/Twitter posts using your voice profile |
+| `@CLEANUP` | `codebase-cleanup` | Purge dead code, unreferenced exports, duplicate logic, and unused dependencies |
+| `@BATCH-GRILL` | `batch-grill-me` | Batch multiple architecture questions into one interview session |
 | `/impeccable audit` | `impeccable` | UI needs a full quality check |
 | `/impeccable polish` | `impeccable` | Final UI pass before shipping |
 | `/impeccable bolder` | `impeccable` | Design feels too safe/boring |

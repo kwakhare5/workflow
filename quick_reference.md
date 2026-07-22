@@ -42,11 +42,13 @@ and any blockers.
 | Type this | Does this | Use when |
 |-----------|-----------|----------|
 | `@GRILL` | AI interviews you, aligns before building | EVERY non-trivial feature |
+| `@BATCH-GRILL` | Batches multiple architecture decisions into one interview | Complex multi-choice design tasks |
 | `@TO-SPEC` | Writes a feature spec document | Complex multi-part feature |
 | `@TO-ISSUES` | Breaks spec into GitHub issues | After spec is written |
 | `@WAYFINDER` | Maps a huge foggy project | Project is too big to see clearly |
 | `@RESEARCH` | Reads docs/APIs and files a summary | Unknown library or API |
 | `@PROTOTYPE` | Builds throwaway UI/logic to explore | Design questions |
+| `@CLEANUP` | Purges dead code, unreferenced exports & bloat | Codebase accumulated cruft or before shipping |
 
 ### Social & Launch
 
