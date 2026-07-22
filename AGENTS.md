@@ -78,17 +78,8 @@ Load skills only when task matches the trigger. Do not pre-announce.
 - `tweet-crafter` — draft and refine social copy in your voice. Triggered by @TWEET.
 - `codebase-cleanup` — purge dead code, unreferenced exports, and bloat. Triggered by @CLEANUP or @PRUNE.
 - `batch-grill-me` — batch multiple architecture questions into one session. Triggered by @BATCH-GRILL.
-
-**Stack-specific (auto-trigger on relevant work):**
-- `nextjs-best-practices` — Next.js App Router patterns
-- `supabase` — anything touching Supabase
-- `postgres-best-practices` — DB queries and schema
-- `drizzle-orm-expert` — Drizzle ORM work
-- `prisma-expert` — Prisma ORM work
-- `auth-implementation-patterns` — auth systems
-- `tailwind-v4-shadcn` — Tailwind v4 + shadcn setup
-- `react-best-practices` — React component patterns
-- `nodejs-best-practices` — Node.js backend
+- `implement` — execute a spec or tickets with TDD + code-review. Triggered by @IMPLEMENT.
+- `triage` — move GitHub issues through the triage pipeline. Triggered by @TRIAGE.
 
 **Ship skills (use when launching):**
 - `launch` — launch strategy and checklist
@@ -98,6 +89,7 @@ Load skills only when task matches the trigger. Do not pre-announce.
 - `pricing` — pricing decisions
 - `cro` — conversion optimization
 - `emails` — email sequences
+- `ab-testing` — plan and design A/B experiments
 
 ---
 
@@ -137,18 +129,16 @@ Load skills only when task matches the trigger. Do not pre-announce.
 | `@ZOOM` | list_dir + audit | Before sweeping changes — understand structure first |
 | `@HANDOFF` | `handoff` | Session >20 messages or switching projects |
 | `@REVIEW` | `code-review` | Review changes before merging |
-| `@AUDIT` | `vibe-code-auditor` | AI code feels fragile, before shipping |
 | `@ARCHITECTURE-REVIEW` | `improve-codebase-architecture` | Codebase getting messy |
-| `@TO-SPEC` | `to-spec` | Write a spec for a complex feature |
+| `@TO-SPEC` | `to-spec` | Write a feature spec |
 | `@TO-ISSUES` | `to-tickets` | Break an agreed plan into GitHub issues |
+| `@IMPLEMENT` | `implement` | Execute spec/tickets — runs TDD at seams, closes with code-review |
+| `@TRIAGE` | `triage` | Move GitHub issues through triage pipeline |
 | `@PROTOTYPE` | `prototype` | Explore a UI/state design question |
 | `@WAYFINDER` | `wayfinder` | Map a huge foggy project |
 | `@RESEARCH` | `research` | Read docs/APIs before building |
-| `@TWEET` | `tweet-crafter` | Draft, refine, or brainstorm X/Twitter posts using your voice profile |
+| `@TWEET` | `tweet-crafter` | Draft, refine, or brainstorm X/Twitter posts |
 | `@CLEANUP` | `codebase-cleanup` | Purge dead code, unreferenced exports, duplicate logic, and unused dependencies |
 | `@BATCH-GRILL` | `batch-grill-me` | Batch multiple architecture questions into one interview session |
-| `/impeccable audit` | `impeccable` | UI needs a full quality check |
-| `/impeccable polish` | `impeccable` | Final UI pass before shipping |
-| `/impeccable bolder` | `impeccable` | Design feels too safe/boring |
-| `/impeccable animate` | `impeccable` | Add motion and micro-interactions |
+| `/impeccable audit` | `impeccable` | UI quality check, polish, animation |
 | `@ASK-MATT` | `ask-matt` | Don't know which command to use |

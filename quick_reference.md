@@ -64,6 +64,8 @@ and any blockers.
 | `@TDD` | Test-first development | Complex business logic |
 | `@ZOOM` | Maps codebase structure | Before sweeping changes |
 | `@REVIEW` | Reviews changes before merge | Before committing big changes |
+| `@IMPLEMENT` | Executes spec/tickets with TDD + review | After @TO-ISSUES — time to build |
+| `@TRIAGE` | GitHub issues state machine | Issues piling up, need to sort |
 | `@HANDOFF` | Compresses session context | Session > 20 messages |
 
 ### For UI work
@@ -83,7 +85,7 @@ and any blockers.
 
 | Type this | Does this | Use when |
 |-----------|-----------|----------|
-| `@AUDIT` | Scan AI-generated code for production risks | Before any deployment |
+| `@CLEANUP` | Purges dead code, unreferenced exports & bloat | Codebase accumulated cruft or before shipping |
 | `/impeccable polish` | Final UI pass | UI is done |
 | `@ARCHITECTURE-REVIEW` | Find refactor opportunities | Codebase is getting messy |
 | `@ASK-MATT` | Route to the right command | Don't know what to use |
@@ -99,6 +101,7 @@ and any blockers.
 | `@analytics skill` | Set up tracking | Before launch |
 | `@emails skill` | Email sequence | Post-launch nurture |
 | `@cro skill` | Conversion optimization | Page not converting |
+| `@ab-testing skill` | Plan A/B experiments | Testing two approaches |
 
 ---
 
