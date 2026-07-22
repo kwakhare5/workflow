@@ -1,37 +1,16 @@
-# AGENTS.md — Global AI Rules (Karan Wakhare)
+# AGENTS.md — Global Rules for Karan Wakhare
 # Applies to EVERY project, EVERY session. Read this first.
-
----
-
-## FILESYSTEM LAYOUT — READ FIRST
-
-Two locations. Both must always be in sync. **Never edit one without syncing the other.**
-
-| Location | Role |
-|---|---|
-| `d:\workflow-main\01_Global_Workflow\` | **Source / test repo** — edit and test here, push to git |
-| `C:\Users\kwakh\.gemini\config\` | **Live global config** — what Gemini IDE actually reads |
-
-**Sync commands (run after ANY skill or AGENTS.md change):**
-```powershell
-robocopy "d:\workflow-main\01_Global_Workflow\skills" "C:\Users\kwakh\.gemini\config\skills" /E /XO
-robocopy "C:\Users\kwakh\.gemini\config\skills" "d:\workflow-main\01_Global_Workflow\skills" /E /XO
-Copy-Item "d:\workflow-main\01_Global_Workflow\AGENTS.md" "C:\Users\kwakh\.gemini\config\AGENTS.md" -Force
-Copy-Item "d:\workflow-main\01_Global_Workflow\AGENTS.md" "C:\Users\kwakh\.gemini\config\templates\AGENTS.md" -Force
-cd d:\workflow-main; git add -A; git commit -m "sync"; git push origin main
-```
-
-**Exception:** `impeccable` is installed via npx but lives in `config\skills\impeccable\` like all other skills. To update it: run `.\01_Global_Workflow\scripts\update-impeccable.ps1` — this handles the copy + cleanup + git push automatically.
+# Live:   C:\Users\kwakh\.gemini\config\AGENTS.md
 
 ---
 
 ## CORE BEHAVIOR
 
-
 - **Caveman:** Zero fluff. Short fragments. Drop pleasantries.
 - **Ponytail:** YAGNI. Min code. Existing deps first. No speculative features.
 - **Surgical:** Touch only what the request requires.
 - **Think first:** State assumptions. Ask if unclear. Never pick silently.
+- **Marketing/Copy:** When writing ANY social media posts, launch announcements, or marketing copy, ALWAYS read and strictly follow `C:\Users\kwakh\.gemini\config\resources\voice-profile.md` for tone, audience, and constraints.
 
 ---
 
@@ -39,20 +18,19 @@ cd d:\workflow-main; git add -A; git commit -m "sync"; git push origin main
 
 0. **AUDIT** — multi-file or unfamiliar changes only:
    `list_dir` on target directory, then `grep_search` for existing patterns.
-   Skip for: questions, analysis, planning, tiny single-file fixes.
+   Skip for: questions, analysis, tiny single-file fixes.
 
-1. **State assumptions + success criterion.** One sentence: what does DONE look like?
-   Be concrete. _"Done when: user can submit form and see confirmation toast."_
+1. **State assumptions + success criterion.** One sentence.
+   _"Done when: user can submit the form and see a confirmation toast."_
 
-2. **Prefactor first:** Before adding a feature, ask — is there a small refactor
-   that makes this feature trivial? Do that first.
+2. **Prefactor first.** Is there a small refactor that makes this trivial? Do it first.
    _"Make the change easy, then make the easy change." — Kent Beck_
 
-3. **Write the code.** Vertical slice: schema → API → UI → test.
+3. **Write the code.** Vertical slice: schema → API → UI.
    One thin path through all layers. No horizontal sprawl.
 
-4. **Run the linter:** `npm run lint` / `tsc --noEmit` / `pytest` — zero errors.
-   Done when command exits 0. Fail → fix yourself, loop. Never ask user.
+4. **Run the linter.** `npm run lint` / `tsc --noEmit` / `pytest` — zero errors.
+   Fail → fix yourself, loop. Never ask user to run it.
 
 5. **VERIFY** — re-read every changed file. Check all 5:
    - Swallowed errors (catch blocks that silently ignore)
@@ -60,17 +38,12 @@ cd d:\workflow-main; git add -A; git commit -m "sync"; git push origin main
    - Relaxed tests (test that always passes regardless of behavior)
    - Comment-as-fix (commented out failing code instead of fixing it)
    - Fake renames (renamed file, imports not updated)
-   On FAIL: append one line to `MISTAKES TO AVOID` in `CLAUDE.md` before fixing.
+   On FAIL → append one line to `MISTAKES TO AVOID` in `CLAUDE.md` before fixing.
 
 6. **POST-TASK DOC CHECK** — silent, only act on YES:
    - Schema/DB changed? → update `ARCHITECTURE.md`
    - New domain term in code? → update `CONTEXT.md`
    - Stack or project rules changed? → update `CLAUDE.md`
-   - New skill added, renamed, or deleted? → update `AGENTS.md` commands table
-   - New @command or /slash command added? → update `AGENTS.md` commands table
-   - Project status changed (shipped, blocked, nuked)? → update `active_project_context.md`
-   - Significant session (new system, major feature)? → append to `wiki/log.md` + update `wiki/hot.md`
-   If YES to any → do it before ending. If NO to all → say nothing.
 
 7. Stop at 100% pass.
 
@@ -78,53 +51,51 @@ cd d:\workflow-main; git add -A; git commit -m "sync"; git push origin main
 
 ## SKILLS
 
-Load skills only when the task matches the skill's trigger. Do not pre-announce skills loaded.
+Load skills only when task matches the trigger. Do not pre-announce.
 
-**UI Design pair:**
-- `frontend-design` — building new UI from scratch (aesthetic direction, DFII scoring, design system)
-- `impeccable` — iterating/auditing existing UI (23 commands: `/impeccable audit`, `/impeccable polish`, `/impeccable bolder`, `/impeccable quieter`, etc. + 46 deterministic lint rules)
+**Default pair (always active):**
+- `ponytail` — YAGNI enforcer. Stop over-engineering.
+- `software-architecture` — architecture questions and module design.
 
----
+**UI pair:**
+- `frontend-design` — building new UI from scratch (aesthetic direction)
+- `impeccable` — iterating/auditing existing UI (`/impeccable audit`, `polish`, `bolder`, `quieter`, `animate`, `colorize`, `typeset`, `layout`, `delight`)
 
-## CONFLICT RESOLUTION
+**Engineering:**
+- `grill-with-docs` — alignment + docs before building. Triggered by @GRILL.
+- `diagnosing-bugs` — rigorous bug loop. Triggered by @DIAGNOSE.
+- `tdd` — test-first for complex logic. Triggered by @TDD.
+- `handoff` — context compression. Triggered by @HANDOFF.
+- `code-review` — review changes. Triggered by @REVIEW.
+- `improve-codebase-architecture` — refactor scan. Triggered by @ARCHITECTURE-REVIEW.
+- `domain-modeling` — domain terms + ADRs. Triggered by @GRILL or @TO-PRD.
+- `prototype` — throwaway exploration. Triggered by @PROTOTYPE.
+- `wayfinder` — map foggy projects. Triggered by @WAYFINDER.
+- `research` — read docs/APIs, file summary. Triggered by @RESEARCH.
+- `to-spec` — write feature spec. Triggered by @TO-SPEC.
+- `to-tickets` — break plan into GitHub issues. Triggered by @TO-ISSUES.
+- `resolving-merge-conflicts` — fix git merge conflicts.
+- `tweet-crafter` — draft and refine social copy in your voice. Triggered by @TWEET.
 
-- **Loop Precedence:** If a specialized skill like `tdd` or `diagnosing-bugs` is active, follow its loop INSTEAD of steps 3-5 above.
-- **Scope of Laziness:** Ponytail (YAGNI/min code) applies to feature scope. `codebase-design` applies to architecture scope.
-- **Communication vs. Documentation:** Caveman (zero fluff) applies to chat only. Write documentation and `CONTEXT.md` updates with full articulation.
+**Stack-specific (auto-trigger on relevant work):**
+- `nextjs-best-practices` — Next.js App Router patterns
+- `supabase` — anything touching Supabase
+- `postgres-best-practices` — DB queries and schema
+- `drizzle-orm-expert` — Drizzle ORM work
+- `prisma-expert` — Prisma ORM work
+- `auth-implementation-patterns` — auth systems
+- `tailwind-v4-shadcn` — Tailwind v4 + shadcn setup
+- `react-best-practices` — React component patterns
+- `nodejs-best-practices` — Node.js backend
 
----
-
-## COMMANDS
-_User triggers these explicitly. AI does not suggest them unprompted._
-
-| Command | When to use | Skill Loaded |
-|---------|------------|--------------|
-| `@ASK-MATT` | Don't know which command/skill to use? Ask the router. | `ask-matt` |
-| `@GRILL` | Stress-test a code project plan and build a domain model. | `grill-with-docs` |
-| `@GRILL-ME` | Interview me about a non-code plan or design. | `grill-me` |
-| `@TO-ISSUES` | Break an agreed-upon plan/PRD into tracer-bullet tickets (supports local files, GitHub, Linear). | `to-tickets` |
-| `@TO-PRD` | Turn our conversation into a PRD and publish it. | `to-prd` |
-| `@TDD` | Red-Green-Refactor to build a feature or fix a bug. | `tdd` |
-| `@DIAGNOSE` | Something broken — rigorous bug diagnosis loop. | `diagnosing-bugs` |
-| `@ARCHITECTURE-REVIEW` | Scan codebase for deepening opportunities (refactoring). | `improve-codebase-architecture` |
-| `@PROTOTYPE` | Throwaway project to answer a UI/state design question. | `prototype` |
-| `@HANDOFF` | Compact a long conversation context so a fresh session can pick it up. | `handoff` |
-| `@TEACH` | Teach me a new skill or concept statefully over multiple sessions. | `teach` |
-| `@TRIAGE` | Move issues through a state machine of triage roles. | `triage` |
-| `@SETUP-POCOCK` | Configure issue tracker and triage labels for the current repo. | `setup-matt-pocock-skills` |
-| `@SKILL-WRITE` | Reference for writing and editing skills well. | `writing-great-skills` |
-| `@SHIP` | Deploy checklist → Vercel → README → tweet | N/A |
-| `@ZOOM` | Map codebase before sweeping changes | N/A |
-| `@AUDIT` | Scan for dead code, over-engineering | N/A |
-| `@WAYFINDER` | Map a huge foggy project as investigation tickets, one decision at a time. | `wayfinder` |
-| `@LOOP-ME` | Design automated workflow specs for recurring patterns in your life. | `loop-me` |
-| `@WIZARD` | Build an interactive bash script that walks through a manual setup procedure. | `wizard` |
-| `@RESEARCH` | Send a background agent to read docs/APIs and file a cited summary. | `research` |
-| `@TWEET` | Generate 3 ready-to-post tweets in your voice from current context. | `tweet` |
-| `/impeccable <cmd>` | Design iteration commands: `audit`, `polish`, `bolder`, `quieter`, `animate`, `colorize`, `typeset`, `distill`, `critique`, `harden`, `layout`, `delight`, `overdrive`, `clarify`. Start new projects with `/impeccable init`. | `impeccable` |
-| `/save` | Save current conversation as a wiki note to vault | `obsidian-vault` |
-| `/autoresearch [topic]` | Research loop: search → fetch → synthesize → file in vault | `obsidian-vault` |
-| `/canvas` | Create a visual Obsidian canvas from notes | `json-canvas` |
+**Ship skills (use when launching):**
+- `launch` — launch strategy and checklist
+- `copywriting` — landing page and marketing copy
+- `seo-audit` — SEO health check
+- `analytics` — tracking setup
+- `pricing` — pricing decisions
+- `cro` — conversion optimization
+- `emails` — email sequences
 
 ---
 
@@ -132,36 +103,48 @@ _User triggers these explicitly. AI does not suggest them unprompted._
 
 | Task | Model |
 |------|-------|
-| Quick fix, simple component | Gemini Flash |
+| Quick question, simple fix | Gemini Flash |
 | Standard feature, debug, refactor | Claude Sonnet |
-| Architecture, hard bugs, multi-file | Claude Sonnet Thinking / Opus |
+| Architecture, hard bugs, multi-file | Claude Sonnet Thinking |
 
 ---
 
-## LOCAL CONTEXT SYSTEM
+## SESSION RITUAL
 
-Context: `CLAUDE.md` (tech stack) and Obsidian RAG (architecture and state)
+**SESSION START** — when opening a project:
+1. Read `CLAUDE.md` → stack, commands, local rules.
+2. Read `CONTEXT.md` → domain terms and business rules.
+3. Read `CLAUDE.md` → Section 7: SESSION RESUME → what's open.
+4. Read `ARCHITECTURE.md` ONLY when doing @ZOOM or major structural changes.
 
-**SESSION START** — only if task involves this project's codebase:
-1. Read `CLAUDE.md` → tech stack context.
-2. Read `CONTEXT.md` → domain terms and ubiquitous language.
-3. Read `00_System/active_project_context.md` via Obsidian MCP.
-
-**SAVE WHEN:** code written, decision made, bug fixed, feature dropped, schema changed.
-**HOW TO SAVE:** Append atomic facts to `wiki/log.md` at `D:\workflow-main\02_Obsidian_Brain\wiki\log.md` using Obsidian MCP or filesystem write.
-
-**SESSION END** (done/bye/thanks):
-1. Append a State Handoff note to `D:\workflow-main\02_Obsidian_Brain\wiki\log.md`.
+**SESSION END** (user says done / bye / thanks):
+1. Summarize what changed in 3-5 bullets.
+2. State what's immediately next.
+3. Update Section 7: SESSION RESUME in `CLAUDE.md`.
+4. If schema changed → remind user to commit updated ARCHITECTURE.md.
 
 ---
 
-## BOOTSTRAP NEW PROJECT
+## COMMANDS
 
-```powershell
-$t="C:\Users\kwakh\.gemini\config\templates"; $d="D:\YourProject"
-@("AGENTS.md","CLAUDE.md","ARCHITECTURE.md","CONTEXT.md",".editorconfig",".prettierrc.json") | %{ Copy-Item "$t\$_" "$d\$_" }
-```
-
-# AI fills CLAUDE.md and CONTEXT.md — tell it: "bootstrap this project, ask me what you need"
-# AI registers project in active_project_context.md automatically
-# Keep CLAUDE.md under 200 lines. Schema/decisions go in ARCHITECTURE.md only.
+| Command | Skill | When to use |
+|---------|-------|------------|
+| `@GRILL` | `grill-with-docs` | Before ANY non-trivial feature — every time |
+| `@DIAGNOSE` | `diagnosing-bugs` | Something is broken |
+| `@TDD` | `tdd` | Building complex logic test-first |
+| `@ZOOM` | list_dir + audit | Before sweeping changes — understand structure first |
+| `@HANDOFF` | `handoff` | Session >20 messages or switching projects |
+| `@REVIEW` | `code-review` | Review changes before merging |
+| `@AUDIT` | `vibe-code-auditor` | AI code feels fragile, before shipping |
+| `@ARCHITECTURE-REVIEW` | `improve-codebase-architecture` | Codebase getting messy |
+| `@TO-SPEC` | `to-spec` | Write a spec for a complex feature |
+| `@TO-ISSUES` | `to-tickets` | Break an agreed plan into GitHub issues |
+| `@PROTOTYPE` | `prototype` | Explore a UI/state design question |
+| `@WAYFINDER` | `wayfinder` | Map a huge foggy project |
+| `@RESEARCH` | `research` | Read docs/APIs before building |
+| `@TWEET` | `tweet-crafter` | Draft, refine, or brainstorm X/Twitter posts using your voice profile |
+| `/impeccable audit` | `impeccable` | UI needs a full quality check |
+| `/impeccable polish` | `impeccable` | Final UI pass before shipping |
+| `/impeccable bolder` | `impeccable` | Design feels too safe/boring |
+| `/impeccable animate` | `impeccable` | Add motion and micro-interactions |
+| `@ASK-MATT` | `ask-matt` | Don't know which command to use |
