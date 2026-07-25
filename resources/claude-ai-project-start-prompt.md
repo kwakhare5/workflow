@@ -1,4 +1,4 @@
-# Claude.ai Project Start Prompt
+﻿# Claude.ai Project Start Prompt
 
 ## WHAT THIS IS
 Paste this into Claude.ai (NOT the IDE) at the START of any new project.
@@ -7,7 +7,7 @@ It generates all 3 context files you need for your AI workflow:
 - CONTEXT.md → domain language (terms, business rules, naming conventions)
 - ARCHITECTURE.md → heavy docs (schema + decisions + file tree, load on-demand)
 
-After Claude generates them, copy the output into your project root files.
+After Claude generates them, copy the output into your project root.
 Use the templates at: C:\Users\kwakh\.gemini\config\templates\ as the base.
 
 ---
@@ -18,6 +18,11 @@ Use the templates at: C:\Users\kwakh\.gemini\config\templates\ as the base.
 
 I'm starting a new project. Before we write any code, produce 3 context files
 for my AI coding workflow. I use Antigravity IDE with Claude Sonnet.
+
+My global AI config lives at C:\Users\kwakh\.gemini\config\ and has:
+- 84 curated skills that auto-load based on what I'm coding
+- AGENTS.md with global coding rules (ponytail, surgical, caveman style)
+- A two-tier skill system: Tier 1 auto-loads (React, FastAPI, Drizzle etc.), Tier 2 I invoke with /commands
 
 ---
 

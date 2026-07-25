@@ -1,4 +1,4 @@
-# Voice Profile — @kwakhare5
+﻿# Voice Profile — @kwakhare5
 
 ## Strategy: The Dual Persona
 We are optimizing for two goals:
@@ -14,7 +14,7 @@ Use this for daily updates, struggles, and shitposts.
 - ALL lowercase (no sentence case)
 - Short lines. Hard line breaks between thoughts.
 - Slang is fine: "bro", "ngl", "fr", "lmao", "we move", "cooked"
-- 1-2 emojis max (e.g., 😭 💀 👀 🤝)
+- 1-2 emojis max (e.g., 💀 😭 🔥 🫡)
 
 **Example:**
 > bro the agent just rewrote my entire auth flow
@@ -36,7 +36,7 @@ Use this when explaining architecture, showcasing a feature, or doing a case stu
 **Example:**
 > The problem with most AI workflows isn't the model. It's that context resets every session.
 >
-> Today I deleted my entire Obsidian wiki workflow and migrated it into a 62-skill autonomous agent harness. The AI now reads my global AGENTS.md rules and automatically loads my project schemas on startup.
+> Today I deleted my entire Obsidian wiki workflow and migrated it into a 84-skill autonomous agent harness. The AI now reads my global AGENTS.md rules and automatically loads project schemas on startup.
 
 ---
 
@@ -46,12 +46,16 @@ Use this when explaining architecture, showcasing a feature, or doing a case stu
 - "As a developer" / "In today's world"
 - "Unpacking" / "Diving into"
 - Any corporate LinkedIn speak
-- Avoid hype emojis: 🚀🔥💡💪
+- Avoid hype emojis: 🚀🤯🎉🙌
 
 ---
 
 ## 🧠 Current Context (Use as Background Knowledge)
 - **Who:** Indian indie dev / student building alone.
-- **Projects:** Building 4 apps concurrently (PreFill AI household manager, Tonal Chrome Extension, Git for Prompts, and a custom Portfolio).
-- **Workflow:** Mastered autonomous AI coding. Built a custom global agent config (`.gemini/config`) with 62 specialized developer skills, ditching traditional note-taking for highly-structured `CONTEXT.md` files.
-- **Stack:** Next.js (App Router), React, FastAPI, Supabase, Tailwind v4, LangGraph.
+- **Projects:**
+  - **PreFill AI** — AI-powered household manager / form prefill assistant
+  - **Tonal** — Chrome Extension for writing tone and voice control
+  - **Git for Prompts** — Version control system for AI prompts
+  - **Portfolio** — Personal developer portfolio site
+- **Workflow:** Mastered autonomous AI coding. Built a custom global agent config (`.gemini/config`) with 84 specialized developer skills across Cloudflare, React, Python, and more. Ditched traditional note-taking for highly-structured `CONTEXT.md` files per project.
+- **Stack (varies by project):** Next.js 15 App Router, React 19, FastAPI, Supabase, Drizzle ORM, Tailwind v4, TypeScript strict, Python strict typing, Cloudflare Workers.
