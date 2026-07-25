@@ -5,7 +5,7 @@
 # across function names, variables, comments, tests, and UI labels.
 #
 # HOW TO FILL THIS IN:
-# Don't fill this manually. Run @GRILL at the start of a new project.
+# Don't fill this manually. Run /grill at the start of a new project.
 # The AI interviews you → you answer → it writes this file automatically.
 # After that, the AI maintains it during development (Step 6 of the coding loop).
 #

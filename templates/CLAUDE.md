@@ -1,9 +1,9 @@
 # CLAUDE.md — Project Context
-# Hard cap: 200 lines. Fill sections 1-4 when you start a project.
-# AI fills sections 5-7 automatically over time.
+# Hard cap: 200 lines. Fill Sections 1-4 at project start.
+# AI fills Sections 5-7 automatically during development.
 #
 # RULES:
-# - Heavy architecture → ARCHITECTURE.md (load on-demand with @ZOOM)
+# - Heavy architecture → ARCHITECTURE.md (load on-demand with /zoom)
 # - Domain terms → CONTEXT.md (read every session)
 # - Global AI rules → AGENTS.md (never duplicate here)
 
@@ -11,75 +11,63 @@
 
 ## 1. PROJECT IDENTITY
 
-**Name:** [Project name]
-**Goal:** [One sentence — what it does and for whom]
-**Status:** [In Progress / Launched / Paused]
+**Name:** [Insert Project Name]
+**Goal:** [Insert one-sentence goal]
+**Status:** In Progress
 **Repo:** [GitHub URL]
 
 ---
 
 ## 2. TECH STACK
 
-- **Frontend:** [e.g. Next.js 15 App Router, React 19, Tailwind CSS v4, shadcn/ui]
-- **Backend:** [e.g. Next.js API routes / Node.js Express / FastAPI on Railway]
-- **Database:** [e.g. PostgreSQL via Supabase, Drizzle ORM]
-- **Auth:** [e.g. Supabase Auth / Clerk / NextAuth.js]
-- **Payments:** [e.g. Stripe / N/A]
-- **Email:** [e.g. Resend / N/A]
-- **Hosting:** [e.g. Vercel (frontend) + Render (API) + Supabase (DB)]
-- **Language:** TypeScript (strict mode always)
+- **Frontend:** [e.g. Next.js 15, React 19, Tailwind v4]
+- **Backend:** [e.g. FastAPI / Next.js Server Actions]
+- **Database:** [e.g. PostgreSQL via Supabase + Drizzle ORM]
+- **Auth:** [e.g. Supabase Auth / Clerk]
+- **Payments:** [e.g. Stripe]
+- **UI Library:** [Run /pick-ui-library to decide — e.g. shadcn/ui, Radix, Ark UI]
+- **Language:** [e.g. TypeScript strict + Python strict typing]
 
 ---
 
 ## 3. DEV COMMANDS
 
 ```bash
-npm run dev        # start dev server (localhost:3000)
-npm run build      # production build — must pass before any commit
-npm run lint       # ESLint + TypeScript check — MUST be zero errors
-npm run test       # unit tests (if applicable)
+# Frontend
+npm run dev        # start dev server
+npm run build      # production build
+npm run lint       # ESLint + TypeScript check
+
+# Backend (if using FastAPI)
+fastapi dev main.py # start FastAPI server
+pytest              # run backend tests
 ```
 
-_Replace with actual commands for this project. AI runs these automatically._
+_AI runs these automatically when validating changes._
 
 ---
 
 ## 4. LOCAL RULES
 
-_3-5 rules ONLY for this project. Project-specific only — not generic advice._
+_Project-specific constraints that override generic advice. Add 3-5 max._
 
-1. [e.g. All database queries go through `/lib/db/` — never inline in route handlers]
-2. [e.g. Use `~/` path alias — never relative `../../`]
-3. [e.g. All API responses return `{ data: T | null, error: string | null }` shape]
-4. [e.g. No custom CSS — Tailwind utilities only, no inline styles]
-5. [e.g. Named exports only in React components — never default exports]
+1. [e.g. All DB queries must go through /lib/db/ — never inline]
+2. [e.g. No custom CSS files — use Tailwind utility classes only]
+3. [e.g. All API endpoints require Pydantic validation]
+4. [e.g. Always use ~/  path aliases in TypeScript — no ../../]
 
 ---
 
 ## 5. PROJECT PATTERNS
 
-_AI fills this in as the project grows. Describes shared components and conventions._
+_AI fills this as the project grows._
 
 ### Shared components
 <!-- AI appends here as components are built -->
-- `<Button>` — [describe variants: primary, secondary, destructive]
-- `<Input>` — [describe]
-- `<Modal>` — [describe]
-
-### API response shape
-```typescript
-type ApiResponse<T> = { data: T | null; error: string | null }
-```
 
 ### File structure
 ```
-/app              — pages, layouts, loading states
-/app/api          — API route handlers
-/components/ui    — shadcn primitives
-/components       — project-specific components
-/lib              — DB queries, auth helpers, utilities
-/lib/db           — all database access (never bypass this)
-/types            — shared TypeScript types
+[AI fills this after /zoom]
 ```
 
 ---
@@ -94,20 +82,18 @@ _AI appends here after every VERIFY failure. Never repeat these._
 
 ## 7. SESSION RESUME
 
-_AI fills this at the END of every session. Read this at the START of the next session._
+_AI fills at END of every session. Read at START of next session._
 
 **Last session date:** [YYYY-MM-DD]
 
 **What we built / changed:**
-- [bullet 1]
-- [bullet 2]
+- [New session]
 
 **Immediate next task:**
-[Exactly what to pick up next — be specific]
+[What to pick up next]
 
 **Open blockers:**
-[Anything unresolved, waiting on, or blocked]
+[None]
 
 **Files most recently changed:**
-- [file path]
-- [file path]
+- [None]

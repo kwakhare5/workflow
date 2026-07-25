@@ -1,6 +1,6 @@
 ---
 name: codebase-cleanup
-description: Scan and safely purge dead code, unreferenced exports, duplicate logic, unused packages, and stray bloat. Triggered by @CLEANUP or @PRUNE.
+description: Scan and safely purge dead code, unreferenced exports, duplicate logic, unused packages, and stray bloat. Triggered by /cleanup or /prune.
 ---
 
 # Codebase Cleanup Skill
