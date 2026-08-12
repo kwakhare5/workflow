@@ -177,11 +177,11 @@ If your request conflicts with a LOCAL RULE, AI will ask:
 
 ### 5.1. Where Things Live Per Tool (the map)
 
-There is no hidden master folder — the files below ARE the master. The global rules file is kept in sync across 3 copies (`~/.AGENTS.md`, `~/.config/opencode/AGENTS.md`, `~/.gemini/config/AGENTS.md`); playbook across 2 (`~/.agents/playbook.md`, `~/.gemini/config/playbook.md`). Update one copy, then copy it to the others — never edit just one and forget the rest.
+There is no hidden master folder — the files below ARE the master. The global rules file is kept in sync across 4 copies (`~/.AGENTS.md`, `~/.config/opencode/AGENTS.md`, `~/.gemini/GEMINI.md`, `~/.gemini/config/AGENTS.md`); playbook across 2 (`~/.agents/playbook.md`, `~/.gemini/config/playbook.md`). Update one copy, then copy it to the others — never edit just one and forget the rest.
 
 | Tool | Global rules | Global skills | Project rules (auto-read) |
 |---|---|---|---|
-| Gemini CLI | `~/.gemini/config/AGENTS.md` | `~/.gemini/config/skills/`, `~/.gemini/skills/` | root `AGENTS.md` + `.agents/AGENTS.md` |
+| Gemini CLI & antiGravity | `~/.gemini/GEMINI.md` (also `~/.gemini/config/AGENTS.md`) | `~/.gemini/config/skills/`, `~/.gemini/skills/` | root `AGENTS.md` / `GEMINI.md` + `.agents/AGENTS.md` |
 | opencode | `~/.config/opencode/AGENTS.md` | `~/.agents/skills/` (also `~/.config/opencode/skills/`, `.opencode/skills`) | root `AGENTS.md` |
 | Claude Code | `~/.claude/CLAUDE.md` | `~/.claude/skills/` (also `~/.agents/skills/`) | root `CLAUDE.md` / `AGENTS.md` |
 | Freebuff | `~/.AGENTS.md` | `~/.agents/skills/` | root `AGENTS.md` |

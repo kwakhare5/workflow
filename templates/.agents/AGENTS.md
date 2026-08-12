@@ -8,7 +8,7 @@
 
 # RULES:
 
-# - Global AI rules → your agent's global AGENTS.md (never duplicate here — playbook.md §5.1 lists each tool's folder)
+# - Global AI rules → auto-loaded by your tool: Freebuff ~/.AGENTS.md · opencode ~/.config/opencode/AGENTS.md · Gemini/antiGravity ~/.gemini/GEMINI.md
 
 # - Domain terms → CONTEXT.md (read every session)
 
@@ -16,7 +16,7 @@
 
 # - Heavy architecture → ARCHITECTURE.md (load on-demand)
 
-# - Playbook → global playbook copy (e.g. ~/.agents/playbook.md or beside your tool's global AGENTS.md — playbook.md §5.1)
+# - Playbook → ~/.agents/playbook.md (Gemini/antiGravity: ~/.gemini/config/playbook.md) — full map in playbook.md §5.1
 
 # - Session end: Ask "Session logged to JOURNAL.md. Draft X post now with /build-in-public?"
 
