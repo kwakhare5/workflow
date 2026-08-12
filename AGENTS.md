@@ -40,7 +40,11 @@
 - **Conflicts:** If a user request conflicts with a local rule in `.agents/AGENTS.md`, ask: `⚠️ This conflicts with local rule: [rule]. Override it? [yes/no]` before proceeding.
 
 ## 4. CORE COMMANDS REFERENCE
-Invoke via `/command` or natural language. AI auto-discovers full skills under `.agents/skills/` and global config roots.
+Invoke via `/command` or natural language. Skills are SKILL.md folders living in your agent's global skills folder. Discovery per tool (full map: playbook.md §5.1):
+- Cross-tool standard: `~/.agents/skills/` (opencode, Claude Code, Freebuff all read it) — keep skills here
+- Gemini CLI: `~/.gemini/config/skills/` and `~/.gemini/skills/`
+- Project-local skills: `.agents/skills/`
+Never hardcode one tool's path in rule files — keep this file tool-agnostic.
 - `/grill` (`grill-with-docs`): Run requirements interview and plan.
 - `/to-issues` (`to-tickets`): Generate `task.md` checklist.
 - `/implement` (`implement`): Execute coding tasks.

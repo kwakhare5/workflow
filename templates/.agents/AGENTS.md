@@ -8,7 +8,7 @@
 
 # RULES:
 
-# - Global AI rules → C:\Users\kwakh\.gemini\config\AGENTS.md (never duplicate here)
+# - Global AI rules → your agent's global AGENTS.md (never duplicate here — playbook.md §5.1 lists each tool's folder)
 
 # - Domain terms → CONTEXT.md (read every session)
 
@@ -16,7 +16,7 @@
 
 # - Heavy architecture → ARCHITECTURE.md (load on-demand)
 
-# - Playbook → C:\Users\kwakh\.gemini\config\playbook.md
+# - Playbook → global playbook copy (e.g. ~/.agents/playbook.md or beside your tool's global AGENTS.md — playbook.md §5.1)
 
 # - Session end: Ask "Session logged to JOURNAL.md. Draft X post now with /build-in-public?"
 

@@ -167,12 +167,28 @@ If your request conflicts with a LOCAL RULE, AI will ask:
 
 | File | Location | When AI reads it | You fill it |
 | :--- | :--- | :--- | :--- |
-| `AGENTS.md` (Global) | `C:\Users\kwakh\.gemini\config\` | Every session, automatic | Set once, never touch |
+| `AGENTS.md` (Global) | Your agent's global config folder — see §5.1 map | Every session, automatic | Set once, never touch |
 | `AGENTS.md` (Project) | `.agents/AGENTS.md` | Every session, automatic | Sections 1-4 at project start |
-| `playbook.md` | `C:\Users\kwakh\.gemini\config\` | You read it | Your reference, keep open |
+| `playbook.md` | Global config folder — `~/.agents/playbook.md` (Gemini: `~/.gemini/config/playbook.md`) | You read it | Your reference, keep open |
+
 | `CONTEXT.md` | Project root | Every session, automatic | Run /grill at project start |
 | `ARCHITECTURE.md` | Project root | On architectural changes | Generated via directory scan |
 | `JOURNAL.md` | Project root | End of session, automatic | Append-only product log |
+
+### 5.1. Where Things Live Per Tool (the map)
+
+There is no hidden master folder — the files below ARE the master. The global rules file is kept in sync across 3 copies (`~/.AGENTS.md`, `~/.config/opencode/AGENTS.md`, `~/.gemini/config/AGENTS.md`); playbook across 2 (`~/.agents/playbook.md`, `~/.gemini/config/playbook.md`). Update one copy, then copy it to the others — never edit just one and forget the rest.
+
+| Tool | Global rules | Global skills | Project rules (auto-read) |
+|---|---|---|---|
+| Gemini CLI | `~/.gemini/config/AGENTS.md` | `~/.gemini/config/skills/`, `~/.gemini/skills/` | root `AGENTS.md` + `.agents/AGENTS.md` |
+| opencode | `~/.config/opencode/AGENTS.md` | `~/.agents/skills/` (also `~/.config/opencode/skills/`, `.opencode/skills`) | root `AGENTS.md` |
+| Claude Code | `~/.claude/CLAUDE.md` | `~/.claude/skills/` (also `~/.agents/skills/`) | root `CLAUDE.md` / `AGENTS.md` |
+| Freebuff | `~/.AGENTS.md` | `~/.agents/skills/` | root `AGENTS.md` |
+
+- `~/.agents/skills/` is the emerging cross-tool standard — opencode, Claude Code, and Freebuff all read it. That's where your global skills get installed.
+- Project-only skills go in `.agents/skills/` (or `.claude/skills/`).
+- Slash triggers differ per tool (`/grill` vs `/skill:grill-with-docs`) — same skill content, different invocation.
 
 ---
 
@@ -197,6 +213,7 @@ The `npx skills` command serves as the package manager for community and customi
   npx skills update
   ```
 - **Lockfile Check**: Ensure `skills-lock.json` is committed to git. It locks the exact git commits/hashes of installed skills to prevent breaking changes.
+- **Where Skills Land**: installed skill folders go to your global skills path (`~/.agents/skills/` for opencode/Claude Code/Freebuff, `~/.gemini/config/skills/` for Gemini CLI) or project `./skills/` — plain folders, so they work in any tool's skills path without conversion.
 
 ## 5.3. Configuration Assets
 
@@ -211,9 +228,9 @@ The `npx skills` command serves as the package manager for community and customi
 ## 6. New Project Bootstrap
 
 ```powershell
-$t = "C:\Users\kwakh\.gemini\config\templates"; $d = "D:\YourProjectName"
+$t = "$env:USERPROFILE\.agents\templates"; $d = "D:\YourProjectName"
 New-Item -ItemType Directory -Force -Path "$d\.agents"
-@("CONTEXT.md","ARCHITECTURE.md",".editorconfig",".prettierrc.json","skills-lock.json") | ForEach-Object { Copy-Item "$t\$_" "$d\$_" -Force }
+@("CONTEXT.md","ARCHITECTURE.md","JOURNAL.md",".editorconfig",".prettierrc.json") | ForEach-Object { Copy-Item "$t\$_" "$d\$_" -Force }
 Copy-Item "$t\.agents\AGENTS.md" "$d\.agents\AGENTS.md" -Force
 ```
 
@@ -238,8 +255,8 @@ Then:
 When a slash command or script invocation fails, follow these steps to resolve:
 
 ### 1. Script Location & Path Errors
-* **Problem**: The agent complains a script path does not exist (e.g. `node .gemini/...` fails).
-* **Fix**: Remind the agent that customizations live in both `C:\Users\kwakh\.gemini\config\skills\` (global) and `.agents/skills/` (project-local). Have it check both paths.
+* **Problem**: The agent complains a script path does not exist (e.g. a skill hook or script fails to resolve).
+* **Fix**: Remind the agent that customizations live in the global skills folder (`~/.agents/skills/` — read by opencode/Claude Code/Freebuff; `~/.gemini/config/skills/` for Gemini CLI) and `.agents/skills/` (project-local). Have it check both paths (see §5.1).
 
 ### 2. Missing npm Dependencies
 * **Problem**: Running a skill command throws `Error: Cannot find module` or similar package import failure.
