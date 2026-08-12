@@ -1,121 +1,73 @@
 # AGENTS.md — Global Rules for Karan Wakhare
-# Applies to EVERY project, EVERY session. Read this first.
-# Live Config Root: C:\Users\kwakh\.gemini\config\
-# Skills Directory: C:\Users\kwakh\.gemini\config\skills\
-
----
+# Applies to every project. Read first.
 
 ## 1. CORE BEHAVIOR
-
-- **Caveman:** Zero fluff. Short fragments. Drop pleasantries.
-- **Ponytail:** YAGNI. Min code. Existing deps first. No speculative features.
+- **Caveman:** Zero fluff. Short fragments. No pleasantries.
+- **Ponytail:** YAGNI. Minimum code. Prefer existing deps. No speculative features.
 - **Surgical:** Touch only what the request requires.
-- **Think first:** State assumptions. Ask if unclear. Never pick silently.
-- **Marketing/Copy:** When writing marketing copy or tweets, strictly follow `C:\Users\kwakh\.gemini\config\resources\voice-profile.md`.
-
----
+- **Think first:** State assumptions. Ask if unclear. Never decide silently.
 
 ## 2. SESSION RITUAL
+### Session Start (automatic)
+1. Read project `.agents/AGENTS.md` (stack, commands, local rules, SESSION RESUME).
+2. Read project `CONTEXT.md` (domain terms/ADRs).
+3. Print one-line summary: `📂 [Project] | Stack: [X] | Resuming: [last]`
+4. Ask: "Ready. What are we working on?"
 
-**SESSION START (When opening a project)**
-1. Read `CLAUDE.md` → stack, commands, local rules.
-2. Read `CONTEXT.md` → domain terms and business rules.
-3. Read `CLAUDE.md` Section 7: SESSION RESUME → what's open.
-4. Read `ARCHITECTURE.md` ONLY when doing `/zoom` or structural changes.
+### Session End (conditional on significant changes)
+1. Summarize what changed in 3–5 bullets.
+2. Update Section 7: SESSION RESUME in `.agents/AGENTS.md`.
+3. Prepend or merge a dated entry under ## Log Entries in `JOURNAL.md` (strictly ONE date heading `### [Project — Summary] YYYY-MM-DD` per calendar date, merging commit hashes, shipped bullets, and vibe).
+4. Ask: "Session logged to JOURNAL.md. Draft X post now with /build-in-public?"
 
-**SESSION END (User says done / bye)**
-1. Summarize what changed in 3-5 bullets.
-2. State what's immediately next.
-3. Update Section 7: SESSION RESUME in `CLAUDE.md`.
+## 3. CODING LOOP (SIMPLIFIED MATT POCOCK WORKFLOW)
 
----
+### Task Classification (Run FIRST, silently)
+- **Tiny** (single file, <20 lines, no logic change): Skip loop. Just make the edit.
+- **Standard / Complex** (multi-file OR new logic OR schema change): Run the full loop below.
 
-## 3. CODING LOOP (Every Task, No Exceptions)
+### Full Loop
+0. **AUDIT:** Detect stack/intent → auto-load specialist skill → print `✅ Loaded: [skill-name]`.
+1. **GRILL & PLAN:** Run `/grill-with-docs` (Grill me). Ask clarifying questions, state assumptions, draft `implementation_plan.md`, and get explicit user approval.
+2. **CHECKLIST:** Run `/to-tickets` to break the plan into a TODO checklist of tracer-bullet tasks in `task.md`.
+3. **EXECUTE:** Run `/implement` to code each task. Write clean, surgical, vertical slices (schema → API → UI). Run tests & linters.
+4. **REVIEW:** Run `/code-review` to verify specs and standards.
+5. **COMMIT:** Run `/git-commit` to stage, analyze diffs, and generate conventional commits → stop for approval.
+6. **DIAGNOSE:** If tests/build fails, stop coding → run `/diagnosing-bugs` (build a minimal failing test repro case first).
 
-0. **AUDIT:** `list_dir` on target directory, then `grep_search` for existing patterns. Skip for tiny single-file fixes.
-1. **ASSUME:** State assumptions + success criterion. One sentence.
-2. **PREFACTOR:** Make the change easy, then make the easy change.
-3. **CODE:** Vertical slice (schema → API → UI). No horizontal sprawl.
-4. **LINT:** `npm run lint` / `fastapi dev` — zero errors. Fix yourself.
-5. **VERIFY:** Re-read every changed file. Check for swallowed errors, stub returns, relaxed tests, comment-as-fix, fake renames. On fail → update `CLAUDE.md` MISTAKES TO AVOID.
-6. **DOCS:** Schema changed? → update `ARCHITECTURE.md`. New domain term? → update `CONTEXT.md`.
-7. **STOP:** Stop at 100% pass.
+### Invariants & Conflicts
+- **Docs:** Update `CONTEXT.md` for new domain terms. Update `ARCHITECTURE.md` or create ADR for schema/architectural changes.
+- **Conflicts:** If a user request conflicts with a local rule in `.agents/AGENTS.md`, ask: `⚠️ This conflicts with local rule: [rule]. Override it? [yes/no]` before proceeding.
 
----
+## 4. CORE COMMANDS REFERENCE
+Invoke via `/command` or natural language. AI auto-discovers full skills under `.agents/skills/` and global config roots.
+- `/grill` (`grill-with-docs`): Run requirements interview and plan.
+- `/to-issues` (`to-tickets`): Generate `task.md` checklist.
+- `/implement` (`implement`): Execute coding tasks.
+- `/diagnose` (`diagnosing-bugs`): Debug and repro failing tests.
+- `/review` (`code-review`): Standard and spec correctness check.
+- `/git-commit` (`git-commit`): Conventional commit helper.
+- `/design-review` (`design-review` / `impeccable`): UI/UX audit.
 
-## 4. SKILL TIERS — How Skills Work
+## 5. TASK → SKILL ROUTER (auto-load on AUDIT)
 
-### Tier 1 — Passive (AI auto-loads, you NEVER type anything)
-The AI reads these automatically the moment it detects the relevant context.
-You do NOT invoke these. They are invisible rules, not commands.
+On AUDIT (step 0 of the loop), match the task against this table. Load the listed craft skill(s), print `✅ Loaded: [skill]`, and use them at every phase they apply to. Load **max 2-3 craft skills** — the table is a pick list, not a dump. No row matches → proceed without craft load (or suggest `/ask-matt`).
 
-| Skill | Auto-loads when... |
-| :--- | :--- |
-| `react-best-practices` | Writing React components |
-| `nextjs-best-practices` | Working in Next.js app/pages |
-| `tailwind-v4-shadcn` | Writing Tailwind classes or shadcn setup |
-| `drizzle-orm-expert` | Writing Drizzle schema or queries |
-| `prisma-expert` | Writing Prisma schema or queries |
-| `sqlalchemy-expert` | Writing Python DB queries |
-| `supabase` | Working with Supabase auth/DB/storage |
-| `stripe-integration` | Writing Stripe payment code |
-| `auth-implementation-patterns` | Building any auth flow |
-| `postgres-best-practices` | Writing SQL or DB schema |
-| `fastapi-best-practices` | Writing Python/FastAPI routes |
-| `zustand-store-ts` | Writing Zustand state management |
-| `vercel-composition-patterns` | Composing complex React components |
-| `software-architecture` | Making architectural or module decisions |
-| `performance-optimizer` | Asked to optimize speed or reduce cost |
-| `frontend-design` | Designing a new page or UI from scratch |
-| `apple-design` | Building gesture-driven or premium UI |
-| `ponytail` | User says "simplest", "lazy", "yagni" |
-| `codebase-design` | Designing module interfaces or APIs |
-| `domain-modeling` | Pinning down domain terms or ADRs |
+Process skills (Matt's: `grilling`, `to-spec`, `to-tickets`, `implement`, `tdd`, `code-review`, `diagnosing-bugs`) are NOT in this table — they run every time as the workflow itself.
 
-### Tier 2 — Commands (You explicitly invoke with `/`)
-Big, deliberate actions you consciously trigger. AI does NOT auto-load these.
-
----
-
-## 5. COMMAND REFERENCE
-
-*Note: The actual skill execution files live in `C:\Users\kwakh\.gemini\config\skills\`*
-
-| Command | Skill | When to use |
-| :--- | :--- | :--- |
-| `/office-hours` | `office-hours` | Adversarial YC feedback before a major pivot |
-| `/grill` | `grill-with-docs` | Before ANY non-trivial feature — every time |
-| `/to-spec` | `to-spec` | Write a feature spec |
-| `/to-issues` | `to-tickets` | Break an agreed plan into GitHub issues |
-| `/zoom` | list_dir + audit | Before sweeping structural changes |
-| `/wayfinder` | `wayfinder` | Map a huge foggy project |
-| `/tdd` | `tdd` | Building complex logic test-first |
-| `/implement` | `implement` | Execute spec/tickets slice-by-slice |
-| `/diagnose` | `diagnosing-bugs` | Something is broken, throwing, or slow |
-| `/review` | `code-review` | Review code changes against spec |
-| `/design-review` | `design-review` | Review UI/UX design decisions (GStack) |
-| `/qa` | `qa` | Run automated Playwright browser tests |
-| `/careful` | `careful` | Lock down folders from AI modification |
-| `/cleanup` | `codebase-cleanup` | Purge dead code, unreferenced exports, bloat |
-| `/impeccable audit` | `impeccable` | Full UI quality check (typography, layout) |
-| `/emil-design-eng` | `emil-design-eng` | Apple-tier interaction and motion consulting |
-| `/prototype` | `prototype` | Throwaway UI exploration |
-| `/ship` | `ship` | Fast PR creation and deployments |
-| `/retro` | `retro` | Structured project retrospective |
-| `/investigate` | `investigate` | Deep investigation/research on a topic |
-| `/canary` | `canary` | Deploy and monitor for errors |
-| `/scrapling-official` | `scrapling-official` | Heavy web scraping and data extraction |
-| `/tweet-crafter` | `tweet-crafter` | Draft, refine, or brainstorm X/Twitter posts |
-| `/handoff` | `handoff` | Compress session context when > 20 messages |
-| `/pick-ui-library` | `pick-ui-library` | Decide which UI component library to use |
-| `/ponytail-audit` | `ponytail-audit` | Audit whole codebase for over-engineering |
-
----
-
-## 6. MODEL ROUTING
-
-| Task | Model |
-| :--- | :--- |
-| Quick question, simple fix | Gemini Flash |
-| Standard feature, debug, refactor | Claude Sonnet |
-| Architecture, hard bugs, multi-file | Claude Sonnet Thinking |
+| When the task is about… | Load (craft skills) | Applies to |
+|---|---|---|
+| Python code | `python-best-practices`, `python-testing-patterns` (+ `fastapi-best-practices` if FastAPI, `sqlalchemy-expert` if SQLAlchemy) | grill, implement, review |
+| TypeScript / React / Next.js | `typescript-best-practices`, `nodejs-best-practices`, `nextjs-best-practices`, `vercel-react-best-practices` | grill, implement, review |
+| UI design or polish | `impeccable`, `frontend-design`, `web-design-guidelines`, `tailwind-patterns` | grill, implement, review |
+| Animations / motion | `emil-design-eng`, `animation-vocabulary`, `improve-animations` | audit, implement |
+| Scraping / crawling | `scrapling-official`, `defuddle`, `apify-ultimate-scraper` | grill, implement |
+| Tweets / content / marketing | `build-in-public`, `copywriting` (+ `emails`, `cro`, `launch`, `seo-audit` as needed) | grill, implement |
+| Cleanup / refactor / dead code | `codebase-cleanup`, `ponytail`, `ponytail-review`, `production-code-audit` | audit, implement, review |
+| Database / schema / migrations | `database-design`, `database-migrations-sql-migrations`, `postgres-best-practices`, `supabase` | grill, implement |
+| Debugging / failing tests | `diagnosing-bugs`, `tdd` | implement |
+| Writing tests | `tdd`, `python-testing-patterns` or `javascript-testing-patterns` | implement |
+| Docs / README / writing | `doc-coauthoring`, `readme`, `writing-for-agents`, `pdf` / `docx` / `xlsx` | audit, implement |
+| Deploy / infra / CI | `deploy-to-vercel` or `vercel-cli-with-tokens`, `docker-expert`, `terraform-specialist`, `github-actions-templates` | implement, review |
+| Security | `web-security-testing`, `api-security-testing` | review |
+| Performance | `web-perf`, `vercel-optimize` | review |

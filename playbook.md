@@ -1,73 +1,47 @@
-﻿# Karan's AI Playbook
-> Zero-bullshit reference. Keep this open every session.
+# Playbook — Agent Coding Workflow & Reference Manual
+
+This playbook is the primary reference manual for managing and executing development tasks. Use it to find the correct slash commands and understand the project lifecycle.
 
 ---
 
-## 1. The Mental Model — Two Types of Skills
+## 1. Core Principles
 
-**You never invoke Tier 1. AI reads them automatically.**
-**You only ever invoke Tier 2 with a `/command`.**
-
-### Tier 1 — Passive (AI auto-loads silently)
-
-The AI detects context and loads the right skill invisibly. You just write code normally.
-
-| When you're doing this... | AI auto-loads this skill |
-| :--- | :--- |
-| Writing React components | `react-best-practices` |
-| Working in Next.js app/pages | `nextjs-best-practices` |
-| Writing Tailwind classes or shadcn setup | `tailwind-v4-shadcn` |
-| Writing Drizzle schema or queries | `drizzle-orm-expert` |
-| Writing Prisma schema or queries | `prisma-expert` |
-| Writing Python DB queries | `sqlalchemy-expert` |
-| Supabase auth / DB / storage | `supabase` |
-| Stripe payment code | `stripe-integration` |
-| Building any auth flow | `auth-implementation-patterns` |
-| Writing SQL or DB schema | `postgres-best-practices` |
-| Writing Python / FastAPI routes | `fastapi-best-practices` |
-| Writing Zustand state | `zustand-store-ts` |
-| Composing complex React components | `vercel-composition-patterns` |
-| Architecture / module decisions | `software-architecture` |
-| Asked to optimize speed or cost | `performance-optimizer` |
-| Designing a new page / UI from scratch | `frontend-design` |
-| Building gesture-driven or premium UI | `apple-design` |
-| You say "simplest", "lazy", "yagni" | `ponytail` |
-| Pinning down domain terms / ADRs | `domain-modeling` |
-| Designing module interfaces | `codebase-design` |
-
----
-
-### Tier 2 — Commands (You explicitly invoke)
+- **Caveman**: Zero fluff. Short fragments. No pleasantries.
+- **Ponytail**: YAGNI. Minimum code. Prefer existing dependencies. No speculative features.
+- **Surgical**: Touch only what the request requires.
+- **Think first**: State assumptions. Ask if unclear. Never decide silently.
+- **Tweets**: Use the `/build-in-public` skill for voice-matched indie hacker posts.
 
 ---
 
 ## 2. Command Reference by Phase
 
-### Phase 1 — Before You Build (Planning)
+The agent will suggest the next command at the end of each phase response based on your context.
+
+### Phase 1 — Planning & Prep
 
 | Command | What it does |
 | :--- | :--- |
-| `/office-hours` | Adversarial YC-style feedback. Use before a major pivot or new product direction. |
-| `/grill` | Interviews you relentlessly to sharpen a plan + writes ADRs/glossary as you go. Use before ANY non-trivial feature. |
-| `/to-spec` | Turns your notes into a clean structured feature spec. |
-| `/to-issues` | Breaks the spec into GitHub issues or a task.md checklist. |
-| `/wayfinder` | Maps a huge foggy project that is too big to see clearly. |
-| `/research` | Investigates external docs/APIs and files a summary in the repo. |
-| `/prototype` | Builds throwaway UI or logic to explore a design question before committing. |
-| `/pick-ui-library` | Decides which UI component library to use for a new app. |
+| `/ask-matt` | Routes you to the right skill if you are confused which one to use. |
+| `/grill` | Relentless requirements interview → drafts `implementation_plan.md` → waits for approval. |
+| `/to-spec` | Converts the current conversation thread into a clean specification. |
+| `/to-tickets` | Breaks the approved plan into a `task.md` checklist. |
+| `/wayfinder` | Maps a huge, foggy project across multiple sessions. |
+| `/research` | Gathers external documentation/APIs and files a cited summary in the repo. |
+| `/prototype` | Builds throwaway UI or logic to explore design questions. |
+| `/pick-ui-library` | Reviews UI components and decides which npm component library to install. |
 
 ---
 
-### Phase 2 — While Building (Implementation)
+### Phase 2 — Build & Implementation
 
 | Command | What it does |
 | :--- | :--- |
-| `/tdd` | Test-first development for complex logic (APIs, DB, calculators). |
-| `/implement` | Executes spec/tickets slice-by-slice: Schema to API to UI. |
-| `/careful` | Safety guardrails — warns before destructive commands. |
-| `/guard` | Full safety mode: destructive warnings + locks edits to a directory. |
-| `/freeze` | Locks edits to a specific directory only for this session. |
-| `/handoff` | Compresses session context when conversation is over 20 messages. |
+| `/implement` | Executes the `task.md` checklist item-by-item: Schema → API → UI. |
+| `/tdd` | Test-driven development loop for complex logic (red-green-refactor). |
+| `/guard` | Full safety mode: warns on destructive commands and locks edits to a directory. |
+| `/handoff` | Compresses context into a static handoff file for the next session. |
+| `/claude-handoff` | Hands off live execution to a fresh background agent mid-session. |
 
 ---
 
@@ -75,12 +49,13 @@ The AI detects context and loads the right skill invisibly. You just write code 
 
 | Command | What it does |
 | :--- | :--- |
-| `/diagnose` | Rigorous 6-phase scientific isolation loop for hard bugs and regressions. |
-| `/review` | Reviews code changes against spec (Standards + Spec reviews run in parallel). |
-| `/triage` | Manages GitHub issues when they pile up. |
-| `/request-refactor-plan` | Plans a refactor as tiny safe commits, files it as a GitHub issue. |
-| `/ponytail-review` | Reviews a diff exclusively for over-engineering. Finds what to delete. |
-| `/health` | Codebase health dashboard — quality metrics. |
+| `/diagnose` | Rigorous 6-phase scientific isolation loop for hard bugs (repro-first). |
+| `/review` | Reviews code changes against spec (runs Standards + Spec checks in parallel). |
+| `/triage` | Manages and prioritizes GitHub issues/PRs. |
+| `/improve-codebase-architecture` | Scans codebase for deepening opportunities and generates a visual HTML report. |
+| `/ponytail-review` | Reviews a diff exclusively for over-engineering and suggests dead code deletion. |
+| `/health` | Codebase quality metrics dashboard. |
+| `/benchmark` | Runs regression performance tests. |
 
 ---
 
@@ -88,29 +63,43 @@ The AI detects context and loads the right skill invisibly. You just write code 
 
 | Command | What it does |
 | :--- | :--- |
-| `/design-review` | Designer eye QA: finds visual inconsistency, spacing, hierarchy, AI slop, slow interactions. Fixes them. |
-| `/impeccable audit` | Full UI quality audit with 46 deterministic lint rules. |
-| `/impeccable polish` | Final micro-refactor quality pass before shipping. |
-| `/impeccable bolder` | Adds more contrast/strength if the design looks bland. |
-| `/impeccable quieter` | Reduces visual noise if the UI is too loud/busy. |
-| `/impeccable animate` | Adds micro-interactions and CSS transitions. |
+| `/impeccable [subcommand]` | Master command to iterate, audit, and polish existing frontend UI. |
 | `/emil-design-eng` | Apple-tier interaction and motion consulting. |
-| `/find-animation-opportunities` | Scans codebase for places that should animate but do not. |
+| `/find-animation-opportunities` | Scans codebase for elements that should animate but don't. |
 | `/improve-animations` | Audits existing animations and produces a prioritized fix roadmap. |
-| `/review-animations` | Reviews animation code against Emil Kowalski high-craft bar. |
+| `/review-animations` | Reviews animation code against Emil Kowalski's quality standards. |
+
+#### Nested Sub-commands for `/impeccable`:
+
+| Sub-command | Purpose |
+| :--- | :--- |
+| `init` | Set up design context files (`PRODUCT.md` and `DESIGN.md`). |
+| `craft [feature]` | Shape, design, and build a new feature end-to-end. |
+| `shape [feature]` | Plan UX/UI wireframe structure before writing code. |
+| `document` | Scan existing code to generate a new `DESIGN.md`. |
+| `critique` | UX heuristic design review with visual scoring. |
+| `audit` | Check technical criteria (accessibility, mobile responsiveness, load speed). |
+| `polish` | Master refiner (clean up spacing, typography, and colors in one go). |
+| `bolder` | Amplify safe, flat, or bland designs with stronger contrast and identity. |
+| `quieter` | Reduce visual noise / tone down busy and overstimulating layouts. |
+| `harden` | Production readiness (adds empty states, loading indicators, error boundaries). |
+| `onboard` | Design onboarding paths and first-run empty states. |
+| `animate` | Add transitions and spring animations. |
+| `live` | Open variant Mode in browser for visual adjustments. |
 
 ---
 
-### Phase 5 — Ship & Operate
+### Phase 5 — Commit & Ship
 
 | Command | What it does |
 | :--- | :--- |
-| `/ship` | Fast PR creation and deployments. |
+| `/git-commit` | Stages changes logically, analyzes diffs, and drafts conventional commit messages. |
+| `/ship` | Releases code: runs tests, bumps version, and updates changelog. |
+| `/deploy-vercel` | Deploys site/app directly to Vercel (production or preview modes). |
+| `/vercel-token-deploy`| Non-interactive Vercel CLI deploy using environment tokens. |
 | `/qa` | Automated Playwright browser tests on your staging URL. |
-| `/cleanup` | Purges dead code, unreferenced exports, and bloat before shipping. |
-| `/canary` | Deploys and monitors for errors post-deploy. |
-| `/land-and-deploy` | Merge + deploy workflow. |
-| `/setup-pre-commit` | Sets up Husky pre-commit hooks (Prettier, type checks, tests). |
+| `/cleanup` | Safely purges dead code, unreferenced exports, and unused packages. |
+| `/setup-pre-commit` | Sets up Husky pre-commit hooks (Prettier formatting, type checks, tests). |
 
 ---
 
@@ -119,84 +108,143 @@ The AI detects context and loads the right skill invisibly. You just write code 
 | Command | What it does |
 | :--- | :--- |
 | `/launch` | Full launch strategy + Product Hunt asset generation. |
-| `/tweet-crafter` | Drafts, refines, or brainstorms X/Twitter posts using your voice profile. |
+| `/build-in-public` | Drafts voice-matched indie hacker posts based on shipped commits. |
 | `/seo-audit` | Health check for meta tags and Core Web Vitals. |
 | `/copywriting` | Writes or rewrites landing page and marketing copy. |
-| `/pricing` | Strategy for packaging, tiers, and willingness to pay. |
+| `/pricing` | Strategy for pricing packaging, tiers, and willingness to pay. |
 | `/analytics` | Sets up tracking pipelines (GA4, Mixpanel, Segment). |
-| `/emails` | Drafts drip campaigns and post-launch nurture sequences. |
-| `/cro` | Conversion rate optimization for landing pages and forms. |
-| `/ab-testing` | Plans, designs, and runs A/B tests. |
-| `/scrapling-official` | Heavy web scraping with anti-bot bypass and JS rendering. |
+| `/emails` | Drafts email drip campaigns and post-launch nurture sequences. |
+| `/cro` | Conversion rate optimization for landing pages and checkout forms. |
+| `/ab-testing` | Plans, designs, and runs A/B split tests. |
+| `/scrapling-official` | Web scraping spider with anti-bot bypass and JS rendering. |
 
 ---
 
-### Planning Reviews (GStack)
+### Phase 7 — Utility & Meta Skills
 
 | Command | What it does |
 | :--- | :--- |
-| `/plan-ceo-review` | CEO/founder-mode review of a plan. |
-| `/plan-eng-review` | Engineering manager review of a plan. |
-| `/plan-design-review` | Designer eye review of a plan. |
-| `/retro` | Structured weekly engineering retrospective. |
-| `/autoplan` | Runs all three reviews in sequence with auto-decisions. |
-| `/benchmark` | Performance regression detection. |
+| `/wait-what` | Re-explains the last agent step in plain English if it didn't land. |
+| `/teach` | Multiphase concept tutoring. |
+| `/writing-for-agents` | Reference for writing clean documentation and custom rules. |
+| `/git-guardrails` | Block dangerous git commands (push, reset --hard, etc.) in Claude Code. |
+| `/code-tour` | Creates CodeTour `.tour` files for step-by-step codebase walkthroughs. |
+| `/pdf` | Reads, extracts, converts, merges, and manipulates PDF documents. |
+| `/xlsx` | Reads, edits, converts, and creates Excel spreadsheets. |
+| `/docx` | Reads, edits, converts, and creates Word documents. |
 
 ---
 
-### Codebase Architecture
+## 3. How to Start a Session
 
-| Command | What it does |
-| :--- | :--- |
-| `/zoom` | list_dir + audit before sweeping structural changes. |
-| `/improve-codebase-architecture` | Scans codebase for deepening opportunities, presents HTML report. |
-| `/ponytail-audit` | Whole-repo audit for over-engineering. Finds what to delete. |
+Just say what you want to work on. AI automatically reads context files first.
 
----
+**Example:**
 
-## 3. Session Rituals
+> "Let's work on the onboarding flow for PreFill AI"
 
-### Session Start (Paste this verbatim)
-```
-Read CLAUDE.md, CONTEXT.md, and Section 7 SESSION RESUME.
-Summarize what is open, then let us work on: [describe task]
-```
+AI will: read `.agents/AGENTS.md` → read `CONTEXT.md` → read SESSION RESUME → confirm context → ask what specifically.
 
-### Session End (Paste this verbatim)
-```
-Done for today. Summarize what we built and update Section 7
-SESSION RESUME in CLAUDE.md with what changed, what is next,
-and any blockers.
-```
+**If starting a brand new project:**
+
+> "I'm starting [Project Name]. Read .agents/AGENTS.md. Then /grill"
 
 ---
 
-## 4. What Each File Is For
+## 4. Rule Overrides
+
+If your request conflicts with a LOCAL RULE, AI will ask:
+
+> "⚠️ This conflicts with local rule: `[rule]`. Override it? [yes/no]"
+
+- Say **"yes"** → AI proceeds, ignores the rule for this task.
+- Say **"no"** → AI finds an approach that respects the rule.
+- Say **"update the rule"** → AI updates LOCAL RULES in `.agents/AGENTS.md` and proceeds.
+
+---
+
+## 5. What Each File Is For
 
 | File | Location | When AI reads it | You fill it |
 | :--- | :--- | :--- | :--- |
-| `AGENTS.md` | `~/.gemini/config/` (global) | Every session, auto | Never — set once |
-| `CLAUDE.md` | Project root | Every session, you ask | Sections 1-4 at start |
-| `CONTEXT.md` | Project root | Every session, you ask | At project start (10 min) |
-| `ARCHITECTURE.md` | Project root | Only when you ask | /zoom generates it |
+| `AGENTS.md` (Global) | `C:\Users\kwakh\.gemini\config\` | Every session, automatic | Set once, never touch |
+| `AGENTS.md` (Project) | `.agents/AGENTS.md` | Every session, automatic | Sections 1-4 at project start |
+| `playbook.md` | `C:\Users\kwakh\.gemini\config\` | You read it | Your reference, keep open |
+| `CONTEXT.md` | Project root | Every session, automatic | Run /grill at project start |
+| `ARCHITECTURE.md` | Project root | On architectural changes | Generated via directory scan |
+| `JOURNAL.md` | Project root | End of session, automatic | Append-only product log |
 
 ---
 
-## 5. New Project Bootstrap
+## 5.2. Skills Management (CLI)
+
+The `npx skills` command serves as the package manager for community and customized agent skills. Key commands:
+
+- **Search Community Skills**:
+  ```bash
+  npx skills find
+  ```
+- **Install Remote Skill (Copied Locally)**:
+  ```bash
+  npx skills add vercel-labs/agent-skills --copy
+  ```
+- **Install Remote Skill (Linked)**:
+  ```bash
+  npx skills add vercel-labs/agent-skills
+  ```
+- **Sync/Update All Skills**:
+  ```bash
+  npx skills update
+  ```
+- **Lockfile Check**: Ensure `skills-lock.json` is committed to git. It locks the exact git commits/hashes of installed skills to prevent breaking changes.
+
+## 5.3. Configuration Assets
+
+| File | Purpose | Why We Keep It |
+| :--- | :--- | :--- |
+| `.editorconfig` | Enforces spacing (2-space tabs), trailing newlines, and Unix LF line endings. | Prevents formatting churn and dirty git diffs when code is edited on different OS/IDE environments. |
+| `.prettierrc.json` | Style configuration for the Prettier formatter. | Standardizes quotes, semi-colons, and trailing commas across all JavaScript/TypeScript files. |
+| `skills-lock.json` | Lockfile recording the specific hashes of installed skills. | Ensures consistent rulesets are loaded when deploying or reproducing the workspace on another machine. |
+
+---
+
+## 6. New Project Bootstrap
 
 ```powershell
 $t = "C:\Users\kwakh\.gemini\config\templates"; $d = "D:\YourProjectName"
-@("CLAUDE.md","CONTEXT.md","ARCHITECTURE.md",".editorconfig",".prettierrc.json") | ForEach-Object { Copy-Item "$t\$_" "$d\$_" }
+New-Item -ItemType Directory -Force -Path "$d\.agents"
+@("CONTEXT.md","ARCHITECTURE.md",".editorconfig",".prettierrc.json","skills-lock.json") | ForEach-Object { Copy-Item "$t\$_" "$d\$_" -Force }
+Copy-Item "$t\.agents\AGENTS.md" "$d\.agents\AGENTS.md" -Force
 ```
 
-1. Fill `CLAUDE.md` Sections 1-4 manually (stack, commands, rules).
-2. First IDE session: "I am starting [Project Name]. Read CLAUDE.md. Then /grill"
+Then:
+
+1. Fill `.agents/AGENTS.md` Sections 1-4 (stack, commands, local rules).
+2. First session: `"I am starting [Project Name]. Read .agents/AGENTS.md. Then /grill"`
 3. Commit: `git commit -m "feat: initial setup"`
 
 ---
 
-## 6. The 3 Habits That Matter
+## 7. The 3 Habits That Matter
 
-1. **`/grill` before every non-trivial feature** — Do not let AI write code until it has interviewed you.
-2. **Read CLAUDE.md at session start** — 10 seconds, saves 30 minutes.
-3. **Update SESSION RESUME at session end** — This is your memory across sessions.
+1. **`/grill` before every non-trivial feature** — No code until AI interviews you.
+2. **Let AI start the session** — Just say what you want to work on. It reads context automatically.
+3. **Update SESSION RESUME at session end on big changes** — Your memory across sessions.
+
+---
+
+## 8. Troubleshooting Guide
+
+When a slash command or script invocation fails, follow these steps to resolve:
+
+### 1. Script Location & Path Errors
+* **Problem**: The agent complains a script path does not exist (e.g. `node .gemini/...` fails).
+* **Fix**: Remind the agent that customizations live in both `C:\Users\kwakh\.gemini\config\skills\` (global) and `.agents/skills/` (project-local). Have it check both paths.
+
+### 2. Missing npm Dependencies
+* **Problem**: Running a skill command throws `Error: Cannot find module` or similar package import failure.
+* **Fix**: Ensure `npm install` has been run in the project root. For Vercel skills, make sure `skills-lock.json` matches and run `npx skills update` to pull down dependencies.
+
+### 3. Windows Execution Policy Blocks Scripts
+* **Problem**: Executing `.sh` or `.ps1` hooks fails due to execution policy restrictions.
+* **Fix**: Propose running commands through PowerShell explicitly bypassing restrictions (e.g., `powershell -ExecutionPolicy Bypass -File path/to/script.ps1`).
