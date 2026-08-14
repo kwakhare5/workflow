@@ -6,6 +6,7 @@
 - **Ponytail:** YAGNI. Minimum code. Prefer existing deps. No speculative features.
 - **Surgical:** Touch only what the request requires.
 - **Think first:** State assumptions. Ask if unclear. Never decide silently.
+- **Graphify First:** If `graphify-out/graph.json` or `GRAPH_REPORT.md` exists in project root, MUST check `graphify-out/graph.json` or query `graphify` BEFORE doing raw file reads or greps.
 
 ## 2. SESSION RITUAL
 ### Session Start (automatic)
@@ -41,7 +42,7 @@
 
 ## 4. CORE COMMANDS REFERENCE
 Invoke via `/command` or natural language. Skills are SKILL.md folders living in your agent's global skills folder. Discovery per tool (full map: playbook.md §5.1):
-- Cross-tool standard: `~/.agents/skills/` (opencode, Claude Code, Freebuff all read it) — keep skills here
+- Cross-tool standard: `~/.agents/skills/` (opencode, Claude Code all read it) — keep skills here
 - Gemini CLI: `~/.gemini/config/skills/` and `~/.gemini/skills/`
 - Project-local skills: `.agents/skills/`
 Never hardcode one tool's path in rule files — keep this file tool-agnostic.
