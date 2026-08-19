@@ -1,0 +1,147 @@
+================================================================================
+ROLE: user
+tell me for the global skills and globla agents.md or whatever .md files what is your path liek where can i have my agents.md and skills and all those things for ??
+
+So you can see this This folder is my workflow folder, which I have designed for the antiGravity IDEAs I use anti-gravity and their models, it is according to So from now if I am wanting to use you, where do I put all these things and do I need to edit these files according to your? What do I do? Tell me
+================================================================================
+ROLE: assistant
+Let me look at the current workspace to understand what setup you have.
+This is your Gemini CLI workflow folder (the `playbook.md` says it lives at `C:\Users\kwakh\.gemini\config\`). Now you're asking how to wire the same setup up for Freebuff. Let me check what's on your machine and confirm Freebuff's exact conventions.
+Found the key answer already — let me confirm the details from the docs and check how Freebuff handles skills.
+Let me quickly verify the layout of your skill folders so I can give you exact steps.
+One last check — you already have a `~/.agents` folder in your home dir:
+Great news — most of your setup is already compatible. Here's the full map:
+
+## Your current state
+
+| What | Where it is now | Does Freebuff read it? |
+|---|---|---|
+| Global skills | `C:\Users\kwakh\.agents\skills\` | ✅ **Yes — that's exactly the right spot** (it's already populated, 70+ skills) |
+| Global rules | `D:\workflow\AGENTS.md` | ⚠️ Only when you're working **inside this folder** |
+| Project rules | `.agents/AGENTS.md` (per project) | ❌ No — I don't auto-read that hidden path |
+| Skills in this folder | `D:\workflow\skills\` | ❌ No — skills must live under `.agents/skills/` or `.claude/skills/` |
+
+## What's missing — one file
+
+Your **global rules** only apply to projects that contain them. To make them apply to every project/session, Freebuff reads a home-dir file: `~/.AGENTS.md` (also accepts `~/.CLAUDE.md` or `~/.knowledge.md`; it picks one per folder — priority `knowledge.md` > `AGENTS.md` > `CLAUDE.md`). You don't have one yet. That's the single thing to add:
+
+```bash
+cp D:/workflow/AGENTS.md ~/.AGENTS.md
+```
+
+## Do you need to edit files?
+
+**Skills: no.** The format is identical — SKILL.md + YAML frontmatter (`name`, `description`). Your 103 skill folders work as-is, and each one automatically becomes a `/skill:<name>` command (e.g. `/skill:grill-with-docs`, `/skill:implement`). Your `npx skills` syncs already land in the right place.
+
+**Your global AGENTS.md: two small tweaks recommended:**
+1. It says to read project rules from `.agents/AGENTS.md` — I won't open that path on my own. Either add one line to the global file ("Project rules live in `.agents/AGENTS.md` — read it") so I follow it everywhere, or drop a root `AGENTS.md` in each project.
+2. Slash commands like `/grill` are invoked as `/skill:grill-with-docs` for me — same workflow, different trigger.
+
+**Per-project:** put a root `AGENTS.md` (project stack/commands) + `.agents/skills/` (project-only skills) in each repo. The `.freebuff/` folder here is the app's own data — leave it alone.
+
+Want me to run the copy (`cp D:/workflow/AGENTS.md ~/.AGENTS.md`) so your rules go global right now? It writes to your home dir, so I'll wait for your go-ahead.
+================================================================================
+ROLE: user
+use this current workflow and have it for us 
+have all the skills and everything do u get it what i want ??
+================================================================================
+ROLE: assistant
+Yes, I get it — you want this workflow folder installed as your **global** setup so every project gets your rules and all your skills. Let me do that. First a quick check of what overlaps between your local `skills/` and your existing global `~/.agents/skills/` so I don't clobber anything.
+The diff is clean: **60 skills exist only locally** (new — will be added), **43 overlap** (your local versions are newer — Aug 10 vs Aug 6, so local wins), and ~40 global-only skills stay untouched. This matches "use this current workflow" — your local folder becomes the source of truth, nothing gets lost. Installing now:
+All installed. Quick check that the hidden bootstrap files came along too:
+Everything's in place. Done ✅
+Your workflow is now global. Here's exactly what's installed:
+
+**`C:\Users\kwakh\.AGENTS.md`** — your 50-line global rules. Read automatically in **every project and session** from now on (new conversations only).
+
+**`C:\Users\kwakh\.agents\skills\`** — now **182 skills** (was 122):
+- 60 added new from this folder (grill-with-docs, implement, to-tickets, git-commit, diagnosing-bugs, code-review, impeccable, launch, ship, etc.)
+- 43 updated to your newer local versions (Aug 10 > Aug 6)
+- ~40 you already had globally (agent-orchestrator, api-design-principles, hyperframes…) untouched
+
+**`C:\Users\kwakh\.agents\playbook.md` + `templates\`** — your reference manual and the full new-project bootstrap kit (including the hidden `.editorconfig`, `.prettierrc.json`, and `.agents/AGENTS.md`).
+
+How it works from now on:
+- Any project I open → I read `~/.AGENTS.md` first, then look for project rules (your rules tell me to read `.agents/AGENTS.md` and `CONTEXT.md`, which I'll follow).
+- Skills load on demand or via `/skill:<name>` — e.g. `/skill:grill-with-docs`, `/skill:implement`. Your playbook's `/grill` → `/skill:grill-with-docs`, etc. Restart the Freebuff app once so the skill list refreshes.
+
+Two optional cleanups if you want: your `playbook.md` still lists paths under `C:\Users\kwakh\.gemini\config\` (now `~/.agents/`), and each project should have its own `.agents/AGENTS.md` (or root `AGENTS.md`) for project-specific rules — your global file will point me to it.
+================================================================================
+ROLE: user
+for the project agents.md which live sinside the pproject root folder will u read it automatically or no ??
+================================================================================
+ROLE: assistant
+Short answer: **yes, the root `AGENTS.md` is read automatically — no setup needed.**
+
+Details, so there's no surprise:
+
+1. **Root `AGENTS.md`** (or `CLAUDE.md` / `knowledge.md`) — read automatically at the start of every session in that project. Zero config.
+
+2. **Only ONE file per directory is used**, priority order: `knowledge.md` → `AGENTS.md` → `CLAUDE.md` (case-insensitive). So if a project root has both `knowledge.md` and `AGENTS.md`, only `knowledge.md` gets read. Keep just one at root.
+
+3. **Nested folders work too** — an `AGENTS.md` in `src/components/` is read when I work on files under it, and the root one still applies. Rules stack by directory.
+
+4. **The caveat for your workflow:** your convention is `.agents/AGENTS.md` (hidden folder) — that one is **NOT** read automatically by me. That's a Gemini-CLI-specific path. But since your global `~/.AGENTS.md` (installed earlier) explicitly says *"Read project `.agents/AGENTS.md`"*, I'll follow that instruction in every project. So you can keep your `.agents/AGENTS.md` convention — it works, just via the global file pointing me at it rather than auto-discovery.
+
+5. I **update** existing `AGENTS.md`/`CLAUDE.md`/`knowledge.md` files when asked, but won't create one out of thin air unless you ask.
+
+So: root `AGENTS.md` = auto-read. `.agents/AGENTS.md` = read because your global rules tell me to. Both work.
+================================================================================
+ROLE: user
+have the skills whihc this workflow has 
+delete the other 
+tell me and wait
+================================================================================
+ROLE: assistant
+Understood — you want the global skills to be **exactly** what this workflow has (103), and everything else removed. That's a destructive delete in your home folder, so let me first show you the exact list and wait for your go-ahead.
+Here's the plan — **79 skills get deleted**, and after that `~/.agents/skills/` will hold exactly your 103 workflow skills (the 43 shared ones were already updated to your versions, the 60 unique ones were added — so nothing of yours is lost).
+
+**Would be deleted (79):**
+`agent-orchestrator`, `ai-engineer`, `api-design-principles`, `api-patterns`, `api-security-testing`, `apify-ultimate-scraper`, `architecture-decision-records`, `clean-code`, `cloud-devops`, `code-review-excellence`, `code-simplifier`, `codebase-audit-pre-push`, `codebase-cleanup-refactor-clean`, `codebase-cleanup-tech-debt`, `context-manager`, `database-architect`, `database-design`, `database-migrations-sql-migrations`, `database-optimizer`, `design-an-interface`, `docker-expert`, `documentation`, `domain-driven-design`, `e2e-testing`, `edit-article`, `fastapi-pro`, `github-actions-templates`, `graphql-architect`, `grill-me`, `hyperframes` (×7), `javascript-testing-patterns`, `langchain-architecture`, `langgraph`, `loop-me`, `media-use`, `microservices-patterns`, `migrate-to-shoehorn`, `neon-postgres`, `nestjs-expert`, `nextjs-supabase-auth`, `nodejs-best-practices`, `obsidian-vault`, `playwright-skill`, `production-code-audit`, `prompt-engineer`, `python-pro`, `python-testing-patterns`, `rag-engineer`, `react-best-practices`, `react-component-performance`, `react-native-architecture`, `react-patterns`, `react-state-management`, `react-ui-patterns`, `request-refactor-plan`, `scaffold-exercises`, `senior-architect`, `shadcn`, `sql-injection-testing`, `tailwind-design-system`, `tailwind-patterns`, `terraform-specialist`, `testing-qa`, `trpc-fullstack`, `typescript-expert`, `typescript-pro`, `ubiquitous-language`, `ui-ux-pro-max`, `vercel-deployment`, `vibe-code-auditor`, `web-performance-optimization`, `web-security-testing`, `writing-great-skills`
+
+**Two things to know before you say go:**
+1. `~/.agents/skills/` is the cross-tool standard — these 79 are used by **any** agent tool reading that folder (Claude Code, Codex, etc.), not just Freebuff. Deleting removes them everywhere.
+2. I'll also clean their entries out of `~/.agents/.skill-lock.json`, otherwise `npx skills update` could re-add them later.
+
+Say **"go"** and I'll delete the 79 and clean the lockfile, leaving your 103 workflow skills.
+================================================================================
+ROLE: user
+u tell me which on them is worth keeping and which we will need ?? 
+tell me and wait
+================================================================================
+ROLE: assistant
+Good question — let me actually look at what each of the 79 does before recommending. Pulling their descriptions now:
+Here's my read, based on what your 103 workflow skills already cover. Three buckets:
+
+## ✅ KEEP — genuinely additive, nothing like them in your workflow (11)
+
+| Skill | Why |
+|---|---|
+| `architecture-decision-records` | Your own rules say "create ADR for schema changes" — this is the how-to |
+| `api-patterns` | REST vs GraphQL vs tRPC decision-making — your 103 has nothing for API design |
+| `web-security-testing` | OWASP Top 10 — no security skill in your workflow |
+| `api-security-testing` | Same, for the SaaS APIs you build |
+| `react-patterns` | React depth beyond Vercel best-practices |
+| `react-state-management` | Redux/Jotai/React Query (your zustand-store-ts only covers one) |
+| `react-ui-patterns` | Loading/error/data-fetching UI states |
+| `code-simplifier` | Complements your ponytail-review |
+| `ubiquitous-language` | Glossary generation for your /grill docs |
+| `writing-great-skills` | You author skills yourself — meta but directly useful |
+| `design-an-interface` | "Design it twice" parallel exploration before building |
+
+## ❓ ONLY IF you actually use these (12)
+
+- **`hyperframes` ×7 + `media-use`** — you have `~/.hyperframes` on this machine. If HyperFrames is your product/project, **keep all 8**.
+- `obsidian-vault` — if you keep notes in Obsidian
+- `trpc-fullstack`, `nestjs-expert`, `graphql-architect`, `neon-postgres`, `github-actions-templates`, `docker-expert`, `terraform-specialist`, `cloud-devops` — only if that's your stack (your setup is Vercel-centric, so I'd guess most are safe to drop)
+
+## 🗑️ DELETE — already covered by your 103 (~56)
+
+`grill-me` + `loop-me` → your grill-with-docs/grilling · `react-best-practices` + `react-component-performance` → your vercel-react-best-practices · `tailwind-design-system`, `tailwind-patterns`, `shadcn` → your tailwind-v4-shadcn · `vercel-deployment` → your deploy-to-vercel + vercel-cli-with-tokens · `e2e-testing`, `playwright-skill`, `testing-qa`, `javascript-testing-patterns`, `python-testing-patterns` → your qa + tdd · `fastapi-pro`, `python-pro` → your fastapi-best-practices + python-best-practices · `database-architect`, `database-design`, `database-migrations-sql-migrations`, `database-optimizer` → your postgres/prisma/drizzle/supabase experts · `domain-driven-design` → your domain-modeling · `context-manager`, `ai-engineer`, `langchain-architecture`, `langgraph`, `rag-engineer`, `prompt-engineer`, `agent-orchestrator` → not your stack · `clean-code`, `code-review-excellence`, `senior-architect` → your code-review + ponytail philosophy · `codebase-audit-pre-push`, `codebase-cleanup-refactor-clean`, `codebase-cleanup-tech-debt`, `production-code-audit`, `vibe-code-auditor` → your codebase-cleanup + health · `apify-ultimate-scraper` → your scrapling-official · `web-performance-optimization` → your performance-optimizer · `ui-ux-pro-max` → your impeccable + emil-design-eng · `documentation` → your readme · `react-native-architecture` → your vercel-react-native-skills · `nextjs-supabase-auth` → your supabase · `nodejs-best-practices`, `migrate-to-shoehorn`, `scaffold-exercises`, `request-refactor-plan`, `edit-article`, `sql-injection-testing`, `api-design-principles`
+
+So my default recommendation: **keep the 11 + all 8 hyperframes/media-use = 19, delete the other 60.**
+
+Tell me: **"go with your recommendation"**, or name any additions/removals (e.g. "also keep obsidian-vault and trpc"), and I'll do it — delete + clean the lockfile — and report back. Waiting on you.
+================================================================================
+ROLE: user
+delete these 12 first and then have all the skills in this workflow skills folder and then we will continue
