@@ -1,9 +1,6 @@
 ---
 name: frontend-design
-description: Build new UI from scratch — aesthetic direction, design system, DFII scoring. Use when the user wants to design a new page, component, or UI system from zero. Triggers: frontend design, build UI, new design, design from scratch, landing page, dashboard design, design system, component design, build a component, create layout, new page design.
-note: For iterating/auditing EXISTING UI, use impeccable (/impeccable audit, /impeccable polish, /impeccable bolder, etc.)
-risk: unknown
-source: community
+description: "Build new UI from scratch. Use when designing a new page, component, or UI system from zero. Triggers: frontend design, build UI, new design, design from scratch, landing page, dashboard design, design system, component design, build a component, create layout, new page design."
 ---
 
 # Frontend Design — Master UI/UX Skill
