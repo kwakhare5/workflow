@@ -46,9 +46,9 @@
 - **Conflicts:** If a user request conflicts with a local rule in `.agents/AGENTS.md`, ask: `⚠️ This conflicts with local rule: [rule]. Override it? [yes/no]` before proceeding.
 
 ## 4. CORE COMMANDS REFERENCE
-Invoke via `/command` or natural language. Discovery per tool:
-- Cross-tool standard: `~/.agents/skills/` (opencode, Claude Code, Freebuff)
-- Gemini / Antigravity CLI: `~/.gemini/config/skills/` and `~/.gemini/skills/`
+Invoke via `/command` or natural language. Skills are SKILL.md folders living in your agent's global skills folder. Discovery per path:
+- Cross-tool standard: `~/.agents/skills/`
+- Global config: `~/.gemini/config/skills/` and `~/.gemini/skills/`
 - Project-local skills: `.agents/skills/`
 
 - `/grill` (`grill-with-docs`): Run requirements interview and plan.

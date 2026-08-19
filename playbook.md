@@ -177,23 +177,19 @@ If your request conflicts with a LOCAL RULE, AI will ask:
 | `playbook.md` | Global config folder — `~/.agents/playbook.md` (Gemini: `~/.gemini/config/playbook.md`) | You read it | Your reference, keep open |
 
 | `CONTEXT.md` | Project root | Every session, automatic | Run /grill at project start |
-| `ARCHITECTURE.md` | Project root | On architectural changes | Generated via directory scan |
-| `JOURNAL.md` | Project root | End of session, automatic | Append-only product log |
+### 5.1. Where Things Live Per Path (the map)
 
-### 5.1. Where Things Live Per Tool (the map)
+There is no hidden master folder — the files below ARE the master. The global rules file is kept in sync across standard copies (`~/.AGENTS.md`, `~/.config/opencode/AGENTS.md`, `~/.gemini/config/AGENTS.md`); playbook across (`~/.agents/playbook.md`, `~/.gemini/config/playbook.md`). Update one copy, then copy it to the others — never edit just one and forget the rest.
 
-There is no hidden master folder — the files below ARE the master. The global rules file is kept in sync across 4 copies (`~/.AGENTS.md`, `~/.config/opencode/AGENTS.md`, `~/.gemini/GEMINI.md`, `~/.gemini/config/AGENTS.md`); playbook across 2 (`~/.agents/playbook.md`, `~/.gemini/config/playbook.md`). Update one copy, then copy it to the others — never edit just one and forget the rest.
-
-| Tool | Global rules | Global skills | Project rules (auto-read) |
+| Target Path | Global rules | Global skills | Project rules (auto-read) |
 |---|---|---|---|
-| Gemini CLI & antiGravity | `~/.gemini/GEMINI.md` (also `~/.gemini/config/AGENTS.md`) | `~/.gemini/config/skills/`, `~/.gemini/skills/` | root `AGENTS.md` / `GEMINI.md` + `.agents/AGENTS.md` |
-| opencode | `~/.config/opencode/AGENTS.md` | `~/.agents/skills/` (also `~/.config/opencode/skills/`, `.opencode/skills`) | root `AGENTS.md` |
-| Claude Code | `~/.claude/CLAUDE.md` | `~/.claude/skills/` (also `~/.agents/skills/`) | root `CLAUDE.md` / `AGENTS.md` |
-| Freebuff | `~/.AGENTS.md` | `~/.agents/skills/` | root `AGENTS.md` |
+| Global Config | `~/.gemini/config/AGENTS.md` | `~/.gemini/config/skills/`, `~/.gemini/skills/` | `.agents/AGENTS.md` |
+| Standard Agent Path | `~/.AGENTS.md` | `~/.agents/skills/` | `.agents/AGENTS.md` |
+| Local Backup Path | `~/agent-config/AGENTS.md` | `~/agent-config/skills/` | `.agents/AGENTS.md` |
 
-- `~/.agents/skills/` is the emerging cross-tool standard — opencode, Claude Code, and Freebuff all read it. That's where your global skills get installed.
-- Project-only skills go in `.agents/skills/` (or `.claude/skills/`).
-- Slash triggers differ per tool (`/grill` vs `/skill:grill-with-docs`) — same skill content, different invocation.
+- `~/.agents/skills/` is the cross-tool standard where global skills are installed.
+- Project-only skills go in `.agents/skills/`.
+- Slash triggers follow standard syntax (`/grill`, `/implement`, `/review`).
 
 ---
 
@@ -218,7 +214,7 @@ The `npx skills` command serves as the package manager for community and customi
   npx skills update
   ```
 - **Lockfile Check**: Ensure `skills-lock.json` is committed to git. It locks the exact git commits/hashes of installed skills to prevent breaking changes.
-- **Where Skills Land**: installed skill folders go to your global skills path (`~/.agents/skills/` for opencode/Claude Code/Freebuff, `~/.gemini/config/skills/` for Gemini CLI) or project `./skills/` — plain folders, so they work in any tool's skills path without conversion.
+- **Where Skills Land**: installed skill folders go to your global skills path (`~/.agents/skills/` or `~/.gemini/config/skills/`) or project `./skills/` — plain folders that work across any standard environment.
 
 ## 5.3. Configuration Assets
 
