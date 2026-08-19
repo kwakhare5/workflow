@@ -66,25 +66,6 @@ Reporting "no schema found" based solely on `web_fetch` or `curl` leads to false
 - Verify important pages allowed
 - Check sitemap reference
 
-### AI Crawler Management
-
-As of 2025–2026, AI companies actively crawl the web. Managing them via robots.txt is a critical technical SEO decision.
-
-| Crawler | Company | robots.txt token | Purpose |
-|---|---|---|---|
-| GPTBot | OpenAI | `GPTBot` | Model training |
-| ChatGPT-User | OpenAI | `ChatGPT-User` | Real-time browsing |
-| ClaudeBot | Anthropic | `ClaudeBot` | Model training |
-| PerplexityBot | Perplexity | `PerplexityBot` | Search + training |
-| Bytespider | ByteDance | `Bytespider` | Model training |
-| Google-Extended | Google | `Google-Extended` | Gemini training only (NOT search) |
-| CCBot | Common Crawl | `CCBot` | Open dataset |
-
-**Key distinctions:**
-- Blocking `Google-Extended` prevents Gemini training but does NOT affect Google Search or AI Overviews (those use `Googlebot`)
-- Blocking `GPTBot` prevents OpenAI training but does NOT prevent ChatGPT from citing your content via browsing (`ChatGPT-User`)
-- Consider your AI visibility strategy before blocking — being cited by AI systems drives brand awareness
-
 **XML Sitemap**
 - Exists and accessible
 - Submitted to Search Console
@@ -162,14 +143,7 @@ As of 2025–2026, AI companies actively crawl the web. Managing them via robots
 - Valid SSL certificate
 - No mixed content
 - HTTP → HTTPS redirects
-
-**Security Headers** (check presence and correctness):
-- `Strict-Transport-Security` (HSTS) — force HTTPS
-- `Content-Security-Policy` (CSP) — prevent XSS
-- `X-Frame-Options` — prevent clickjacking
-- `X-Content-Type-Options: nosniff` — prevent MIME sniffing
-- `Referrer-Policy` — control referrer leakage
-- HSTS preload list inclusion (high-security sites only)
+- HSTS header (bonus)
 
 ### URL Structure
 
@@ -178,23 +152,6 @@ As of 2025–2026, AI companies actively crawl the web. Managing them via robots
 - Consistent structure
 - No unnecessary parameters
 - Lowercase and hyphen-separated
-
-### IndexNow Protocol
-
-- Check if site supports IndexNow for faster indexing on Bing, Yandex, Naver
-- Google does not use IndexNow — but non-Google engines benefit significantly
-- Recommend implementation for faster indexing beyond Google
-
-### JavaScript Rendering — Critical (December 2025 Updates)
-
-Google updated JS SEO documentation December 2025 with these clarifications:
-
-1. **Canonical conflicts**: If raw HTML canonical differs from JS-injected canonical, Google may use either one. Ensure they match.
-2. **noindex with JS**: If raw HTML contains `<meta name="robots" content="noindex">` but JS removes it, Google MAY still honor the noindex from raw HTML. Serve correct directives in initial HTML.
-3. **Non-200 status codes**: Google does NOT render JavaScript on pages returning non-200 status. JS-injected content on error pages is invisible to Googlebot.
-4. **Structured data in JS**: Product/Article markup injected via JS may face delayed processing. Include critical structured data in server-rendered HTML.
-
-**Best practice**: Serve canonical, meta robots, structured data, title, and meta description in initial server-rendered HTML — never rely solely on JS injection for SEO-critical tags.
 
 ---
 
