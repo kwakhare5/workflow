@@ -59,15 +59,20 @@ The agent will suggest the next command at the end of each phase response based 
 
 ---
 
-### Phase 4 — Design & Polish (UI)
+### Phase 4 — Design & Polish (UI & Video)
 
 | Command | What it does |
 | :--- | :--- |
 | `/impeccable [subcommand]` | Master command to iterate, audit, and polish existing frontend UI. |
-| `/emil-design-eng` | Apple-tier interaction and motion consulting. |
+| `/emil-design-eng` | Apple-tier interaction physics, gestures, and fluid motion consulting. |
+| `/frontend-design` | Build clean components, dashboards, and landing pages from scratch. |
 | `/find-animation-opportunities` | Scans codebase for elements that should animate but don't. |
 | `/improve-animations` | Audits existing animations and produces a prioritized fix roadmap. |
 | `/review-animations` | Reviews animation code against Emil Kowalski's quality standards. |
+| `/remocn` | Copy-paste React video animation components and UI primitives. |
+| `/remotion-create` | Scaffolds and builds programmatic video compositions with React. |
+| `/remotion-studio` | Launches Remotion visual studio preview server. |
+| `/remotion-render` | CLI video rendering, still frame captures, and transparent alpha exports. |
 
 #### Nested Sub-commands for `/impeccable`:
 
@@ -103,20 +108,20 @@ The agent will suggest the next command at the end of each phase response based 
 
 ---
 
-### Phase 6 — Growth & Launch
+### Phase 6 — Growth, Marketing & Acquisition
 
 | Command | What it does |
 | :--- | :--- |
-| `/launch` | Full launch strategy + Product Hunt asset generation. |
+| `/marketing-plan` | Full growth marketing roadmap tailored to stage, audience, and ops stack. |
+| `/marketing-council` | Consults 12 legendary advisors (Ogilvy, Hormozi, Godin, Sutherland, etc.). |
+| `/launch` | Full launch strategy + Product Hunt & social asset generation. |
 | `/build-in-public` | Drafts voice-matched indie hacker posts based on shipped commits. |
-| `/seo-audit` | Health check for meta tags and Core Web Vitals. |
-| `/copywriting` | Writes or rewrites landing page and marketing copy. |
-| `/pricing` | Strategy for pricing packaging, tiers, and willingness to pay. |
-| `/analytics` | Sets up tracking pipelines (GA4, Mixpanel, Segment). |
-| `/emails` | Drafts email drip campaigns and post-launch nurture sequences. |
-| `/cro` | Conversion rate optimization for landing pages and checkout forms. |
-| `/ab-testing` | Plans, designs, and runs A/B split tests. |
+| `/ai-seo` & `/seo-audit` | Optimizes site for AI search engines (Perplexity/ChatGPT) and Google SERPs. |
+| `/copywriting` | High-converting landing page, headline, and email copy. |
+| `/pricing` & `/offers` | Value equation pricing packaging, tiers, bonuses, and guarantee design. |
+| `/cro` & `/ab-testing` | Funnel optimization, checkout improvements, and split test architecture. |
 | `/scrapling-official` | Web scraping spider with anti-bot bypass and JS rendering. |
+| `/cold-email` & `/referrals` | Outbound campaigns, prospecting lists, and viral referral mechanics. |
 
 ---
 
@@ -124,14 +129,14 @@ The agent will suggest the next command at the end of each phase response based 
 
 | Command | What it does |
 | :--- | :--- |
+| `/graphify` | Turns codebase/docs into a persistent knowledge graph with god nodes & visual report. |
 | `/wait-what` | Re-explains the last agent step in plain English if it didn't land. |
 | `/teach` | Multiphase concept tutoring. |
 | `/writing-for-agents` | Reference for writing clean documentation and custom rules. |
-| `/git-guardrails` | Block dangerous git commands (push, reset --hard, etc.) in Claude Code. |
+| `/git-guardrails` | Block dangerous git commands (push, reset --hard, etc.) in agent environments. |
 | `/code-tour` | Creates CodeTour `.tour` files for step-by-step codebase walkthroughs. |
 | `/pdf` | Reads, extracts, converts, merges, and manipulates PDF documents. |
 | `/xlsx` | Reads, edits, converts, and creates Excel spreadsheets. |
-| `/docx` | Reads, edits, converts, and creates Word documents. |
 
 ---
 
