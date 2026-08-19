@@ -64,6 +64,7 @@ The agent will suggest the next command at the end of each phase response based 
 | Command | What it does |
 | :--- | :--- |
 | `/impeccable [subcommand]` | Master command to iterate, audit, and polish existing frontend UI. |
+| `/taste-skill` / `/taste` | Anti-slop frontend aesthetic director (brutalist, minimalist, soft, brandkit). |
 | `/emil-design-eng` | Apple-tier interaction physics, gestures, and fluid motion consulting. |
 | `/frontend-design` | Build clean components, dashboards, and landing pages from scratch. |
 | `/find-animation-opportunities` | Scans codebase for elements that should animate but don't. |
@@ -99,6 +100,7 @@ The agent will suggest the next command at the end of each phase response based 
 | Command | What it does |
 | :--- | :--- |
 | `/git-commit` | Stages changes logically, analyzes diffs, and drafts conventional commit messages. |
+| `/using-git-worktrees` | Manages isolated git worktrees for parallel branch development. |
 | `/ship` | Releases code: runs tests, bumps version, and updates changelog. |
 | `/deploy-vercel` | Deploys site/app directly to Vercel (production or preview modes). |
 | `/vercel-token-deploy`| Non-interactive Vercel CLI deploy using environment tokens. |
@@ -114,6 +116,7 @@ The agent will suggest the next command at the end of each phase response based 
 | :--- | :--- |
 | `/marketing-plan` | Full growth marketing roadmap tailored to stage, audience, and ops stack. |
 | `/marketing-council` | Consults 12 legendary advisors (Ogilvy, Hormozi, Godin, Sutherland, etc.). |
+| `/no-ai-slop` / `/no-slop` | Sharp human copyeditor: strips banned AI words and false drama. |
 | `/launch` | Full launch strategy + Product Hunt & social asset generation. |
 | `/build-in-public` | Drafts voice-matched indie hacker posts based on shipped commits. |
 | `/ai-seo` & `/seo-audit` | Optimizes site for AI search engines (Perplexity/ChatGPT) and Google SERPs. |
@@ -130,6 +133,7 @@ The agent will suggest the next command at the end of each phase response based 
 | Command | What it does |
 | :--- | :--- |
 | `/graphify` | Turns codebase/docs into a persistent knowledge graph with god nodes & visual report. |
+| `/dispatching-parallel-agents` | Structured subagent orchestration with task boundaries. |
 | `/wait-what` | Re-explains the last agent step in plain English if it didn't land. |
 | `/teach` | Multiphase concept tutoring. |
 | `/writing-for-agents` | Reference for writing clean documentation and custom rules. |

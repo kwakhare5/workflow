@@ -38,8 +38,8 @@
 6. **DIAGNOSE:** If tests/build fails, stop coding → run `/diagnosing-bugs` (build a minimal failing test repro case first).
 
 ### Subagent Delegation Policy
-- **Parallel Research:** Spawn `research` subagent when surveying multi-file external docs or large codebases.
-- **Isolated Testing:** Use workspace branching (`Workspace: 'branch'`) for speculative refactors or breaking test runs.
+- **Parallel Research:** Spawn `research` subagent when surveying multi-file external docs or large codebases (`dispatching-parallel-agents`).
+- **Isolated Testing:** Use workspace branching (`Workspace: 'branch'`) or git worktrees (`using-git-worktrees`) for speculative refactors or breaking test runs.
 
 ### Invariants & Conflicts
 - **Docs:** Update `CONTEXT.md` for new domain terms. Update `ARCHITECTURE.md` or create ADR for schema/architectural changes.
@@ -58,6 +58,8 @@ Invoke via `/command` or natural language. Skills are SKILL.md folders living in
 - `/review` (`code-review`): Standard and spec correctness check.
 - `/git-commit` (`git-commit`): Conventional commit helper.
 - `/impeccable` (`impeccable`): Master UI/UX audit and polish.
+- `/taste` (`taste-skill` / `brutalist-skill` / `minimalist-skill`): Anti-slop UI aesthetic modes.
+- `/no-slop` (`no-ai-slop`): Human copyeditor & AI pattern stripper.
 - `/remocn` / `/remotion-create`: React video generation.
 - `/marketing-plan`: Full growth marketing roadmap.
 
@@ -69,19 +71,19 @@ On AUDIT (step 0 of the loop), match the task against this table. Load the liste
 |---|---|---|
 | Python code | `python-best-practices`, `python-testing-patterns` (+ `fastapi-best-practices` if FastAPI, `sqlalchemy-expert` if SQLAlchemy) | grill, implement, review |
 | TypeScript / React / Next.js | `typescript-best-practices`, `nodejs-best-practices`, `nextjs-best-practices`, `vercel-react-best-practices` | grill, implement, review |
-| UI design or polish | `impeccable`, `frontend-design`, `web-design-guidelines`, `tailwind-patterns` | grill, implement, review |
+| UI design, polish & aesthetics | `impeccable`, `taste-skill`, `frontend-design`, `web-design-guidelines`, `tailwind-patterns` | grill, implement, review |
 | Animations & Fluid Motion | `emil-design-eng`, `apple-design`, `animation-vocabulary`, `improve-animations` | audit, implement |
 | Video composition & Motion UI | `remocn`, `remotion-best-practices`, `remotion-create` | grill, implement |
 | Scraping / crawling | `scrapling-official`, `defuddle`, `apify-ultimate-scraper` | grill, implement |
 | Marketing & Growth Strategy | `marketing-plan`, `marketing-council`, `marketing-ideas`, `marketing-loops` | grill, implement |
-| Copywriting & Funnels | `copywriting`, `cro`, `offers`, `pricing`, `cold-email`, `lead-magnets`, `onboarding` | grill, implement |
-| Tweets / content / public log | `build-in-public`, `x-ghostwriter-indie-aidev-twitter-niche` | grill, implement |
+| Copywriting, Funnels & Anti-Slop | `no-ai-slop`, `copywriting`, `cro`, `offers`, `pricing`, `cold-email`, `lead-magnets` | grill, implement |
+| Tweets / content / public log | `build-in-public`, `no-ai-slop`, `x-ghostwriter-indie-aidev-twitter-niche` | grill, implement |
 | Cleanup / refactor / dead code | `codebase-cleanup`, `ponytail`, `ponytail-review`, `production-code-audit` | audit, implement, review |
 | Database / schema / migrations | `database-design`, `database-migrations-sql-migrations`, `postgres-best-practices`, `supabase`, `drizzle-orm-expert` | grill, implement |
 | Cloudflare Workers / Edge | `cloudflare`, `agents-sdk`, `durable-objects`, `workers-best-practices`, `wrangler` | grill, implement, review |
 | Debugging / failing tests | `diagnosing-bugs`, `tdd` | implement |
 | Writing tests | `tdd`, `python-testing-patterns` or `javascript-testing-patterns` | implement |
-| Docs / Spreadsheets / PDFs | `doc-coauthoring`, `readme`, `writing-for-agents`, `pdf`, `xlsx` | audit, implement |
+| Docs / Spreadsheets / PDFs | `doc-coauthoring`, `no-ai-slop`, `readme`, `writing-for-agents`, `pdf`, `xlsx` | audit, implement |
 | Deploy / infra / CI | `deploy-to-vercel` or `vercel-cli-with-tokens`, `docker-expert`, `terraform-specialist`, `github-actions-templates` | implement, review |
 | Security | `web-security-testing`, `api-security-testing` | review |
 | Performance | `web-perf`, `vercel-optimize` | review |
