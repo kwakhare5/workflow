@@ -1,8 +1,5 @@
 ﻿# AGENTS.md — Project Rules
 
-# Hard cap: 120 lines. Fill Sections 1-4 at project start.
-# AI fills Sections 5-7 automatically during development.
-
 ---
 
 ## 1. PROJECT IDENTITY
@@ -57,3 +54,4 @@ npm run lint       # ESLint + TypeScript check
 - **Current State:** Fresh project scaffolding initialized.
 - **Immediate next task:** Define core data schema & initial UI wireframe.
 - **Open blockers:** None.
+
