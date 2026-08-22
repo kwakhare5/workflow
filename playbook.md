@@ -150,7 +150,7 @@ Just say what you want to work on. AI automatically reads context files first.
 
 **Example:**
 
-> "Let's work on the onboarding flow for PreFill AI"
+> "Let's work on the onboarding flow for Grocer AI"
 
 AI will: read `.agents/AGENTS.md` → read `CONTEXT.md` → read SESSION RESUME → confirm context → ask what specifically.
 
