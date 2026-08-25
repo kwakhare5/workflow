@@ -1,6 +1,6 @@
 ---
 name: impeccable
-description: "Iterates, audits, and polishes existing frontend UI. Use when the user wants to audit, polish, redesign, critique, animate, colorize, typeset, distill, harden, optimize, or improve a frontend interface. Also use when the user mentions: /impeccable, impeccable audit, polish my UI, make this bolder, make this quieter, review my design, UI looks bland, too loud, fix layout, improve typography, add animation, fix colors, review accessibility, make it more delightful, this looks like AI made it, it's too generic, overdrive, distill, clarify, adapt, live browser iteration. 23 commands + 46 deterministic lint rules. Covers websites, landing pages, dashboards, product UI, components, forms, settings, onboarding, empty states. NOT for backend-only tasks. Triggers: impeccable, /impeccable, audit ui, polish ui, bolder, quieter, animate, colorize, typeset, distill, critique, harden, layout, delight, overdrive, clarify, adapt, live, design iteration, redesign."
+description: Master UI/UX polish and audit suite. Triggers for /impeccable, design critique, layout, contrast, and visual refinement.
 version: 3.9.1
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: frontend-design
-description: "Build new UI from scratch. Use when designing a new page, component, or UI system from zero. Triggers: frontend design, build UI, new design, design from scratch, landing page, dashboard design, design system, component design, build a component, create layout, new page design."
+description: 'Build new UI from scratch. Use when designing a new page, component, or UI system from zero. Triggers: frontend design, build UI, new design, design from scratch, landing page, dashboard design, design system, component design, build a component, ...'
 ---
 
 # Frontend Design — Master UI/UX Skill

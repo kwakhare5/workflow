@@ -2,40 +2,40 @@
 # Applies to every project. Read first.
 
 ## 1. CORE BEHAVIOR
-- **Communication:** Crisp & concise. Direct fragments for status/chat. Structured markdown & complete code for plans, diffs, and reviews.
-- **Ponytail:** YAGNI. Minimum code. Prefer existing dependencies. No speculative features.
-- **Surgical:** Touch only what the request requires.
-- **Think first:** State assumptions. Ask if unclear. Never decide silently.
+- **Communication:** Zero filler. Direct fragments for status/chat. Full structured markdown & complete non-truncated code for plans, diffs, and reviews.
+- **Ponytail (YAGNI):** Minimal code. Prefer standard library and existing dependencies. Zero speculative abstractions.
+- **Surgical:** Touch only what the request strictly requires.
+- **Think First:** State assumptions explicitly. Ask when unclear. Never make silent architectural choices.
 - **Windows Pathing:** Always quote paths containing spaces (e.g. `D:\Git for Prompts`).
-- **Graphify First:** If `graphify-out/graph.json` or `GRAPH_REPORT.md` exists in project root, MUST check it before raw file reads or greps.
+- **Graphify First:** If `graphify-out/graph.json` or `GRAPH_REPORT.md` exists in project root, check it before raw multi-file greps.
 
 ## 2. SESSION RITUAL
 ### Session Start (automatic)
-1. Read project `.agents/AGENTS.md` (stack, commands, local rules, SESSION RESUME).
-2. Read project `CONTEXT.md` (domain terms/ADRs).
-3. Print one-line summary: `📂 [Project] | Stack: [X] | Resuming: [last]`
-4. Ask: "Ready. What are we working on?"
+1. Check project `.agents/AGENTS.md` and `CONTEXT.md`.
+   - If present: Print `📂 [Project] | Stack: [X] | Resuming: [last]`
+   - If fresh/missing: Print `📂 [New Workspace] | Stack: [auto-detect] | Tip: Run /grill to initialize context`
+2. Ask: "Ready. What are we working on?"
 
 ### Session End (conditional on significant changes)
-1. Summarize what changed in 3–5 bullets.
-2. Update Section 7: SESSION RESUME in `.agents/AGENTS.md`.
-3. Prepend or merge a dated entry under ## Log Entries in `JOURNAL.md` (strictly ONE date heading `### [Project — Summary] YYYY-MM-DD` per calendar date, merging commit hashes, shipped bullets, and vibe).
+1. Summarize changes in 3–5 crisp bullets.
+2. Update Section 7: SESSION RESUME in project `.agents/AGENTS.md` (if in a project workspace).
+3. Prepend or merge a dated entry under `## Log Entries` in `JOURNAL.md` (strictly ONE date heading `### [Project — Summary] YYYY-MM-DD` per calendar date).
 4. Ask: "Session logged to JOURNAL.md. Draft X post now with /build-in-public?"
 
 ## 3. CODING LOOP (SIMPLIFIED MATT POCOCK WORKFLOW)
 
 ### Task Classification (Run FIRST, silently)
-- **Tiny** (single file, <20 lines, no logic change): Skip loop. Just make the edit.
-- **Standard / Complex** (multi-file OR new logic OR schema change): Run the full loop below.
+- **Tiny** (single file, <20 lines, no logic change): Skip loop. Apply the surgical edit directly.
+- **Standard / Complex** (multi-file OR new logic OR schema change): Run the 6-phase loop below.
 
 ### Full Loop
 0. **AUDIT:** Detect stack/intent → auto-load specialist craft skill → print `✅ Loaded: [skill-name]`.
-1. **GRILL & PLAN:** Run `/grill-with-docs` (Grill me). Ask clarifying questions, state assumptions, draft `implementation_plan.md`, and get explicit user approval.
-2. **CHECKLIST:** Run `/to-tickets` to break the plan into a TODO checklist of tracer-bullet tasks in `task.md`.
-3. **EXECUTE:** Run `/implement` to code each task. Write clean, surgical, vertical slices (schema → API → UI). Run tests & linters.
-4. **REVIEW:** Run `/code-review` to verify specs and standards.
-5. **COMMIT:** Run `/git-commit` to stage, analyze diffs, and generate conventional commits → stop for approval.
-6. **DIAGNOSE:** If tests/build fails, stop coding → run `/diagnosing-bugs` (build a minimal failing test repro case first).
+1. **GRILL & PLAN:** Run `/grill` (`grill-with-docs`). Ask clarifying questions, state assumptions, draft `implementation_plan.md`, and obtain explicit approval.
+2. **CHECKLIST:** Run `/to-issues` (`to-tickets`) to break the plan into a tracer-bullet task list in `task.md`.
+3. **EXECUTE:** Run `/implement` to code each task: Schema → API → UI. Run tests & linters.
+4. **REVIEW:** Run `/review` (`code-review`) to verify standards and spec correctness in parallel.
+5. **COMMIT:** Run `/git-commit` to stage logically, analyze diffs, and draft conventional commit messages.
+6. **DIAGNOSE:** If tests or build fails, stop coding → run `/diagnose` (`diagnosing-bugs`) with a minimal failing reproduction test first.
 
 ### Subagent Delegation Policy
 - **Parallel Research:** Spawn `research` subagent when surveying multi-file external docs or large codebases (`dispatching-parallel-agents`).
@@ -46,10 +46,9 @@
 - **Conflicts:** If a user request conflicts with a local rule in `.agents/AGENTS.md`, ask: `⚠️ This conflicts with local rule: [rule]. Override it? [yes/no]` before proceeding.
 
 ## 4. CORE COMMANDS REFERENCE
-Invoke via `/command` or natural language. Skills are SKILL.md folders living in your agent's global skills folder. Discovery per path:
-- Cross-tool standard: `~/.agents/skills/`
-- Global config: `~/.gemini/config/skills/` and `~/.gemini/skills/`
-- Project-local skills: `.agents/skills/`
+Invoke via `/command` or natural language.
+- Global Active Skills: `~/.gemini/config/skills/` (mirrored to `~/.agents/skills/`)
+- On-Demand Domain Packs: `~/.agents/skill-packs/` (copy to project `.agents/skills/` when needed)
 
 - `/grill` (`grill-with-docs`): Run requirements interview and plan.
 - `/to-issues` (`to-tickets`): Generate `task.md` checklist.
@@ -58,10 +57,13 @@ Invoke via `/command` or natural language. Skills are SKILL.md folders living in
 - `/review` (`code-review`): Standard and spec correctness check.
 - `/git-commit` (`git-commit`): Conventional commit helper.
 - `/impeccable` (`impeccable`): Master UI/UX audit and polish.
-- `/taste` (`taste-skill` / `brutalist-skill` / `minimalist-skill`): Anti-slop UI aesthetic modes.
+- `/taste` (`taste-skill`): Anti-slop UI aesthetic modes (brutalist, minimalist, soft).
 - `/no-slop` (`no-ai-slop`): Human copyeditor & AI pattern stripper.
-- `/remocn` / `/remotion-create`: React video generation.
-- `/marketing-plan`: Full growth marketing roadmap.
+- `/marketing` (`marketing-suite`): Full growth roadmap, copywriting, CRO, offers, pricing, launch.
+- `/remocn` / `/remotion` (`remotion-suite`): React video generation & motion UI.
+- `/cloudflare` (`cloudflare-suite`): Workers, Agents SDK, Durable Objects, Zero Trust.
+- `/graphify` (`graphify`): Persistent codebase knowledge graph.
+- `/build-in-public` (`build-in-public`): Dev log & X ghostwriter.
 
 ## 5. TASK → SKILL ROUTER (auto-load on AUDIT)
 
@@ -69,21 +71,21 @@ On AUDIT (step 0 of the loop), match the task against this table. Load the liste
 
 | When the task is about… | Load (craft skills) | Applies to |
 |---|---|---|
-| Python code | `python-best-practices`, `python-testing-patterns` (+ `fastapi-best-practices` if FastAPI, `sqlalchemy-expert` if SQLAlchemy) | grill, implement, review |
+| Python code | `python-best-practices`, `python-testing-patterns` (+ `fastapi-best-practices` if FastAPI) | grill, implement, review |
 | TypeScript / React / Next.js | `typescript-best-practices`, `nodejs-best-practices`, `nextjs-best-practices`, `vercel-react-best-practices` | grill, implement, review |
-| UI design, polish & aesthetics | `impeccable`, `taste-skill`, `frontend-design`, `web-design-guidelines`, `tailwind-patterns` | grill, implement, review |
+| UI design, polish & aesthetics | `impeccable`, `taste-skill`, `frontend-design`, `tailwind-patterns`, `shadcn` | grill, implement, review |
 | Animations & Fluid Motion | `emil-design-eng`, `apple-design`, `animation-vocabulary`, `improve-animations` | audit, implement |
-| Video composition & Motion UI | `remocn`, `remotion-best-practices`, `remotion-create` | grill, implement |
-| Scraping / crawling | `scrapling-official`, `defuddle`, `apify-ultimate-scraper` | grill, implement |
-| Marketing & Growth Strategy | `marketing-plan`, `marketing-council`, `marketing-ideas`, `marketing-loops` | grill, implement |
-| Copywriting, Funnels & Anti-Slop | `no-ai-slop`, `copywriting`, `cro`, `offers`, `pricing`, `cold-email`, `lead-magnets` | grill, implement |
+| Video composition & Motion UI | `remotion-suite` (includes `remocn`, `remotion-create`) | grill, implement |
+| Scraping / crawling | `scrapling-official` | grill, implement |
+| Marketing & Growth Strategy | `marketing-suite` (includes `marketing-plan`, `marketing-council`, `marketing-ideas`) | grill, implement |
+| Copywriting, Funnels & Anti-Slop | `no-ai-slop`, `marketing-suite` (includes `copywriting`, `cro`, `offers`, `pricing`) | grill, implement |
 | Tweets / content / public log | `build-in-public`, `no-ai-slop`, `x-ghostwriter-indie-aidev-twitter-niche` | grill, implement |
-| Cleanup / refactor / dead code | `codebase-cleanup`, `ponytail`, `ponytail-review`, `production-code-audit` | audit, implement, review |
-| Database / schema / migrations | `database-design`, `database-migrations-sql-migrations`, `postgres-best-practices`, `supabase`, `drizzle-orm-expert` | grill, implement |
-| Cloudflare Workers / Edge | `cloudflare`, `agents-sdk`, `durable-objects`, `workers-best-practices`, `wrangler` | grill, implement, review |
+| Cleanup / refactor / dead code | `codebase-cleanup`, `ponytail`, `ponytail-review`, `ponytail-audit` | audit, implement, review |
+| Database / schema / migrations | `postgres-best-practices`, `supabase`, `drizzle-orm-expert`, `prisma-expert` | grill, implement |
+| Cloudflare Workers / Edge | `cloudflare-suite` (includes `agents-sdk`, `durable-objects`, `workers`, `wrangler`) | grill, implement, review |
 | Debugging / failing tests | `diagnosing-bugs`, `tdd` | implement |
-| Writing tests | `tdd`, `python-testing-patterns` or `javascript-testing-patterns` | implement |
+| Writing tests | `tdd`, `python-testing-patterns` | implement |
 | Docs / Spreadsheets / PDFs | `doc-coauthoring`, `no-ai-slop`, `readme`, `writing-for-agents`, `pdf`, `xlsx` | audit, implement |
-| Deploy / infra / CI | `deploy-to-vercel` or `vercel-cli-with-tokens`, `docker-expert`, `terraform-specialist`, `github-actions-templates` | implement, review |
-| Security | `web-security-testing`, `api-security-testing` | review |
-| Performance | `web-perf`, `vercel-optimize` | review |
+| Deploy / infra / CI | `deploy-to-vercel`, `vercel-cli-with-tokens`, `docker-expert`, `github-actions-templates` | implement, review |
+| Security | `web-security-testing` | review |
+| Performance | `web-perf` | review |

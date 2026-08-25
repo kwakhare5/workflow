@@ -1,6 +1,6 @@
 ---
 name: ponytail
-description: "Forces the laziest solution that actually works. Channels a senior dev who has seen everything. Use whenever the user says ponytail, be lazy, lazy mode, simplest solution, minimal solution, yagni, do less, or shortest path. Supports intensity levels: lite, full (default), ultra. Triggers: ponytail, yagni, lazy mode."
+description: Enforces minimal YAGNI solutions, cuts over-engineering, and replaces speculative code with stdlib.
 ---
 
 # Ponytail

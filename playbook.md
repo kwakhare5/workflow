@@ -6,8 +6,8 @@ This playbook is the primary reference manual for managing and executing develop
 
 ## 1. Core Principles
 
-- **Caveman**: Zero fluff. Short fragments. No pleasantries.
-- **Ponytail**: YAGNI. Minimum code. Prefer existing dependencies. No speculative features.
+- **Crisp & Direct**: Zero conversational fluff. Direct fragments for status/chat. Full structured markdown & complete code for plans, diffs, and reviews.
+- **Ponytail**: YAGNI. Minimum code. Prefer standard library and existing dependencies. No speculative features.
 - **Surgical**: Touch only what the request requires.
 - **Think first**: State assumptions. Ask if unclear. Never decide silently.
 - **Tweets**: Use the `/build-in-public` skill for voice-matched indie hacker posts.
@@ -22,14 +22,11 @@ The agent will suggest the next command at the end of each phase response based 
 
 | Command | What it does |
 | :--- | :--- |
-| `/ask-matt` | Routes you to the right skill if you are confused which one to use. |
-| `/grill` | Relentless requirements interview → drafts `implementation_plan.md` → waits for approval. |
+| `/grill` | Relentless requirements interview (`grill-with-docs`) → drafts `implementation_plan.md` → waits for approval. |
+| `/to-issues` / `/to-tickets` | Breaks the approved plan into a tracer-bullet task list in `task.md`. |
 | `/to-spec` | Converts the current conversation thread into a clean specification. |
-| `/to-tickets` | Breaks the approved plan into a `task.md` checklist. |
-| `/wayfinder` | Maps a huge, foggy project across multiple sessions. |
-| `/research` | Gathers external documentation/APIs and files a cited summary in the repo. |
-| `/prototype` | Builds throwaway UI or logic to explore design questions. |
-| `/pick-ui-library` | Reviews UI components and decides which npm component library to install. |
+| `/research` | Gathers external documentation/APIs and files a cited summary in the repo (`dispatching-parallel-agents`). |
+| `/doc-coauthoring` | Structured workflow for co-authoring technical specs and docs. |
 
 ---
 
@@ -39,9 +36,7 @@ The agent will suggest the next command at the end of each phase response based 
 | :--- | :--- |
 | `/implement` | Executes the `task.md` checklist item-by-item: Schema → API → UI. |
 | `/tdd` | Test-driven development loop for complex logic (red-green-refactor). |
-| `/guard` | Full safety mode: warns on destructive commands and locks edits to a directory. |
-| `/handoff` | Compresses context into a static handoff file for the next session. |
-| `/claude-handoff` | Hands off live execution to a fresh background agent mid-session. |
+| `/using-git-worktrees` | Isolated workspace branches and worktrees for parallel tasks. |
 
 ---
 
@@ -50,12 +45,10 @@ The agent will suggest the next command at the end of each phase response based 
 | Command | What it does |
 | :--- | :--- |
 | `/diagnose` | Rigorous 6-phase scientific isolation loop for hard bugs (repro-first). |
-| `/review` | Reviews code changes against spec (runs Standards + Spec checks in parallel). |
-| `/triage` | Manages and prioritizes GitHub issues/PRs. |
-| `/improve-codebase-architecture` | Scans codebase for deepening opportunities and generates a visual HTML report. |
+| `/review` | Reviews code changes against spec (runs Standards + Spec checks in parallel via `code-review`). |
 | `/ponytail-review` | Reviews a diff exclusively for over-engineering and suggests dead code deletion. |
-| `/health` | Codebase quality metrics dashboard. |
-| `/benchmark` | Runs regression performance tests. |
+| `/ponytail-audit` | Whole-repo over-engineering scan. |
+| `/codebase-cleanup` | Safely purges dead code, unreferenced exports, and unused packages. |
 
 ---
 
@@ -64,16 +57,14 @@ The agent will suggest the next command at the end of each phase response based 
 | Command | What it does |
 | :--- | :--- |
 | `/impeccable [subcommand]` | Master command to iterate, audit, and polish existing frontend UI. |
-| `/taste-skill` / `/taste` | Anti-slop frontend aesthetic director (brutalist, minimalist, soft, brandkit). |
-| `/emil-design-eng` | Apple-tier interaction physics, gestures, and fluid motion consulting. |
+| `/taste` (`taste-skill`) | Anti-slop frontend aesthetic director (brutalist, minimalist, soft, brandkit). |
 | `/frontend-design` | Build clean components, dashboards, and landing pages from scratch. |
-| `/find-animation-opportunities` | Scans codebase for elements that should animate but don't. |
+| `/apple-design` | Apple-tier interaction physics, gestures, optical typography, and fluid motion. |
+| `/emil-design-eng` | Micro-interactions, spring physics, and invisible UI details. |
+| `/animation-vocabulary` | Reverse-lookup glossary for UI animations. |
 | `/improve-animations` | Audits existing animations and produces a prioritized fix roadmap. |
-| `/review-animations` | Reviews animation code against Emil Kowalski's quality standards. |
 | `/remocn` | Copy-paste React video animation components and UI primitives. |
-| `/remotion-create` | Scaffolds and builds programmatic video compositions with React. |
-| `/remotion-studio` | Launches Remotion visual studio preview server. |
-| `/remotion-render` | CLI video rendering, still frame captures, and transparent alpha exports. |
+| `/remotion` (`remotion-suite`) | Scaffolds, previews, and renders programmatic videos with React. |
 
 #### Nested Sub-commands for `/impeccable`:
 
@@ -100,13 +91,11 @@ The agent will suggest the next command at the end of each phase response based 
 | Command | What it does |
 | :--- | :--- |
 | `/git-commit` | Stages changes logically, analyzes diffs, and drafts conventional commit messages. |
-| `/using-git-worktrees` | Manages isolated git worktrees for parallel branch development. |
-| `/ship` | Releases code: runs tests, bumps version, and updates changelog. |
-| `/deploy-vercel` | Deploys site/app directly to Vercel (production or preview modes). |
-| `/vercel-token-deploy`| Non-interactive Vercel CLI deploy using environment tokens. |
-| `/qa` | Automated Playwright browser tests on your staging URL. |
+| `/deploy-to-vercel` | Deploys site/app directly to Vercel (production or preview modes). |
+| `/vercel-cli-with-tokens` | Non-interactive Vercel CLI deploy using environment tokens. |
 | `/cleanup` | Safely purges dead code, unreferenced exports, and unused packages. |
-| `/setup-pre-commit` | Sets up Husky pre-commit hooks (Prettier formatting, type checks, tests). |
+| `/web-perf` | Core Web Vitals profiling (LCP, INP, CLS) and render bottleneck analysis. |
+| `/web-security-testing` | OWASP security audit on web applications. |
 
 ---
 
@@ -114,33 +103,29 @@ The agent will suggest the next command at the end of each phase response based 
 
 | Command | What it does |
 | :--- | :--- |
+| `/marketing` (`marketing-suite`) | Master growth suite housing marketing plans, copywriting, CRO, offers, pricing, launch. |
 | `/marketing-plan` | Full growth marketing roadmap tailored to stage, audience, and ops stack. |
 | `/marketing-council` | Consults 12 legendary advisors (Ogilvy, Hormozi, Godin, Sutherland, etc.). |
 | `/no-ai-slop` / `/no-slop` | Sharp human copyeditor: strips banned AI words and false drama. |
-| `/launch` | Full launch strategy + Product Hunt & social asset generation. |
 | `/build-in-public` | Drafts voice-matched indie hacker posts based on shipped commits. |
-| `/ai-seo` & `/seo-audit` | Optimizes site for AI search engines (Perplexity/ChatGPT) and Google SERPs. |
-| `/copywriting` | High-converting landing page, headline, and email copy. |
+| `/scrapling-official` | Web scraping spider with anti-bot bypass and JS rendering. |
+| `/copywriting` | High-converting landing page, headline, and email copy (inside `marketing-suite`). |
 | `/pricing` & `/offers` | Value equation pricing packaging, tiers, bonuses, and guarantee design. |
 | `/cro` & `/ab-testing` | Funnel optimization, checkout improvements, and split test architecture. |
-| `/scrapling-official` | Web scraping spider with anti-bot bypass and JS rendering. |
-| `/cold-email` & `/referrals` | Outbound campaigns, prospecting lists, and viral referral mechanics. |
 
 ---
 
-### Phase 7 — Utility & Meta Skills
+### Phase 7 — Infrastructure & Tech Stacks
 
 | Command | What it does |
 | :--- | :--- |
+| `/cloudflare` (`cloudflare-suite`) | Workers, Agents SDK, Durable Objects, D1/KV/R2, Zero Trust. |
+| `/supabase` | Supabase Database, Auth, Edge Functions, RLS, and Postgres optimization. |
+| `/postgres` (`postgres-best-practices`) | Schema indexing, query tuning, and connection pooling. |
 | `/graphify` | Turns codebase/docs into a persistent knowledge graph with god nodes & visual report. |
-| `/dispatching-parallel-agents` | Structured subagent orchestration with task boundaries. |
-| `/wait-what` | Re-explains the last agent step in plain English if it didn't land. |
-| `/teach` | Multiphase concept tutoring. |
-| `/writing-for-agents` | Reference for writing clean documentation and custom rules. |
-| `/git-guardrails` | Block dangerous git commands (push, reset --hard, etc.) in agent environments. |
-| `/code-tour` | Creates CodeTour `.tour` files for step-by-step codebase walkthroughs. |
 | `/pdf` | Reads, extracts, converts, merges, and manipulates PDF documents. |
 | `/xlsx` | Reads, edits, converts, and creates Excel spreadsheets. |
+
 
 ---
 

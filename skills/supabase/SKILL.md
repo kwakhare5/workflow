@@ -1,10 +1,22 @@
 ---
 name: supabase
-description: "Use when doing ANY task involving Supabase. Triggers: Supabase products (Database, Auth, Edge Functions, Realtime, Storage, Vectors, Cron, Queues); client libraries and SSR integrations (supabase-js, @supabase/ssr) in Next.js, React, SvelteKit, Astro, Remix; auth issues (login, logout, sessions, JWT, cookies, getSession, getUser, getClaims, RLS); Supabase CLI or MCP server; schema changes, migrations, security audits, Postgres extensions (pg_graphql, pg_cron, pg_vector). Also covers Postgres performance optimization, query tuning, indexing, and schema design."
-keywords: ["supabase", "postgres", "database", "auth", "edge", "functions", "realtime", "storage", "vectors", "rls", "migrations", "security"]
+description: Complete Supabase toolkit covering Database, Auth, Edge Functions, RLS security policies, and Postgres queries.
+keywords:
+- supabase
+- postgres
+- database
+- auth
+- edge
+- functions
+- realtime
+- storage
+- vectors
+- rls
+- migrations
+- security
 metadata:
   author: supabase
-  version: "0.2.0"
+  version: 0.2.0
 ---
 
 # Supabase

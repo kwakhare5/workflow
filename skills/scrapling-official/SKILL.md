@@ -1,19 +1,19 @@
 ---
 name: scrapling-official
-description: Scrape web pages using Scrapling with anti-bot bypass (like Cloudflare Turnstile), stealth headless browsing, spiders framework, adaptive scraping, and JavaScript rendering. Use when asked to scrape, crawl, or extract data from websites; web_fetch fails; the site has anti-bot protections; write Python code to scrape/crawl; or write spiders.
-version: "0.4.11"
+description: Web scraping engine with anti-bot bypass, stealth headless browsing, and JS rendering.
+version: 0.4.11
 license: Complete terms in LICENSE.txt
 metadata:
-  homepage: "https://scrapling.readthedocs.io/en/latest/index.html"
+  homepage: https://scrapling.readthedocs.io/en/latest/index.html
   openclaw:
-    emoji: "🕷️"
-    homepage: "https://scrapling.readthedocs.io/en/latest/index.html"
+    emoji: "\U0001F577\uFE0F"
+    homepage: https://scrapling.readthedocs.io/en/latest/index.html
     requires:
       bins:
-        - python3
+      - python3
       anyBins:
-        - pip
-        - pip3
+      - pip
+      - pip3
 ---
 
 # Scrapling

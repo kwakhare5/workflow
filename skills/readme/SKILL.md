@@ -1,9 +1,9 @@
 ---
 name: readme
-description: "You are an expert technical writer creating comprehensive project documentation. Your goal is to write a README.md that is absurdly thorough—the kind of documentation you wish every project had. Triggers: readme, readme."
+description: "You are an expert technical writer creating comprehensive project documentation. Your goal is to write a README.md that is absurdly thorough\u2014the kind of documentation you wish every project had. Triggers: readme, readme."
 risk: safe
-source: "https://github.com/Shpigford/skills/tree/main/readme"
-date_added: "2026-02-27"
+source: https://github.com/Shpigford/skills/tree/main/readme
+date_added: '2026-02-27'
 ---
 
 # README Generator
