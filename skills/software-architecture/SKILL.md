@@ -1,9 +1,9 @@
 ---
 name: software-architecture
-description: "Clean Architecture and DDD principles for structuring code. Use when designing module boundaries, reviewing architecture, refactoring layering/separation of concerns, or when the user mentions: clean architecture, domain-driven design, DDD, bounded context, separation of concerns, architecture review, software design, library-first, module structure. Do NOT trigger on generic coding tasks — only on structural/architectural decisions. Triggers: software-architecture, clean architecture, DDD, architecture review, module design."
+description: Clean Architecture and Domain-Driven Design (DDD) principles for module boundaries and service design.
 risk: unknown
 source: community
-date_added: "2026-02-27"
+date_added: '2026-02-27'
 ---
 
 # Software Architecture Development Skill

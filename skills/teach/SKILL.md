@@ -3,9 +3,31 @@ name: teach
 description: Teach the user a new skill or concept, within this workspace.
 disable-model-invocation: true
 argument-hint: "What would you like to learn about?"
+category: "education"
+risk: "safe"
+source: "community"
+source_repo: "mattpocock/skills"
+source_type: "community"
+date_added: "2026-06-19"
+author: "Matt Pocock"
+license: "MIT"
+license_source: "https://github.com/mattpocock/skills/blob/main/LICENSE"
+tags:
+  - education
+  - workflow
+  - coding-agents
+tools:
+  - claude-code
+  - codex-cli
+  - cursor
 ---
 
-The user has asked you to teach them something. This is a stateful request - they intend to learn the topic over multiple sessions.
+## When to Use
+
+Use when this workflow matches the user request: Teach the user a new skill or concept, within this workspace.
+
+
+_Source: [mattpocock/skills](https://github.com/mattpocock/skills) (MIT)._The user has asked you to teach them something. This is a stateful request - they intend to learn the topic over multiple sessions.
 
 ## Teaching Workspace
 
@@ -138,3 +160,10 @@ Glossaries, in particular, are an essential reference. Once one is created, it s
 ## `NOTES.md`
 
 The user will sometimes express preferences of how they want to be taught, or things you should keep in mind. This is the place to record those preferences, so you can refer back to them when designing lessons or working with the user.
+
+
+## Limitations
+
+- Requires the upstream tool, account, API key, or local setup when the workflow names one.
+- Does not authorize destructive, production, paid, or external-message actions without explicit user approval.
+- Validate generated artifacts or recommendations against the user's real sources before treating them as final.

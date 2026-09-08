@@ -5,6 +5,18 @@ description: This skill encodes Emil Kowalski's philosophy on UI polish, compone
 
 # Design Engineering
 
+## When to Use
+
+- Use when the user asks for UI polish, product design critique, animation direction, or high-craft component decisions.
+- Use when reviewing frontend code for motion quality, easing, duration, physicality, interaction feedback, or subtle interface details.
+- Use when building or refining React, Tailwind, CSS, or Framer Motion interfaces where taste and perceived quality matter.
+
+## Limitations
+
+- This skill provides design engineering judgment; it does not replace project-specific product requirements, accessibility testing, or real-device motion review.
+- Verify framework versions, installed dependencies, and rendered behavior before treating animation or UI recommendations as production-ready.
+- Do not apply these rules mechanically when an existing brand system, platform convention, or user requirement calls for a different interaction language.
+
 ## Initial Response
 
 When this skill is first invoked without a specific question, respond only with:
@@ -45,7 +57,7 @@ When reviewing UI code, you MUST use a markdown table with Before/After columns.
 | `transform: scale(0)` | `transform: scale(0.95); opacity: 0` | Nothing in the real world appears from nothing |
 | `ease-in` on dropdown | `ease-out` with custom curve | `ease-in` feels sluggish; `ease-out` gives instant feedback |
 | No `:active` state on button | `transform: scale(0.97)` on `:active` | Buttons must feel responsive to press |
-| `transform-origin: center` on popover | `transform-origin: var(--transform-origin)` | Popovers should scale from their trigger (not modals — modals stay centered) |
+| `transform-origin: center` on popover | `transform-origin: var(--radix-popover-content-transform-origin)` | Popovers should scale from their trigger (not modals — modals stay centered) |
 
 Wrong format (never do this):
 
@@ -236,6 +248,11 @@ Start from `scale(0.9)` or higher, combined with opacity. Even a barely-visible 
 Popovers should scale in from their trigger, not from center. The default `transform-origin: center` is wrong for almost every popover. **Exception: modals.** Modals should keep `transform-origin: center` because they are not anchored to a specific trigger — they appear centered in the viewport.
 
 ```css
+/* Radix UI */
+.popover {
+  transform-origin: var(--radix-popover-content-transform-origin);
+}
+
 /* Base UI */
 .popover {
   transform-origin: var(--transform-origin);
@@ -664,7 +681,7 @@ When reviewing UI code, check for:
 | `transition: all`                          | Specify exact properties: `transition: transform 200ms ease-out` |
 | `scale(0)` entry animation                 | Start from `scale(0.95)` with `opacity: 0`                       |
 | `ease-in` on UI element                    | Switch to `ease-out` or custom curve                             |
-| `transform-origin: center` on popover      | Set to trigger location or use Base UI's `var(--transform-origin)` (modals are exempt — keep centered) |
+| `transform-origin: center` on popover      | Set to trigger location or use Radix/Base UI CSS variable (modals are exempt — keep centered) |
 | Animation on keyboard action               | Remove animation entirely                                        |
 | Duration > 300ms on UI element             | Reduce to 150-250ms                                              |
 | Hover animation without media query        | Add `@media (hover: hover) and (pointer: fine)`                  |
