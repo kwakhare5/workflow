@@ -1,0 +1,168 @@
+{
+  "version": "4.0.0",
+  "description": "Regression fixtures for proof-led X and LinkedIn drafting. Mechanical checks are necessary but metric honesty and one-tension quality require semantic review against source_evidence.",
+  "global_rules": {
+    "x_max_characters": 280,
+    "banned_openers": [
+      "today i worked on",
+      "worked on",
+      "progress update",
+      "building in public day",
+      "excited to share"
+    ],
+    "banned_terms": [
+      "#buildinpublic",
+      "#saas",
+      "excited to announce",
+      "thrilled",
+      "game changer",
+      "unpacking",
+      "robust",
+      "seamless"
+    ],
+    "ban_hashtags": true,
+    "ban_decorative_emoji": true,
+    "ban_commit_hashes_in_copy": true,
+    "ban_file_paths_in_copy": true,
+    "required_primary_artifact_count": 1,
+    "minimum_passing_score": 8
+  },
+  "fixtures": [
+    {
+      "id": "orchestrator-2078-to-899",
+      "platform": "x",
+      "source_evidence": {
+        "project": "Grocer",
+        "tension": "One orchestrator had become a 2,078-line owner of unrelated responsibilities.",
+        "changes": [
+          "Split checkout, choices, tracking, address, and payment into focused boundaries."
+        ],
+        "proof": "The orchestrator fell from 2,078 to 899 lines, a reduction of 1,179 lines or 57%, while 381 backend tests remained green.",
+        "metric_context": "Repository line count and local backend test suite.",
+        "still_unproven": "Deployment re-verification is still pending."
+      },
+      "expected_candidates_min": 1,
+      "required_claims": ["2,078", "899", "381"],
+      "forbidden_claims": ["production verified", "zero risk"],
+      "required_primary_artifact": "before/after diff stat or terminal test result",
+      "required_final_limit": "deployment re-verification is still pending",
+      "semantic_expectations": [
+        "Lead with the 2,078-line problem or the 2,078 to 899 result.",
+        "Do not list internal module or file names.",
+        "Explain at most one causal change: splitting unrelated responsibilities.",
+        "Do not equate green local tests with production confidence."
+      ],
+      "bad_draft": "today i worked on refactoring orchestrator.ts into robust checkout, choices, tracking, address and payment modules. shipped! 🚀 #buildinpublic",
+      "reference_x_draft": "my grocery agent had a 2,078-line orchestrator.\n\none file knew everything. very advanced architecture.\n\ni split its unrelated jobs: 2,078 → 899 lines, with 381 tests still green.\n\ndeployment re-verification is still pending."
+    },
+    {
+      "id": "honest-recovery-metric",
+      "platform": "x",
+      "source_evidence": {
+        "project": "Grocer",
+        "tension": "A 100% recovery metric was technically true but measured the wrong path.",
+        "changes": [
+          "Moved the benchmark onto the real production-shaped path."
+        ],
+        "proof": "The new benchmark measured 37.5% autonomous recovery, 62.5% safe clarification, and 0% unhandled failure.",
+        "metric_context": "Benchmark on the production-shaped path; preserve all three outcome classes and the fixture's sample context if available.",
+        "still_unproven": "The benchmark is not evidence of live production reliability."
+      },
+      "expected_candidates_min": 1,
+      "required_claims": ["37.5%", "62.5%", "0%"],
+      "forbidden_claims": ["100% recovery", "production reliability proven"],
+      "required_primary_artifact": "benchmark output showing all outcome classes",
+      "required_final_limit": "the benchmark is not live production reliability",
+      "semantic_expectations": [
+        "Say the old 100% number was misleading.",
+        "Do not collapse safe clarification into autonomous recovery.",
+        "Keep the benchmark environment explicit.",
+        "Express the rule that a smaller honest number beats a perfect fake one without turning it into unsupported advice."
+      ],
+      "bad_draft": "grocer now has 100% recovery in production. the agent handles everything automatically.",
+      "reference_x_draft": "grocer had a 100% recovery metric.\n\nit was technically true and practically misleading.\n\non the real path: 37.5% recovered alone, 62.5% stopped to clarify, 0% failed unhandled.\n\nthat benchmark is still not live production reliability."
+    },
+    {
+      "id": "dense-entry-splits-into-several-tensions",
+      "platform": "both",
+      "source_evidence": {
+        "project": "Grocer",
+        "journal_entry": "Added a durable ShoppingTask model and deterministic reducer; introduced a provider-cart adoption gate; added catalogue resolution for ambiguous items; created PostgreSQL inbox/outbox boundaries; 397 of 397 backend tests pass. The legacy runtime remains active until the replacement is fully wired and replay-proven.",
+        "metric_context": "Local backend test suite; replacement path is not the live runtime."
+      },
+      "expected_candidates_min": 3,
+      "expected_distinct_tensions": [
+        "A durable task must survive retries and replay.",
+        "An existing provider cart cannot be adopted or cleared silently.",
+        "Ambiguous catalogue items must be resolved before cart mutation.",
+        "397 tests can pass while the replacement remains non-live."
+      ],
+      "required_primary_artifact_per_candidate": 1,
+      "semantic_expectations": [
+        "Do not summarize all changes in one post.",
+        "Produce at least three candidates with different tensions.",
+        "Each candidate has its own proof and source-grounded limitation.",
+        "Translate ShoppingTask, reducer, inbox/outbox, and provider-cart gate into user-visible behavior unless an exact term is the subject.",
+        "X and LinkedIn versions of the same candidate preserve identical claims."
+      ],
+      "bad_draft": "implemented ShoppingTask, reducer, cart adoption, catalogue resolver and postgres inbox/outbox. 397 tests pass. huge shipping day.",
+      "reference_candidate_summaries": [
+        "A retried message should not change the grocery task twice.",
+        "The agent must ask before touching a cart that already has items.",
+        "Ambiguous catalogue matches should stop the cart instead of guessing.",
+        "397 tests pass, but the replacement path is not live or replay-proven."
+      ]
+    },
+    {
+      "id": "green-tests-not-production-confidence",
+      "platform": "linkedin",
+      "source_evidence": {
+        "project": "Grocer",
+        "tension": "All 397 backend tests pass, but the permanent commerce path is not ready to replace the legacy runtime.",
+        "changes": [
+          "Built the replacement around durable state and deterministic transitions."
+        ],
+        "proof": "397 of 397 backend tests passed; lint and build passed.",
+        "metric_context": "Automated backend tests, lint, and local/CI build. No claim of live provider replay.",
+        "still_unproven": "The path is not fully wired, live-provider tested, or replay-proven."
+      },
+      "expected_candidates_min": 1,
+      "required_claims": ["397 of 397"],
+      "forbidden_claims": ["production ready", "fully reliable", "shipped to users"],
+      "required_primary_artifact": "test output plus a small release-gate checklist crop, with test output declared primary",
+      "required_final_limit": "not fully wired, live-provider tested, or replay-proven",
+      "semantic_expectations": [
+        "Open with the mismatch between green tests and readiness.",
+        "Give enough context for a reader unfamiliar with Grocer.",
+        "Do not add a generic inspirational moral.",
+        "If inviting trials, limit the invitation to a flow that is actually available."
+      ],
+      "bad_draft": "397 tests pass, so Grocer is production ready. Agree? #AI #startup",
+      "reference_linkedin_draft": "397 of 397 backend tests pass. Grocer still is not ready to replace its old shopping flow.\n\nGrocer turns grocery requests into a basket, so a retry or ambiguous item cannot be allowed to change the cart twice or guess what someone meant. I rebuilt the replacement around durable task state and deterministic transitions.\n\nThe backend tests, lint, and build are green. The test output is the proof for this update.\n\nThe new path is not fully wired, live-provider tested, or replay-proven yet."
+    },
+    {
+      "id": "mechanical-hygiene-negative",
+      "platform": "x",
+      "source_evidence": {
+        "project": "Git for Prompts",
+        "tension": "A prompt change passed a local eval but cloud sync remained untested.",
+        "proof": "Local eval result screenshot.",
+        "still_unproven": "Cloud sync is untested."
+      },
+      "expected_candidates_min": 1,
+      "required_primary_artifact": "local eval screenshot",
+      "required_final_limit": "cloud sync is untested",
+      "mechanical_failures_expected_in_bad_draft": [
+        "banned opener",
+        "file path",
+        "commit hash",
+        "decorative emoji",
+        "hashtag",
+        "banned language",
+        "missing honest final line"
+      ],
+      "bad_draft": "today i worked on src/evals/runner.ts at a8f31b2 and implemented a robust sync engine 🚀 #buildinpublic",
+      "reference_x_draft": "one prompt change passed the local eval.\n\nthe useful part was seeing the behavior change before pushing it anywhere.\n\nproof is the local eval result.\n\ncloud sync is still untested."
+    }
+  ]
+}

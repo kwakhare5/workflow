@@ -114,17 +114,19 @@ This playbook is the primary operational manual for pair programming, slash comm
 | Trigger | Skill | What It Does |
 | :--- | :--- | :--- |
 | `/marketing` | `marketing-suite` | Master growth suite housing 44 playbooks: Hormozi offers, Ogilvy copywriting, CRO, pricing, ads, AI SEO, and launch roadmaps. |
-| `/build-in-public` | `build-in-public` | Aggressive X growth engine: zero-clutter X engine: auto-mines `JOURNAL.md` + git, subtle emojis, capture timing, grounded replies. |
+| `/build-in-public` | `build-in-public` | Mines real journal and git evidence into proof-led X and LinkedIn posts, selects a weekly main project, drafts grounded replies, and checks every draft for one tension, one artifact, honest metrics, and an unfinished truth. |
 | `/no-slop` | `no-ai-slop` | Human copyeditor: strips banned AI words, corporate speak, and false drama. |
 
 #### Sub-commands for `/build-in-public`:
-- `/build-in-public`: Interactive Control Menu (Goal + Tone + Mode).
-- `/build-in-public quick`: Instantly draft 3 single tweets (<280 chars) from today's `JOURNAL.md`.
-- `/build-in-public fallback`: Zero-friction low-energy mode when tired or stuck.
-- `/build-in-public reply "<tweet>"`: 3 grounded value replies to a specific tweet.
-- `/build-in-public reply`: 60-second strategy guide and target account cheat sheet.
-- `/build-in-public launch`: Full launch day package (main tweet, link reply, proof visual).
-- `/build-in-public review [draft]`: Critique tweet draft with 1-10 scoring and rewrite.
+- `/build-in-public`: Best grounded X drafts from the current project's evidence.
+- `/build-in-public weekly`: Score active projects and select one main story plus an optional secondary.
+- `/build-in-public stuck`: Draft from a real failure, ambiguity, deletion, or unresolved state without inventing progress.
+- `/build-in-public x`: Render selected evidence for X.
+- `/build-in-public linkedin`: Render selected evidence for LinkedIn.
+- `/build-in-public both`: Produce separate X and LinkedIn versions from the same evidence card.
+- `/build-in-public reply "<post text or link>"`: Draft grounded reply options from the actual target post and real project evidence.
+- `/build-in-public review <draft>`: Score the draft with the v4 rubric and rewrite any result below 8/10 or any hard-rule failure.
+- `/build-in-public thread`: Use one tension for a real sequence or postmortem.
 
 ---
 

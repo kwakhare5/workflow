@@ -19,8 +19,8 @@
 ### Session End (conditional on significant changes)
 1. Summarize changes in 3–5 crisp bullets.
 2. Update Section 7: SESSION RESUME in the local project's `.agents/AGENTS.md` (if in a project workspace).
-3. Prepend or merge a dated entry under `## Log Entries` in `JOURNAL.md` (strictly ONE date heading `### [Project — Summary] YYYY-MM-DD` per calendar date).
-4. Ask: "Session logged to JOURNAL.md. Draft X post now with /build-in-public?"
+3. Prepend or merge today's project heading in JOURNAL.md. Record one or more work cards using Problem / tension, Change / decision, Proof, Still broken / unproven, Metric context, optional Question, optional Trial-ready flow, and Engineering references. Never add a Vibe field.
+4. Ask: "Session logged to JOURNAL.md. Mine this entry into separate proof-led X or LinkedIn tensions with /build-in-public?"
 
 ## 3. CODING LOOP (SIMPLIFIED MATT POCOCK WORKFLOW)
 
@@ -106,7 +106,7 @@ Zero preload waste. The agent inspects the user's sentence/intent, loads ONLY th
 | Debugging / failing tests | `diagnosing-bugs` or `tdd` | implement |
 | Copywriting & Anti-Slop | `no-ai-slop` or `marketing-suite` | grill, implement |
 | Marketing & Growth Strategy | `marketing-suite` | grill, implement |
-| Tweets / content / public log | `build-in-public` | grill, implement |
+| X / LinkedIn posts, weekly project selection, public build logs, grounded replies, product-trial invitations | `build-in-public` | grill, implement |
 | Deploy / Vercel | `deploy-to-vercel` | implement, review |
 | Web Security Audit | `web-security-testing` | review |
 | Performance Profiling | `web-perf` | review |
