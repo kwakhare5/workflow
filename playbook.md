@@ -114,18 +114,19 @@ This playbook is the primary operational manual for pair programming, slash comm
 | Trigger | Skill | What It Does |
 | :--- | :--- | :--- |
 | `/marketing` | `marketing-suite` | Master growth suite housing 44 playbooks: Hormozi offers, Ogilvy copywriting, CRO, pricing, ads, AI SEO, and launch roadmaps. |
-| `/build-in-public` | `build-in-public` | Mines real journal and git evidence into proof-led X and LinkedIn posts, selects a weekly main project, drafts grounded replies, and checks every draft for one tension, one artifact, honest metrics, and an unfinished truth. |
+| `/build-in-public` | `build-in-public` | Mines real journal and git evidence into proof-led X and LinkedIn posts, runs the daily 15-minute routine, deploys the Anchor Reply Engine, prioritizes silent video proof, and checks every draft for tension, taste, and unfinished truth. |
 | `/no-slop` | `no-ai-slop` | Human copyeditor: strips banned AI words, corporate speak, and false drama. |
 
 #### Sub-commands for `/build-in-public`:
-- `/build-in-public`: Best grounded X drafts from the current project's evidence.
+- `/build-in-public`: Best grounded X drafts from current evidence (Template A technical or Template B taste/teardown).
+- `/build-in-public routine`: 15-minute daily protocol (10–15 Anchor Account replies + 1 proof post).
 - `/build-in-public weekly`: Score active projects and select one main story plus an optional secondary.
 - `/build-in-public stuck`: Draft from a real failure, ambiguity, deletion, or unresolved state without inventing progress.
 - `/build-in-public x`: Render selected evidence for X.
 - `/build-in-public linkedin`: Render selected evidence for LinkedIn.
 - `/build-in-public both`: Produce separate X and LinkedIn versions from the same evidence card.
-- `/build-in-public reply "<post text or link>"`: Draft grounded reply options from the actual target post and real project evidence.
-- `/build-in-public review <draft>`: Score the draft with the v4 rubric and rewrite any result below 8/10 or any hard-rule failure.
+- `/build-in-public reply "<post text or link>"`: Draft grounded reply options for anchor accounts.
+- `/build-in-public review <draft>`: Score the draft with the review rubric and rewrite any result below 8/10 or hard-rule failure.
 - `/build-in-public thread`: Use one tension for a real sequence or postmortem.
 
 ---

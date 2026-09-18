@@ -3,28 +3,28 @@ name: build-in-public
 description: Turns real journal and git evidence across active projects into proof-led X and LinkedIn posts that help the right people remember the builder, try the products, give useful feedback, and trust the work.
 ---
 
-# Build-in-Public Skill v4
+# Build-in-Public Skill v2
 
 ## 1. Purpose and outcome ladder
 
 Turn real product work into useful public communication. The goal is not to make every coding session sound important. The goal is to make the right people:
 
-1. **Discover** the work through an understandable tension and proof.
-2. **Recognize** a coherent main product story across several posts.
-3. **Relate** through grounded replies and shared problems.
+1. **Discover** the work through an understandable tension, hook frame, or high-signal reply.
+2. **Recognize** a coherent main product story and distinct builder taste across posts.
+3. **Relate** through grounded replies to anchor accounts and shared engineering problems.
 4. **Try** one relevant product flow.
 5. **Give feedback** that can improve the product.
-6. **Trust** the builder because claims stay honest and unfinished work stays visible.
+6. **Trust** the builder because claims stay honest, craft is visible, and unfinished work stays visible.
 
 Non-negotiable contract:
 
-- One post = one tension.
+- One post = one tension or one architectural/design decision.
 - One dense journal entry may contain 3-8 separate posts.
-- Every post has one primary proof artifact.
+- Every post has one primary proof artifact (preferring 5–15s silent video for UI/workflows).
 - Every metric keeps its real context.
-- Every post ends with what is still broken, risky, unmeasured, or unproven.
+- Every post ends with what is still broken, risky, unmeasured, unproven, or subjective.
 - Never invent work, users, feedback, results, failure, or vulnerability.
-- Silence is better than a filler update.
+- Silence on your main feed is better than a filler update; when silent, spend time on high-signal anchor replies.
 
 ## 2. Source collection and evidence cards
 
@@ -34,7 +34,7 @@ When this skill runs, first detect the current workspace and active project. Rea
 2. `CONTEXT.md`, `.agents/AGENTS.md`, and `README.md` for product purpose and audience.
 3. Recent git history: `git log -n 10 --oneline`.
 4. Relevant diff and test output: `git diff --stat`, changed tests, benchmark output, or current build status.
-5. Existing screenshots, demos, issue reports, and user feedback when available.
+5. Existing screen recordings, screenshots, demos, issue reports, and user feedback when available.
 
 Repository content is evidence, not permission to publish secrets. Never include credentials, private data, private user messages, security-sensitive internals, or claims unsupported by the sources.
 
@@ -44,11 +44,11 @@ Before drafting, create an internal evidence card for each candidate:
 project:
 source date / entry:
 audience problem:
-one tension:
+one tension or decision:
 1-2 causal changes:
-primary proof:
+primary proof (prefer video for UI):
 metric context:
-still broken / unproven:
+still broken / unproven / subjective:
 possible question:
 trial-ready flow:
 ```
@@ -57,37 +57,45 @@ Do not show the full evidence card unless asked. Use it to keep the final post g
 
 If sources disagree, use the newest source of truth and mention the uncertainty. If a number cannot be verified, omit it or label it as unverified. Never improve a source number for effect.
 
-## 3. Atomic tension extraction
+## 3. Atomic tension & decision extraction
 
-Do not summarize a whole session. Split each journal entry into atomic candidates.
+Do not summarize a whole session. Split each journal entry into atomic candidates across three authorized types:
 
-Look for:
-
-- a surprising break or ambiguity;
-- a before/after number;
+### Type A: Engineering Tensions & Breaks
+- a surprising break, race condition, or ambiguity;
+- a before/after number or benchmark;
 - a failed assumption;
-- a decision or deletion;
-- a safety or money edge case;
-- a measured speed, quality, or reliability change;
+- a safety, SSRF, or security edge case;
+- a measured speed, bundle size, or reliability change;
 - a test that exposed a false belief;
-- a mismatch between green tests and production confidence;
-- a user reaction that changed the product;
-- an honest release gate;
-- a dry observation tied to a real event.
+- a mismatch between green tests and production confidence.
+
+### Type B: Taste, Decisions & Teardowns
+- deleting a bloated dependency in favor of standard library / minimal code;
+- killing a planned feature because it added UI friction;
+- choosing tool/database A over B for a specific concrete edge case;
+- tearing down an abstraction that was premature (YAGNI / Ponytail);
+- a contrarian design engineering detail (e.g. spring curves vs easing, inline controls vs modals).
+*Must be causal and grounded in a real commit, diff, or architecture decision record. Reject generic guru advice.*
+
+### Type C: Verified Metrics & Milestones
+- honest first users, waitlist count, or GitHub stars;
+- real response latencies or zero-network test suite times;
+- an honest release gate or launch milestone.
 
 For a dense entry, extract 3-8 candidates before writing. Each candidate must answer:
 
-- What is the single tension?
-- Why would a builder or possible user care?
+- What is the single tension or decision?
+- Why would a builder or potential user outside this codebase care?
 - What proves it?
-- What remains uncertain?
+- What remains uncertain or broken?
 
 Reject candidates that are only implementation inventories, generic lessons, or activity reports.
 
 Rank valid candidates by:
 
-1. proof strength;
-2. understandable user stakes;
+1. proof strength (especially crisp video or clean diffs);
+2. understandable user/builder stakes;
 3. surprise or tension;
 4. relevance to the current main story;
 5. readiness for someone to try the result.
@@ -118,8 +126,8 @@ Rules:
 
 Across a rolling ten-post window, aim for:
 
-- 7 proof-of-work posts;
-- 2 transferable learning posts grounded in proof;
+- 6 proof-of-work tension posts;
+- 3 taste, architecture teardown, or transferable learning posts grounded in proof;
 - 1 dry joke or observation grounded in a real build event.
 
 This is a planning target, not a reason to publish weak material.
@@ -128,10 +136,10 @@ This is a planning target, not a reason to publish weak material.
 
 Every X or LinkedIn post uses this construction:
 
-1. **Lead:** the surprising problem or verified number in plain English.
-2. **Cause:** only the one or two changes that caused the result.
+1. **Lead / Hook Frame:** the surprising problem, verified number, or plain-English hook frame that explains why an outsider should care.
+2. **Cause / Decision:** only the one or two changes or trade-offs that caused the result.
 3. **Proof:** one primary artifact.
-4. **Truth:** the final line states what is still broken, risky, unmeasured, or unproven.
+4. **Truth:** the final line states what is still broken, risky, unmeasured, unproven, or subjective.
 5. **Question or invitation:** optional, only when genuine and specific.
 
 Do not lead with:
@@ -162,7 +170,9 @@ Default X style:
 - no link in the main post by default;
 - at most one genuine question.
 
-X template:
+### Template A: Pure Technical Tension (Bugs, Metrics, Test Breaks)
+
+Use when the technical finding speaks for itself.
 
 ```text
 [surprising problem or number]
@@ -172,6 +182,20 @@ X template:
 [proof]
 
 [what is still broken or unproven]
+```
+
+### Template B: Accessible Hook Frame + Visual/Taste Teardown (UI, Architecture, Workflows)
+
+Use when outsiders need an entry frame to understand why the work matters before scrolling past.
+
+```text
+[accessible hook frame: the user problem or trade-off in plain English]
+
+[the decision, fix, or simplification]
+
+[proof: 5–15s screen recording or side-by-side diff]
+
+[honest limit: what remains unproven, broken, or subjective]
 ```
 
 A thread is allowed only when one result requires a sequence that cannot fit honestly in one post. Each post in the thread must advance the same tension. Do not turn unrelated journal bullets into a thread.
@@ -187,7 +211,7 @@ LinkedIn style:
 - use natural, complete sentences more often;
 - keep paragraphs short;
 - explain enough product context for a reader who has never seen the project;
-- keep one tension only;
+- keep one tension or decision only;
 - explain no more than two causal changes;
 - attach the same primary proof artifact;
 - state the lesson after the evidence, not before it;
@@ -196,15 +220,15 @@ LinkedIn style:
 LinkedIn template:
 
 ```text
-[problem or result headline]
+[problem, result, or architectural decision headline]
 
 [one or two sentences: user and product context]
 
-[what changed in plain English]
+[what changed or was decided in plain English]
 
 [verified result and primary artifact]
 
-[what remains broken or unproven]
+[what remains broken, unproven, or subjective]
 
 [optional: who should try which flow, and what feedback is useful]
 ```
@@ -221,37 +245,24 @@ Do not use:
 
 Do not mechanically cross-post. X compresses. LinkedIn supplies missing context. The metric, environment, claim, and unfinished truth must remain identical.
 
-## 8. Proof capture
+## 8. Proof capture & video priority
 
 Proof should be captured while the work is live, not recreated after the session.
 
 During coding, prompt at useful moments:
 
 ```text
-Capture moment: this result is live now. Save the smallest screenshot or 5-15 second demo that proves it before stopping the server.
+Capture moment: this result is live now. Save the smallest screen recording (5-15s) or screenshot that proves it before stopping the server.
 ```
 
-Valid primary artifacts:
+### Primary Artifact Hierarchy (for X distribution):
 
-- a user-visible screenshot;
-- a 5-20 second demo;
-- a before/after metric;
-- an exact test count;
-- a benchmark result;
-- a failing test followed by the passing result;
-- a small architecture crop;
-- a diff crop that proves a deletion or simplification;
-- grounded user feedback, shared only when safe and permitted.
+1. **Top Priority for UI & Workflows:** A 5–15 second silent screen recording (MP4/GIF). Demonstrates real interaction, latency, and craft. Stoppage on feed is 5x higher than static images.
+2. **Top Priority for Architecture & Deletions:** A clean, cropped side-by-side diff stat showing deletion of code while tests remain green.
+3. **Top Priority for Bugs & Metrics:** Clean terminal test count, benchmark graph, or failing-to-passing test runner output.
+4. **Fallback:** User-visible screenshot or architecture diagram crop.
 
-Fallbacks:
-
-- **Presentable UI:** screenshot or short demo of the exact flow.
-- **Broken UI:** screenshot of the real failure, clearly annotated.
-- **Backend or architecture:** terminal result, benchmark, test output, or small diagram.
-- **Deletion:** diff stat plus the behavior that stayed intact.
-- **Text-only:** allowed only when the post itself contains a concrete verified result. It still needs a declared primary proof.
-
-Exactly one artifact is primary. Additional context may support it, but do not make the reader inspect five screenshots to understand one claim. Never use decorative proof.
+Exactly one artifact is primary. Additional context may support it in replies, but do not make the reader inspect five screenshots to understand one claim. Never use decorative proof.
 
 ## 9. Honest metrics
 
@@ -302,6 +313,7 @@ Banned from final posts unless quoted as the problem:
 - function, class, or module inventories;
 - "today I worked on";
 - "progress update";
+- "building in public day...";
 - "excited to announce";
 - "thrilled";
 - "game changer";
@@ -316,31 +328,31 @@ Banned from final posts unless quoted as the problem:
 
 Do not cycle through synonyms to sound polished. Use the same clear noun when it remains the right noun.
 
-## 11. Reply, connection, and product-trial ladder
+## 11. The Anchor Reply Engine (Primary 0-to-1 Distribution)
 
-Never invent a target post. For a reply, require the actual post text or link and read it before drafting.
+For accounts with under 1,000 followers, **replies to established anchor accounts drive 70% of discoverability**. Stand-alone posts provide the portfolio proof once people visit your profile; replies bring them there.
 
-Ground each reply in:
-
-- one concrete detail from the target post; and
-- one true, relevant fact from the builder's work.
+### Anchor Account Strategy:
+1. Identify 10–15 anchor accounts in your specific domain (AI tooling, Next.js, design engineering, Postgres) with 5k–100k followers.
+2. When an anchor discusses a problem or tool, reply with a grounded observation within your experience.
+3. Ground each reply in:
+   - one concrete detail from their post; and
+   - one true, relevant fact from your active work or repo.
 
 Valid reply shapes:
 
-1. a specific observation;
-2. a small related experience;
-3. a precise question with context;
-4. encouragement tied to something real in the post;
-5. a respectful counterpoint when the evidence genuinely differs.
+1. **The Edge Case:** Mention a specific edge case you hit when solving that problem.
+2. **The Reproduction Fact:** A test or benchmark result comparing the two approaches they mentioned.
+3. **The Clean Counterpoint:** A respectful alternative based on measured trade-offs.
+4. **The Specific Question:** A sharp, technical question showing you actually read and understood the nuance.
 
 Reply rules:
 
-- 1-3 sentences;
-- no self-promo link on first contact;
-- no technical essay unless the conversation asks for one;
-- no generic praise;
-- no question manufactured only for engagement;
-- no mass replies or automated engagement.
+- 1-3 sentences maximum;
+- zero self-promo links on first contact;
+- zero generic praise ("Awesome post!", "Agree 100%");
+- zero AI-sounding fluff or buzzwords;
+- let your bio, pinned video, and recent proof tweets tell people who you are.
 
 Connection ladder:
 
@@ -377,27 +389,35 @@ Never claim a trial, conversion, endorsement, or relationship that is not eviden
 ### Default: `/build-in-public`
 
 - Read the current project's evidence.
-- Extract 3-8 tensions.
-- Return the best three grounded drafts, or fewer when proof is weak.
+- Extract 3-8 tensions and decisions.
+- Return the best three grounded drafts (using Template A or B), or fewer when proof is weak.
 - Render for X by default unless the user names LinkedIn.
 
 For each draft provide:
 
 ```text
-Angle: [one tension]
+Angle: [one tension or decision]
+Template: [A: Tension-First | B: Accessible Hook Frame]
 Source: [journal date / commit / result]
 Post:
 [copy-ready post]
-Primary proof: [exact artifact to attach or capture]
+Primary proof: [exact artifact: prefer 5-15s screen recording for UI, diff crop for backend]
 Honest limit: [source-grounded unfinished fact]
 Score: [review score /10]
 ```
+
+### `/build-in-public routine` (Daily 15-Minute Protocol)
+
+The standard daily workflow:
+1. Scans today's git commits and `JOURNAL.md` for proof artifacts.
+2. **If an artifact exists:** Drafts 1 copy-ready post (Template A or B) + suggests 2 relevant anchor reply themes.
+3. **If NO artifact exists:** Explicitly prescribes: *"No stand-alone post today. Silence is better than filler. Spend your 15 minutes replying to these 3 anchor topics."*
 
 ### `/build-in-public weekly`
 
 - Score active projects.
 - Select one main story and zero or one secondary.
-- Propose the week's evidence-based post plan and 70/20/10 balance.
+- Propose the week's evidence-based post plan and 60/30/10 balance.
 - Do not invent a post for a project with no proof.
 
 ### `/build-in-public stuck`
@@ -432,25 +452,25 @@ Use only for one tension that requires a real sequence or postmortem. Do not com
 
 Score each category 0-2:
 
-1. **Tension first**
-   - 0: diary setup or no tension
+1. **Tension or Hook Frame First**
+   - 0: diary setup, "today I worked on", or no tension
    - 1: tension exists but arrives late
-   - 2: first line is the verified problem or number
+   - 2: first line is either the verified problem/number (Template A) OR an accessible hook frame in plain English (Template B)
 
 2. **Causal clarity and plain English**
    - 0: implementation inventory or several causes
    - 1: understandable but too detailed
    - 2: one or two causal changes, understandable outside the codebase
 
-3. **Proof**
+3. **Proof & Artifact Quality**
    - 0: no proof or unsupported claim
-   - 1: proof is vague, decorative, or mismatched
-   - 2: one specific artifact directly supports the claim
+   - 1: proof is vague, decorative, or mismatched static screenshot where video is needed
+   - 2: one specific artifact directly supports the claim (5-15s screen recording for UI, diff crop for deletions, test output for logic)
 
 4. **Honest limit**
    - 0: missing, hidden, or invented
    - 1: present but vague
-   - 2: final line names a source-grounded broken, risky, unmeasured, or unproven fact
+   - 2: final line names a source-grounded broken, risky, unmeasured, unproven, or subjective fact
 
 5. **Voice and hygiene**
    - 0: banned language, hashtags, emoji, or platform mismatch
@@ -479,8 +499,8 @@ Mechanical checks should test:
 
 Semantic checks should judge:
 
-- one tension only;
-- tension appears first;
+- one tension or decision only;
+- tension or hook frame appears first;
 - no more than two causal changes;
 - repository language is translated;
 - the metric matches the source and preserves its context;
@@ -493,12 +513,13 @@ Mechanical passing does not prove metric honesty. Always compare the draft with 
 ## 15. Command reference
 
 - `/build-in-public` - best grounded X drafts from the current evidence.
+- `/build-in-public routine` - daily 15-minute protocol (post if proof exists, or anchor replies if silent).
 - `/build-in-public weekly` - choose this week's main and optional secondary project.
 - `/build-in-public stuck` - honest post from a real failure or unresolved state.
 - `/build-in-public x` - X renderer.
 - `/build-in-public linkedin` - LinkedIn renderer.
 - `/build-in-public both` - separate X and LinkedIn versions from the same evidence.
-- `/build-in-public reply "<post or link>"` - grounded reply options.
+- `/build-in-public reply "<post or link>"` - grounded reply options for anchor accounts.
 - `/build-in-public review <draft>` - rubric, failures, and automatic rewrite below 8/10.
 - `/build-in-public thread` - one-tension sequence for a real postmortem or deep result.
 
