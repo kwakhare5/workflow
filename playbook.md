@@ -1,12 +1,12 @@
 # Playbook — Master Agent Workflow & Skill Reference Manual
 
-This playbook is the primary operational manual for pair programming, slash commands, craft skills, and lifecycle management. It covers all 60 active craft skills, phase-by-phase execution workflows, and universal path architectures.
+This playbook is the primary operational manual for pair programming, slash commands, craft skills, and lifecycle management. It covers all 59 active craft skills, phase-by-phase execution workflows, and universal path architectures.
 
 ---
 
 ## 1. Core Principles
 
-- **Crisp & Direct**: Zero conversational fluff. Direct fragments for status/chat. Full structured markdown & complete code for plans, diffs, and reviews.
+- **Crisp & Direct**: Concise, high-signal technical prose. No conversational filler or hollow apologies. Full structured markdown & complete code for plans, diffs, and reviews.
 - **Ponytail (YAGNI)**: Minimum code. Prefer standard library and existing dependencies. Zero speculative abstractions or premature layers.
 - **Surgical**: Touch only what the request strictly requires.
 - **Think First**: State assumptions explicitly. Ask when unclear. Never make silent architectural choices.
@@ -14,7 +14,7 @@ This playbook is the primary operational manual for pair programming, slash comm
 
 ---
 
-## 2. Complete Command & Skill Index by Phase (60 Active Skills)
+## 2. Complete Command & Skill Index by Phase (59 Active Skills)
 
 ### Phase 1 — Planning, Research & Specifications (14 Skills)
 | Trigger | Skill | What It Does |
@@ -40,7 +40,7 @@ This playbook is the primary operational manual for pair programming, slash comm
 | Trigger | Skill | What It Does |
 | :--- | :--- | :--- |
 | `/implement` | `implement` | Executes `task.md` checklist item-by-item: Schema → API → UI. |
-| `/tdd` | `tdd` | Strict test-driven development loop (red-green-refactor) with tight test seams. |
+| `/tdd` | `tdd` | System-first invariant testing (red-green-refactor) verifying real domain invariants, not shallow mocks. |
 | `/worktree` | `using-git-worktrees` | Isolated workspace branches and git worktrees for parallel tasks. |
 | `/subagents` | `dispatching-parallel-agents` | Spawns parallel research and testing subagents for multi-file surveys. |
 
@@ -61,14 +61,12 @@ This playbook is the primary operational manual for pair programming, slash comm
 
 ---
 
-### Phase 4 — Frontend Design, Aesthetics & Motion (8 Skills)
+### Phase 4 — Frontend Design, Aesthetics & Motion (6 Skills)
 | Trigger | Skill | What It Does |
 | :--- | :--- | :--- |
+| `/ui-craft` | `ui-craft` | Master frontend design engine: macro aesthetic modes (anti-slop), micro tactile interactions, and fluid physics. |
 | `/impeccable [cmd]` | `impeccable` | Master UI/UX polish suite (13 sub-commands: `craft`, `polish`, `audit`, `bolder`, `quieter`, `harden`, `onboard`, `animate`). |
 | `/frontend-design` | `frontend-design` | Builds new UI components, dashboards, and landing pages from scratch. |
-| `/apple-design` | `apple-design` | Apple Human Interface Guidelines: continuous squircle corners, SF Pro optical scales, depth & blur. |
-| `/emil` | `emil-design-eng` | Emil Kowalski UI philosophy: micro-interactions, Apple-tier spring curves, gestures, and tactile feedback. |
-| `/taste` | `taste-skill` | Anti-slop aesthetic director with brutalist, minimalist, soft, and brandkit visual modes. |
 | `/shadcn` | `shadcn` | Components, registries, and composition patterns for shadcn/ui. |
 | `/tailwind` | `tailwind-patterns` | Modern Tailwind CSS v4 patterns, container queries, and theme tokens. |
 | `/threejs` | `threejs-fundamentals` | Three.js 3D scene setup, cameras, WebGL renderers, and coordinate systems (Forest project). |
@@ -151,7 +149,7 @@ There are no mystery directories. The system paths are strictly defined below:
 | :--- | :--- | :--- |
 | **Global Rules (`AGENTS.md`)** | `~/.gemini/config/AGENTS.md` | `~/.agents/AGENTS.md`, `~/.AGENTS.md`, `D:\workflow\AGENTS.md` |
 | **Global Playbook (`playbook.md`)** | `~/.gemini/config/playbook.md` | `~/.agents/playbook.md`, `D:\workflow\playbook.md` |
-| **Active Global Skills (60 Skills)** | `~/.gemini/config/skills/` | `~/.gemini/skills/`, `~/.agents/skills/`, `D:\workflow\skills/` |
+| **Active Global Skills (59 Skills)** | `~/.gemini/config/skills/` | `~/.gemini/skills/`, `~/.agents/skills/`, `D:\workflow\skills/` |
 | **On-Demand Skill Packs** | `~/.agents/skill-packs/` | `D:\workflow\skill-packs/` |
 | **Project Rules & Context** | `./.agents/AGENTS.md` | `./CONTEXT.md`, `./JOURNAL.md` |
 

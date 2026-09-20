@@ -2,7 +2,7 @@
 # Applies to every project. Read first.
 
 ## 1. CORE BEHAVIOR
-- **Communication:** Zero filler. Direct fragments for status/chat. Full structured markdown & complete non-truncated code for plans, diffs, and reviews.
+- **Communication:** Concise, high-signal technical prose. No conversational fluff or hollow apologies. Provide full architectural rationale, trade-offs, and complete, non-truncated code.
 - **Ponytail (YAGNI):** Minimal code. Prefer standard library and existing dependencies. Zero speculative abstractions.
 - **Surgical:** Touch only what the request strictly requires.
 - **Think First:** State assumptions explicitly. Ask when unclear. Never make silent architectural choices.
@@ -22,25 +22,22 @@
 3. Prepend or merge today's project heading in JOURNAL.md. Record one or more work cards using Problem / tension, Change / decision, Proof, Still broken / unproven, Metric context, optional Question, optional Trial-ready flow, and Engineering references. Never add a Vibe field.
 4. Ask: "Session logged to JOURNAL.md. Mine this entry into separate proof-led X or LinkedIn tensions with /build-in-public?"
 
-## 3. CODING LOOP (SIMPLIFIED MATT POCOCK WORKFLOW)
+## 3. CODING LOOP & TESTING INVARIANTS
 
-### Task Classification (Run FIRST, silently)
-- **Tiny** (single file, <20 lines, no logic change): Skip loop. Apply the surgical edit directly. Load ZERO skills.
-- **Standard / Complex** (multi-file OR new logic OR schema change): Run the 6-phase loop below.
+### Autonomous Execution vs Formal Planning
+- **Direct Execution (Default):** For targeted features, bug fixes, UI improvements, and routine API updates, proceed directly to implementation with test and linter verification. Avoid unnecessary planning ceremony on straightforward work.
+- **Formal Planning Mode:** Draft `implementation_plan.md` and wait for user approval ONLY for: major architectural refactors, schema/database migrations, high-risk security boundaries, or when explicitly requested (`/plan`, `/grill`).
+- **Checklist (Complex tasks):** Break approved plans into tracer bullets in `task.md` (`/to-issues`).
 
-### Full Loop
-0. **AUDIT (Just-In-Time Skill Fetch):** Detect exact task intent from user's sentence → auto-load **MAX 1–2 specialist skills** → print `✅ Loaded: [skill-name]`. Never preload idle skills.
-1. **PLAN / SPEC:** Draft `implementation_plan.md` artifact (or run `/grill` / `/to-spec` for complex features) and wait for user approval.
-2. **CHECKLIST:** Break the approved plan into tracer bullets in `task.md` (`/to-issues`).
-3. **EXECUTE:** Run `/implement` to code each task: Schema → API → UI. Run tests & linters.
-4. **REVIEW:** Run `/review` (`code-review`) to verify standards and spec correctness in parallel.
-5. **COMMIT:** Run `/git-commit` to stage logically, analyze diffs, and draft conventional commit messages.
-6. **DIAGNOSE:** If tests or build fails, stop coding → run `/diagnose` (`diagnosing-bugs`) with a minimal failing reproduction test first.
+### System-First Invariant Testing (TDD Anti-Gaming Rule)
+- **Green tests are an outcome, never the goal.** Passing a test via shallow mocks, hacky shortcuts, or hardcoded inputs is a failure. Tests must verify true domain invariants.
+- **Immutable Test Barrier:** Never weaken, modify, or delete test assertions to match broken code. If the test fails, fix the system.
+- **No Mocking Internal Collaborators:** Mock only true external platform boundaries (external APIs, clocks). Test real state transitions.
+- **Immediate Refactoring:** Refactor immediately upon reaching green to keep architecture clean and modular.
 
-### Subagent Delegation Policy (Hard Thresholds)
-- **Multi-File Survey (>3 Files):** If a research task requires reading or grepping across 3+ unfamiliar files or external docs, DO NOT read them inline. You MUST spawn a `research` subagent to investigate and return a distilled summary.
-- **Independent Workstreams:** If a task has 2+ independent components, spawn a `self` subagent to progress concurrently (`dispatching-parallel-agents`).
-- **Isolated Testing:** Use workspace branching (`Workspace: 'branch'`) or git worktrees (`using-git-worktrees`) for speculative refactors or breaking test runs.
+### Smart Subagent Delegation
+- **Inline by Default:** Read targeted project files (< 500 lines total) inline for instant speed and accuracy.
+- **Delegate to Subagents When:** Performing broad exploratory surveys across unfamiliar directories, scraping large external web documentation, or parsing massive build/test logs (> 500 lines).
 
 ### Invariants & Conflicts
 - **Docs:** Update `CONTEXT.md` for new domain terms. Update `ARCHITECTURE.md` or create ADR for schema/architectural changes.
@@ -66,8 +63,7 @@ Invoke via `/command` or natural language.
 - `/cleanup` (`codebase-cleanup`): Purge dead exports, unreferenced packages, and unused code.
 - `/ponytail` (`ponytail`): Minimalist architecture, YAGNI diff review & dead code cleanup.
 - `/impeccable` (`impeccable`): Master UI/UX audit and polish suite.
-- `/emil` (`emil-design-eng`): Micro-interactions, spring curves, gestures, and tactile feedback.
-- `/taste` (`taste-skill`): Anti-slop UI aesthetic modes (brutalist, minimalist, soft).
+- `/ui-craft` (`ui-craft`): Unified frontend design suite (macro taste modes, micro-interactions, fluid physics).
 - `/no-slop` (`no-ai-slop`): Human copyeditor & AI pattern stripper.
 - `/marketing` (`marketing-suite`): Full growth roadmap, copywriting, CRO, offers, pricing, launch.
 - `/cloudflare` (`cloudflare-suite`): Workers, Agents SDK, Durable Objects, Zero Trust.
@@ -75,23 +71,21 @@ Invoke via `/command` or natural language.
 - `/build-in-public` (`build-in-public`): Dev log & X ghostwriter.
 - `/deploy` (`deploy-to-vercel`): Direct or token-based Vercel deployments.
 
-## 5. LASER TASK → SKILL ROUTER (Just-In-Time Fetch: Max 1–2 Skills)
+## 5. LASER TASK → SKILL ROUTER (Layer-Based JIT Fetch)
 
-Zero preload waste. The agent inspects the user's sentence/intent, loads ONLY the matching skill, and prints `✅ Loaded: [skill-name]`. If the task is simple, load ZERO skills.
+The agent inspects task intent and loads specialized skills matching the active layers of the feature. Do not preload idle skills.
 
-| When your sentence/task is about… | Automatically Load (Max 1–2) | Applies to |
+| When your task touches… | Automatically Load Relevant Layer Skills | Applies to |
 |---|---|---|
 | Web scraping / URL data extraction | `scrapling-official` | implement, research |
 | 3D Canvas / WebGL / Forest project | `threejs-fundamentals` | implement, review |
-| Python code | `python-best-practices` (+ `fastapi-best-practices` if FastAPI) | grill, implement, review |
+| Python code & FastAPI | `python-best-practices` (+ `fastapi-best-practices` if API) | grill, implement, review |
 | Python testing | `python-testing-patterns` | implement |
 | TypeScript / Node.js | `typescript-best-practices` (+ `nodejs-best-practices` if backend) | grill, implement, review |
 | Next.js / React | `nextjs-best-practices` or `vercel-react-best-practices` | grill, implement, review |
-| UI design & polish | `impeccable` or `frontend-design` | grill, implement, review |
-| Apple aesthetics & HIG | `apple-design` or `emil-design-eng` | audit, implement |
-| Micro-interactions & Springs | `emil-design-eng` | audit, implement |
+| Frontend design, UI polish & motion | `ui-craft` or `frontend-design` | grill, implement, review |
 | Tailwind / UI Components | `tailwind-patterns` or `shadcn` | implement, review |
-| Cleanup / dead code / unreferenced | `codebase-cleanup` or `ponytail` | audit, implement, review |
+| Cleanup / dead code / YAGNI | `codebase-cleanup` or `ponytail` | audit, implement, review |
 | REST / tRPC / API schemas | `api-patterns` | grill, implement |
 | Deep modules & system design | `codebase-design` or `software-architecture` | grill, implement |
 | Architecture debt scan | `improve-codebase-architecture` | audit, implement |
@@ -103,10 +97,10 @@ Zero preload waste. The agent inspects the user's sentence/intent, loads ONLY th
 | Cloudflare Workers / Edge | `cloudflare-suite` | grill, implement, review |
 | Docker / Containers | `docker-expert` | implement, review |
 | CI/CD / GitHub Actions | `github-actions-templates` | implement, review |
-| Debugging / failing tests | `diagnosing-bugs` or `tdd` | implement |
+| Invariant testing & debugging | `diagnosing-bugs` or `tdd` | implement |
 | Copywriting & Anti-Slop | `no-ai-slop` or `marketing-suite` | grill, implement |
 | Marketing & Growth Strategy | `marketing-suite` | grill, implement |
-| X / LinkedIn posts, weekly project selection, public build logs, grounded replies, product-trial invitations | `build-in-public` | grill, implement |
+| X / LinkedIn posts, build logs & replies | `build-in-public` | grill, implement |
 | Deploy / Vercel | `deploy-to-vercel` | implement, review |
 | Web Security Audit | `web-security-testing` | review |
 | Performance Profiling | `web-perf` | review |

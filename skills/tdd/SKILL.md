@@ -1,38 +1,44 @@
 ---
 name: tdd
-description: Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions "red-green-refactor", or wants integration tests.
+description: Test-driven development and invariant testing. Use when building features or fixing bugs test-first, verifying domain invariants, or writing unit/integration tests.
 ---
 
-# Test-Driven Development
+# Test-Driven Development & Invariant Testing
 
-TDD is the red → green loop. This skill is the reference that makes that loop produce tests worth keeping: what a good test is, where tests go, the anti-patterns, and the rules of the loop. Every section applies on every cycle: consult them before and during the loop, not after.
+TDD is a verification shield for sound architecture, not a game of getting green terminal output at all costs. This skill enforces the red -> green -> refactor loop while preventing Goodhart's Law: tests must verify real domain invariants, never artificial mocks or over-fitted code.
 
 When exploring the codebase, read `CONTEXT.md` (if it exists) so test names and interface vocabulary match the project's domain language, and respect ADRs in the area you're touching.
 
-## What a good test is
+## 1. System First, Green Test Second (The Core Invariant)
 
-Tests verify behavior through public interfaces, not implementation details. Code can change entirely; tests shouldn't. A good test reads like a specification: "user can checkout with valid cart" tells you exactly what capability exists, and it survives refactors because it doesn't care about internal structure.
+- **The test runner is not your reward function.** A green test is an outcome of correct system behavior, never the primary objective. If a test passes but the underlying architecture is fragile, hacky, shallow, or hardcoded for specific inputs, the implementation is a failure.
+- **Generalization over over-fitting:** Never write conditional branches that only satisfy specific test fixtures (e.g. `if (code === "VIP") return 20`). The system must implement the real mathematical or domain algorithm.
+- **Immutable Test Barrier:** Once a test specification is written for a feature or bug, the agent is strictly forbidden from modifying test assertions to match broken implementation output. If the test fails, fix the system, not the test.
 
-See [tests.md](tests.md) for examples and [mocking.md](mocking.md) for mocking guidelines.
+## 2. What a Good Test Is
 
-## Seams: where tests go
+Tests verify behavior through public interfaces (seams), not implementation details:
+- A good test reads like an executable specification: `user can checkout with valid cart` tells you exactly what capability exists.
+- It survives internal refactors because it doesn't care about internal variables or private functions.
+- Assertions compare against an independent source of truth: a known-good literal, a worked example, or a formal specification.
 
-A **seam** is the public boundary you test at: the interface where you observe behavior without reaching inside. Tests live at seams, never against internals.
+## 3. Seams & Mocking Rules
 
-**Test only at pre-agreed seams.** Before writing any test, write down the seams under test and confirm them with the user. No test is written at an unconfirmed seam. You can't test everything, so agreeing the seams up front is how testing effort lands on the critical paths and complex logic instead of every edge case.
+A **seam** is the public boundary you test at: the interface where you observe behavior without reaching inside.
 
-Ask: "What's the public interface, and which seams should we test?"
+- **Test at real seams:** Write tests against real domain modules, state machines, and reducers.
+- **Never mock internal collaborators:** Only mock true external system boundaries (third-party payment gateways, external email delivery, clock/time).
+- **Never mock what you control:** Do not mock your own database queries, internal utility functions, or domain helpers. Test with real state transitions.
 
-When the shape of that interface is itself in question (how deep the module is, where the seam belongs, what the interface should expose), call the Skill tool with "codebase-design" for the vocabulary. It is the shared source of the module, interface, depth, seam, adapter, leverage and locality terms, and it is a reference to consult, not a session to run.
+## 4. Anti-Patterns to Eliminate
 
-## Anti-patterns
+1. **Tautological Tests:** Assertions that recompute the expected value the exact same way the code does, passing by construction without verifying reality.
+2. **Mocking Away Reality:** Creating mock functions that return pre-canned data without ever exercising the real schema or runtime parsing.
+3. **Horizontal Slicing:** Writing 50 speculative tests up front before understanding the domain. Work in vertical slices: one test -> one sound implementation -> one refactor cycle.
+4. **Silent Test Tampering:** Weakening assertions or deleting failing test cases when implementation gets tricky.
 
-- **Implementation-coupled**: mocks internal collaborators, tests private methods, or verifies through a side channel (querying the database instead of using the interface). The tell: the test breaks when you refactor but behavior hasn't changed.
-- **Tautological**: the assertion recomputes the expected value the way the code does (`expect(add(a, b)).toBe(a + b)`, a snapshot derived by hand the same way, a constant asserted equal to itself), so it passes by construction and can never disagree with the code. Expected values must come from an independent source of truth: a known-good literal, a worked example, the spec.
-- **Horizontal slicing**: writing all tests first, then all implementation. Bulk tests verify _imagined_ behavior: you test the _shape_ of things rather than user-facing behavior, the tests go insensitive to real changes, and you commit to test structure before understanding the implementation. Work in **vertical slices** instead: one test → one implementation → repeat, each test a **tracer bullet** that responds to what the last cycle taught you.
+## 5. Rules of the Loop
 
-## Rules of the loop
-
-- **Red before green.** Write the failing test first, then only enough code to pass it. Don't anticipate future tests or add speculative features.
-- **One slice at a time.** One seam, one test, one minimal implementation per cycle.
-- **Refactoring is not part of the loop.** It belongs to the review stage (see the `code-review` skill), not the red → green implementation cycle.
+1. **Red First:** Write a focused test that verifies an unhandled domain invariant or reproducible bug. Confirm it fails for the expected reason.
+2. **Sound Green:** Implement the general architectural logic required to satisfy the invariant. Do not write hacky shortcuts.
+3. **Immediate Refactor:** Refactoring is an integral part of the loop, not an afterthought. Clean up duplicated logic, tighten type signatures, and ensure modular seams before moving to the next slice.
