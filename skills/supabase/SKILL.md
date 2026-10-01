@@ -1,13 +1,29 @@
 ---
 name: supabase
-description: "Use when doing ANY task involving Supabase. Triggers: Supabase products (Database, Auth, Edge Functions, Realtime, Storage, Vectors, Cron, Queues); client libraries and SSR integrations (supabase-js, @supabase/ssr) in Next.js, React, SvelteKit, Astro, Remix; auth issues (login, logout, sessions, JWT, cookies, getSession, getUser, getClaims, RLS); Supabase CLI or MCP server; schema changes, migrations, security audits, Postgres extensions (pg_graphql, pg_cron, pg_vector). Also covers Postgres performance optimization, query tuning, indexing, and schema design."
-keywords: ["supabase", "postgres", "database", "auth", "edge", "functions", "realtime", "storage", "vectors", "rls", "migrations", "security"]
+description: Complete Supabase toolkit covering Database, Auth, Edge Functions, RLS security policies, and Postgres queries.
+keywords:
+- supabase
+- postgres
+- database
+- auth
+- edge
+- functions
+- realtime
+- storage
+- vectors
+- rls
+- migrations
+- security
 metadata:
   author: supabase
-  version: "0.2.0"
+  version: 0.2.0
 ---
 
 # Supabase
+## When to Use
+
+Use when doing ANY task involving Supabase. Triggers: Supabase products (Database, Auth, Edge Functions, Realtime, Storage, Vectors, Cron, Queues); client libraries and SSR integrations (supabase-js, @supabase/ssr) in Next.js, React, SvelteKit, Astro, Remix; auth issues (login, logout,...
+
 
 ## Core Principles
 
@@ -29,7 +45,7 @@ If an approach fails after 2-3 attempts, stop and reconsider. Try a different me
 When a user reports a SQL-created table is unexpectedly inaccessible, check their Data API settings and whether the roles have been granted access via explicit `GRANT` SQL. When granting public (`anon`/`authenticated`) access, always enable RLS too. See [Exposing a Table to the Data API](https://supabase.com/docs/guides/api/securing-your-api.md) for the full setup workflow.
 
 **5. RLS in exposed schemas.**
-Enable RLS on every table in any exposed schema, which includes `public` by default. This is critical in Supabase because tables in exposed schemas can be reachable through the Data API when the `anon`/`authenticated` roles have access. For private schemas, prefer RLS as defense in depth. After enabling RLS, create policies that match the actual access model rather than defaulting every table to the same `auth.uid()` pattern.
+Enable RLS on every table in any exposed schema, which includes `public` by default. This is critical in Supabase because tables in exposed schemas can be reachable through the Data API when the `anon`/`authenticated` roles have access (see [Exposing a Table to the Data API](https://supabase.com/docs/guides/api/securing-your-api.md)). For private schemas, prefer RLS as defense in depth. After enabling RLS, create policies that match the actual access model rather than defaulting every table to the same `auth.uid()` pattern.
 
 **6. Security checklist.**
 When working on any Supabase task that touches auth, RLS, views, storage, or user data, run through this checklist. These are Supabase-specific security traps that silently create vulnerabilities:
@@ -65,7 +81,7 @@ When working on any Supabase task that touches auth, RLS, views, storage, or use
     with check ( (select auth.uid()) = user_id );
     ```
   - **`SECURITY DEFINER` functions bypass RLS.** A `SECURITY DEFINER` function runs with its creator's privileges — typically a role with `bypassrls` (e.g., `postgres`). Never add `SECURITY DEFINER` to resolve a permission error; it silently removes access control without fixing the underlying cause. Prefer `SECURITY INVOKER`.
-  - **`SECURITY DEFINER` functions in `public` are callable by all roles.** Postgres grants `EXECUTE` to `PUBLIC` by default for every new function, so any `SECURITY DEFINER` function in `public` is a public API endpoint callable by `anon` and `authenticated` without any additional grant. When `SECURITY DEFINER` is genuinely needed, keep the function in a non-exposed schema, always include an `auth.uid()` check in the function body, and run `supabase db advisors` after making changes.
+  - **`SECURITY DEFINER` functions in `public` are callable by all roles.** Postgres grants `EXECUTE` to `PUBLIC` by default for every new function, so any `SECURITY DEFINER` function in `public` is a public API endpoint callable by `anon` and `authenticated` (which inherit from `PUBLIC`) without any additional grant. When `SECURITY DEFINER` is genuinely needed (e.g., bypassing RLS on an internal lookup table), keep the function in a non-exposed schema, always include an `auth.uid()` check in the function body, and run `supabase db advisors` after making changes.
 
 - **Storage access control**
   - **Storage upsert requires INSERT + SELECT + UPDATE.** Granting only INSERT allows new uploads but file replacement (upsert) silently fails. You need all three.
@@ -135,46 +151,8 @@ Do NOT use `apply_migration` to change a local database schema — it writes a m
 - **Skill Feedback** → [references/skill-feedback.md](references/skill-feedback.md)
   **MUST read when** the user reports that this skill gave incorrect guidance or is missing information.
 
----
+## Limitations
 
-## Postgres Performance Rules
-
-Reference these whenever writing SQL, designing schemas, or reviewing database performance on Supabase.
-
-### Rule Categories by Priority
-
-| Priority | Category | Impact | Prefix |
-|---|---|---|---|
-| 1 | Query Performance | CRITICAL | `query-` |
-| 2 | Connection Management | CRITICAL | `conn-` |
-| 3 | Security & RLS | CRITICAL | `security-` |
-| 4 | Schema Design | HIGH | `schema-` |
-| 5 | Concurrency & Locking | MEDIUM-HIGH | `lock-` |
-| 6 | Data Access Patterns | MEDIUM | `data-` |
-| 7 | Monitoring & Diagnostics | LOW-MEDIUM | `monitor-` |
-| 8 | Advanced Features | LOW | `advanced-` |
-
-### Quick Rules
-
-**Query Performance (CRITICAL)**
-- Always create indexes for foreign keys and frequently filtered columns
-- Use partial indexes for filtered queries (`WHERE is_active = true`)
-- Use `EXPLAIN ANALYZE` to verify query plans before shipping
-- Avoid `SELECT *` — fetch only needed columns
-- Use CTEs for readability, but not for performance optimization (Postgres 12+ materializes CTEs)
-
-**Connection Management (CRITICAL)**
-- Use PgBouncer or Supabase's built-in pooler — never open a new connection per request
-- For Supabase serverless functions: use transaction mode pooling
-- Keep connection counts well under `max_connections`
-
-**Schema Design (HIGH)**
-- Use `uuid` or `bigserial` for PKs — avoid sequential integers for public APIs
-- Use `NOT NULL` constraints wherever semantically correct
-- Store timestamps as `timestamptz` (with timezone), never `timestamp`
-- Prefer `JSONB` over `JSON` — it's indexed, binary, and faster
-- Add `CHECK` constraints at the database level, not just application level
-
-For full rule details with SQL examples, see:
-- `supabase-postgres-best-practices/references/` (Supabase-specific rules)
-- `postgres-best-practices/rules/` (standalone Postgres rules)
+- Use this skill only when the task clearly matches its upstream product or API scope.
+- Verify commands, API behavior, pricing, quotas, credentials, and deployment effects against current official documentation before making changes.
+- Do not treat generated examples as a substitute for environment-specific tests, security review, or user approval for destructive or costly actions.

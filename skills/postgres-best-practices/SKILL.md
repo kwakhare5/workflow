@@ -1,9 +1,9 @@
 ---
 name: postgres-best-practices
-description: "Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations. Triggers: postgres, best, practices, postgres-best-practices."
+description: 'Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations. Triggers: postgres, best, practices, postgres-best-practices.'
 risk: safe
 source: community
-date_added: "2026-02-27"
+date_added: '2026-02-27'
 ---
 
 # Supabase Postgres Best Practices

@@ -1,36 +1,42 @@
 ---
 name: tdd
-description: Test-driven development. Use when the user wants to build features or fix bugs test-first, mentions "red-green-refactor", or wants integration tests.
+description: System-first invariant testing and test-driven development. Use when verifying domain logic, eliminating test slop, and implementing adversarial failure-mode testing.
 ---
 
-# Test-Driven Development
+# System-First Invariant Testing & Anti-Test Slop TDD
 
-TDD is the red → green loop. This skill is the reference that makes that loop produce tests worth keeping: what a good test is, where tests go, the anti-patterns, and the rules of the loop. Every section applies on every cycle — consult them before and during the loop, not after.
+TDD is a verification shield for sound architecture, not a game of getting green terminal output at all costs. This skill enforces the red -> green -> refactor loop while preventing Goodhart's Law, test slop, and tautological testing.
 
-When exploring the codebase, read `CONTEXT.md` (if it exists) so test names and interface vocabulary match the project's domain language, and respect ADRs in the area you're touching.
+---
 
-## What a good test is
+## 1. Anti-Test Slop Invariants
 
-Tests verify behavior through public interfaces, not implementation details. Code can change entirely; tests shouldn't. A good test reads like a specification — "user can checkout with valid cart" tells you exactly what capability exists — and survives refactors because it doesn't care about internal structure.
+- **NEVER write unit tests after writing code:** Post-hoc unit tests written after the implementation simply mirror whatever the code currently does—including its bugs. If a function is broken, a post-hoc test will assert the broken behavior, achieving 100% coverage with 0% bug detection.
+- **Adversarial Failure-Mode Enumeration (FME):** If you must test a module or algorithm in isolation, **FIRST list all the ways it could fail** (empty inputs, boundaries, timeouts, race conditions, invalid types), **THEN write tests for those failure modes**, and **FINALLY write the code**.
+- **Ban Low-Signal & Trivial Tests:** Strictly forbid writing unit tests for trivial getters, simple delegation wrappers, boilerplate constructors, or framework plumbing. Every test must verify a genuine domain invariant, calculation, state transition, or boundary constraint.
+- **The test runner is not your reward function:** A green test is an outcome of correct system behavior, never the primary objective. If a test passes but the underlying architecture is fragile, hacky, shallow, or hardcoded for specific inputs, the implementation is a failure.
+- **Immutable Test Barrier:** Once a test specification is written for a feature or bug, the agent is strictly forbidden from modifying test assertions to match broken implementation output. If the test fails, fix the system, not the test.
 
-See [tests.md](tests.md) for examples and [mocking.md](mocking.md) for mocking guidelines.
+---
 
-## Seams — where tests go
+## 2. Three-Tier Testing Strategy
 
-A **seam** is the public boundary you test at: the interface where you observe behavior without reaching inside. Tests live at seams, never against internals.
+1. **Adversarial Invariant Units:**
+   - Reserved for pure business logic, calculations, state machines, math, and data transformers.
+   - Failure modes enumerated first. Fast, deterministic, zero network.
+2. **State & Contract Integrations:**
+   - Verifies API routes, database schemas, and service coordinators against real local SQLite/Postgres schemas and stores.
+   - Mock *only* true external third-party boundaries (Stripe, Twilio, external clocks). Never mock internal helpers, queries, or reducers.
+3. **E2E User Journeys (Playwright):**
+   - High-value end-to-end user workflows (authentication, checkout, critical path).
+   - Must produce a repeatable, verifiable execution artifact (console report, trace, screenshot on failure).
 
-**Test only at pre-agreed seams.** Before writing any test, write down the seams under test and confirm them with the user. No test is written at an unconfirmed seam. You can't test everything — agreeing the seams up front is how testing effort lands on the critical paths and complex logic instead of every edge case.
+---
 
-Ask: "What's the public interface, and which seams should we test?"
+## 3. The Active Loop
 
-## Anti-patterns
-
-- **Implementation-coupled** — mocks internal collaborators, tests private methods, or verifies through a side channel (querying the database instead of using the interface). The tell: the test breaks when you refactor but behavior hasn't changed.
-- **Tautological** — the assertion recomputes the expected value the way the code does (`expect(add(a, b)).toBe(a + b)`, a snapshot derived by hand the same way, a constant asserted equal to itself), so it passes by construction and can never disagree with the code. Expected values must come from an independent source of truth — a known-good literal, a worked example, the spec.
-- **Horizontal slicing** — writing all tests first, then all implementation. Bulk tests verify _imagined_ behavior: you test the _shape_ of things rather than user-facing behavior, the tests go insensitive to real changes, and you commit to test structure before understanding the implementation. Work in **vertical slices** instead — one test → one implementation → repeat, each test a **tracer bullet** that responds to what the last cycle taught you.
-
-## Rules of the loop
-
-- **Red before green.** Write the failing test first, then only enough code to pass it. Don't anticipate future tests or add speculative features.
-- **One slice at a time.** One seam, one test, one minimal implementation per cycle.
-- **Refactoring is not part of the loop.** It belongs to the review stage (see the `code-review` skill), not the red → green implementation cycle.
+1. **Enumerate Failure Modes:** Write down the 3–5 explicit edge cases and failure modes the domain logic must defend against.
+2. **Red First:** Write a focused test verifying these invariants. Execute the test command in the terminal and confirm it fails for the expected reason.
+3. **Sound Green:** Implement the general architectural logic required to satisfy the invariant. Generalization over over-fitting: never write shortcuts just to pass fixtures.
+4. **Immediate Refactor:** Clean technical debt, eliminate duplicate logic, tighten types, and confirm tests remain green before moving to the next feature slice.
+5. **Execution Proof:** Run the terminal test command. Confirm exit code 0 on the actual assertion before declaring complete.
