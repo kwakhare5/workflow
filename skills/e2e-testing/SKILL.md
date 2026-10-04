@@ -1,6 +1,6 @@
 ---
 name: e2e-testing
-description: "Production-grade Playwright E2E testing engine: semantic locators, auth fixtures, verifiable artifacts, and zero-flakiness assertions."
+description: "Production-grade Playwright E2E testing engine with semantic locators and zero flakiness. Use when writing, fixing, or running Playwright end-to-end tests for a user-facing change."
 category: testing
 risk: safe
 ---

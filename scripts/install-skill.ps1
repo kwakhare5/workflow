@@ -1,8 +1,10 @@
 param([Parameter(Mandatory)][string]$Skill,[Parameter(Mandatory)][string]$Project,[ValidateSet("Junction","Copy")][string]$Mode="Junction")
 $ErrorActionPreference = "Stop"
 $lib = "$HOME\.agents\library"
-$from = Get-ChildItem $lib -Directory | % { Join-Path $_.FullName $Skill } | ? { Test-Path "$_\SKILL.md" } | Select -First 1
-if (-not $from) { throw "skill '$Skill' not found in $lib" }
+$hits = @(Get-ChildItem $lib -Directory | % { Join-Path $_.FullName $Skill } | ? { Test-Path "$_\SKILL.md" })
+if ($hits.Count -eq 0) { throw "skill '$Skill' not found in $lib" }
+if ($hits.Count -gt 1) { throw "skill '$Skill' exists in more than one group: $($hits -join ', '). Remove the duplicate." }
+$from = $hits[0]
 $dest = Join-Path $Project ".agents\skills"
 New-Item -ItemType Directory -Force $dest | Out-Null
 $to = Join-Path $dest $Skill

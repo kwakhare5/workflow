@@ -1,6 +1,6 @@
 ---
 name: software-architecture
-description: Clean Architecture and Domain-Driven Design (DDD) principles for module boundaries and service design.
+description: Applies Clean Architecture and Domain-Driven Design (DDD) principles. Use when designing module or service boundaries, or when asked about clean architecture or DDD for this codebase.
 risk: unknown
 source: community
 date_added: '2026-02-27'

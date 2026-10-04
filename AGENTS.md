@@ -32,9 +32,9 @@ Write a plan and wait for my OK only if the change touches more than 3 files, a 
 |---|---|
 | /grilling | A new project or feature has unclear decisions. Interview me before writing a plan. (/grill-with-docs also writes the glossary.) |
 | /to-spec then /to-tickets then /implement | A feature is agreed and needs to be built in slices. |
-| /diagnose | A bug or error. Reproduce it with a failing command first. |
-| /e2e | Any feature change that a user can click through. |
-| /review | Before every commit that changes more than 50 lines. |
+| /diagnosing-bugs | A bug or error. Reproduce it with a failing command first. |
+| /e2e-testing | Any feature change that a user can click through. |
+| /code-review | Before every commit that changes more than 50 lines. |
 | /git-commit | I say save, commit, or push. |
 Other skills load on their own from their descriptions. Do not announce them.
 
@@ -44,7 +44,8 @@ End with one line starting `Journal:`.
 - If you changed nothing: write `Journal: no change.`
 
 ## 7. Skill loading policy
-Only the rules in this file are always on. Do not load a skill unless the task matches its description or I type its command. If the task does not match a global skill, read LIBRARY-CATALOG.md. If a library skill matches the task, install it into this project with install-skill.ps1, tell Karan in one line which skill you installed and why, then use it. Never install more than the task needs.
+Only the rules in this file are always on. Do not load a skill unless the task matches its description or I type its command.
+If the task does not match a global skill, read ~/.agents/LIBRARY-CATALOG.md. If a library skill matches the task, install it into this project with ~/.agents/scripts/install-skill.ps1 -Skill <name> -Project <project root>, tell Karan in one line which skill you installed and why, then use it. Never install more than the task needs.
 
 ## 8. Pointers
 - Project facts: ./AGENTS.md in the repo root.
