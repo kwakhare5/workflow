@@ -101,4 +101,11 @@
 - **Problem:** Ambiguity around local zip backup creation and retention risked disk clutter and unnecessary backups for normal development.
 - **Change:** Added explicit backup rule to Section 7 of master AGENTS.md restricting zips to pre-destructive rounds and mandating deletion after push.
 - **Proof:** check-links.ps1 verified 9/9 OK across master hardlinks; synced cleanly to repo AGENTS.md.
+- **Still broken / Unproven:** None. Complete and verified.
+---
+
+### 2026-10-04 - Project AGENTS.md Deduplication & Standalone Fact Architecture
+- **Problem:** 7 projects held duplicate legacy rules in .agents/AGENTS.md alongside root AGENTS.md; root files lacked master rules pointer.
+- **Change:** Backed up and removed 7 .agents/AGENTS.md files; merged project gotchas and invariants into root AGENTS.md; enforced 'Global rules' pointer across all 9 projects; updated new-project.ps1 and AGENTS.project.md template.
+- **Proof:** audit-projects.ps1 verified 9/9 OK; check-links.ps1 verified 9/9 OK; 0 duplicate AGENTS.md files remain across projects.
 - **Still broken / Unproven:** None. Complete and verified.
