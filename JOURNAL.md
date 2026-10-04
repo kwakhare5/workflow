@@ -94,4 +94,11 @@
 - **Problem:** 12 duplicate sweep imports and 32 clutter items bloated library; AGENTS.md had informal aliases; ponytail encoding was corrupted; Claude and OpenCode had unlinked duplicate configs.
 - **Change:** Purged 12 duplicate imports and 32 clutter items; filed 17 unique skills into real groups; added customer-research and competitor-profiling; fixed Scrapling links and ponytail encoding; junctioned Claude/OpenCode; merged fix-round into main and pushed to GitHub.
 - **Proof:** check-links 9/9 OK; audit-projects 9/9 OK; check-duplicates clean; Compare-Object 100% clean; merged and pushed to main in commit ba06565.
-- **Still broken / Unproven:** None. Complete, pushed, and verified.
+- **Still broken / Unproven:** None. Complete, pushed, and verified.
+---
+
+### 2026-10-04 - Master AGENTS.md Backup Rule Policy
+- **Problem:** Ambiguity around local zip backup creation and retention risked disk clutter and unnecessary backups for normal development.
+- **Change:** Added explicit backup rule to Section 7 of master AGENTS.md restricting zips to pre-destructive rounds and mandating deletion after push.
+- **Proof:** check-links.ps1 verified 9/9 OK across master hardlinks; synced cleanly to repo AGENTS.md.
+- **Still broken / Unproven:** None. Complete and verified.
