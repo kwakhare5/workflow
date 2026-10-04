@@ -66,3 +66,18 @@
 - **Engineering References:**
   - Ansh Nanda (@anshnanda) AGENTS.md Invariants (September 2026).
   - Context Degradation and Compliance Checklist Research in LLM Coding Agents.
+
+---
+
+### 2026-10-04 - Full Workflow & Skills Architecture Overhaul (Phases 1-5)
+- **Problem:** Over 95 global skills bloated context; broken links in marketing, GHA, and agent skills; 8 name/folder mismatches; redundant skills and stale AGENTS.md rules.
+- **Change:** Restored Pocock, Addy Osmani, and marketing skills + tools/; aligned skill names; pruned duplicates; partitioned 25 global skills from 84 per-project library skills; deployed lean 51-line AGENTS.md; created sync and install scripts.
+- **Proof:** Automated checklist passed 100%; 25 global skills verified; 0 name mismatches; links resolve; 5 phase commits created on branch skills-cleanup.
+- **Still broken / Unproven:** Mirrors contain 80 unpruned library skills until -Prune is approved; Outpost project verification pending.
+---
+
+### 2026-10-04 - System Master Architecture & Cross-Project Parity (Addendum Complete)
+- **Problem:** Skills and rules were mirrored across 5 separate locations prone to drift; D:\workflow was tightly coupled as the live source of truth; project configurations lacked uniform structure.
+- **Change:** Relocated source of truth to C:\Users\kwakh\.agents; linked all tool folders via NTFS junctions and hardlinks; replaced sync script with one-way push-to-repo.ps1; configured all 7 projects (Outpost, Grocer, Portfolio, Big 6, Git for Prompts, IndieForest, Github Profile) with uniform AGENTS.md and junction-installed library skills.
+- **Proof:** All 5 junctions/hardlinks verified OK via check-links.ps1; audit-projects.ps1 reported 100% OK across all 7 projects; fresh session kiwi test passed.
+- **Still broken / Unproven:** .old-<stamp> backup directories pending Karan's deletion approval; merge to main and GitHub push pending explicit confirmation.

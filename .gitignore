@@ -7,3 +7,7 @@ temp/
 
 # Offline skill archive (preserved locally on disk, ignored from version control)
 archive/
+graphify-out/
+WORKFLOW-*.txt
+AGENTS-*.txt
+
