@@ -104,6 +104,13 @@
 - **Still broken / Unproven:** Phase 6 actions (stray rule hardlinking, skills junctioning, zip moves, project registration) awaiting Karan's confirmation.
 ---
 
+### 2026-10-04 - Machine Standardization & Repo Snapshot (Phases 6-8)
+- **Problem:** Claude and OpenCode had unlinked duplicate configs and skills; GTM and preparation were unregistered; repo was un-synced with machine master.
+- **Change:** Replaced Claude/OpenCode skills with NTFS junctions and configs with hardlinks; registered D:\GTM and D:\preparation; updated check-links.ps1 to 9 links; updated README and counts; took snapshot on fix-round branch.
+- **Proof:** check-links.ps1: 9/9 OK; audit-projects.ps1: 9/9 OK; check-duplicates: 0 duplicates; Compare-Object: master == repo 100% identical (133 SKILL.md).
+- **Still broken / Unproven:** Final merge of fix-round into main and git push awaiting Karan's explicit confirmation.
+---
+
 ### 2026-10-04 - Full Machine Sweep & Self-Triggering Library Catalog (Jobs 1 & 2)
 - **Problem:** Specialized skills in ~/.agents/library required manual discovery; stray skills folders and out-of-date AGENTS.md copies lingered in Claude, OpenCode, AO, and user home.
 - **Change:** Created LIBRARY-CATALOG.md indexing all library skills with trigger phrases; updated AGENTS.md skill loading policy; swept C: and D: drives; imported 29 unique missing skills into library/misc and updated catalog.
