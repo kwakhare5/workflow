@@ -108,4 +108,11 @@
 - **Problem:** 7 projects held duplicate legacy rules in .agents/AGENTS.md alongside root AGENTS.md; root files lacked master rules pointer.
 - **Change:** Backed up and removed 7 .agents/AGENTS.md files; merged project gotchas and invariants into root AGENTS.md; enforced 'Global rules' pointer across all 9 projects; updated new-project.ps1 and AGENTS.project.md template.
 - **Proof:** audit-projects.ps1 verified 9/9 OK; check-links.ps1 verified 9/9 OK; 0 duplicate AGENTS.md files remain across projects.
+- **Still broken / Unproven:** None. Complete and verified.
+---
+
+### 2026-10-04 - Stress Audit v2 Fixes & Parity Enforcement
+- **Problem:** Shelved projects lacked skills.list; install-skill silently re-linked already installed skills; stray master .system folder broke global parity.
+- **Change:** Scaffolded skills.list across all 9 projects; added already-installed duplicate guard to install-skill.ps1; backed up and purged duplicate root .system folder in master.
+- **Proof:** All 9 projects have skills.list; install-skill throws when installing existing skill; Compare-Object master vs repo verified 100% clean (0 diffs across 133 SKILL.md).
 - **Still broken / Unproven:** None. Complete and verified.

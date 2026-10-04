@@ -8,12 +8,15 @@ $from = $hits[0]
 $dest = Join-Path $Project ".agents\skills"
 New-Item -ItemType Directory -Force $dest | Out-Null
 $to = Join-Path $dest $Skill
+$list = Join-Path $Project ".agents\skills.list"
+if ((Test-Path $to) -and (Test-Path $list) -and (Select-String -Path $list -Pattern "^$Skill$" -Quiet)) {
+  throw "skill '$Skill' is already installed in $Project"
+}
 if (Test-Path $to) { if ((Get-Item $to).LinkType) { cmd /c rmdir "$to" } else { throw "$to exists and is a real folder; move it first" } }
 if ($Mode -eq "Junction") { New-Item -ItemType Junction -Path $to -Target $from | Out-Null } else { Copy-Item $from $to -Recurse -Force }
 if ((Split-Path (Split-Path $from -Parent) -Leaf) -eq "marketing") {      # marketing skills read ../../tools/
   $t = Join-Path $Project ".agents\tools"
   if (-not (Test-Path $t)) { if ($Mode -eq "Junction") { New-Item -ItemType Junction -Path $t -Target "$HOME\.agents\tools" | Out-Null } else { Copy-Item "$HOME\.agents\tools" $t -Recurse } }
 }
-$list = Join-Path $Project ".agents\skills.list"
 if (-not (Test-Path $list) -or -not (Select-String -Path $list -Pattern "^$Skill$" -Quiet)) { Add-Content $list $Skill }
 "installed $Skill ($Mode) -> $to"
