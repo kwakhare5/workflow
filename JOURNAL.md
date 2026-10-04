@@ -66,3 +66,11 @@
 - **Engineering References:**
   - Ansh Nanda (@anshnanda) AGENTS.md Invariants (September 2026).
   - Context Degradation and Compliance Checklist Research in LLM Coding Agents.
+
+---
+
+### 2026-10-04 - Full Workflow & Skills Architecture Overhaul (Phases 1-5)
+- **Problem:** Over 95 global skills bloated context; broken links in marketing, GHA, and agent skills; 8 name/folder mismatches; redundant skills and stale AGENTS.md rules.
+- **Change:** Restored Pocock, Addy Osmani, and marketing skills + tools/; aligned skill names; pruned duplicates; partitioned 25 global skills from 84 per-project library skills; deployed lean 51-line AGENTS.md; created sync and install scripts.
+- **Proof:** Automated checklist passed 100%; 25 global skills verified; 0 name mismatches; links resolve; 5 phase commits created on branch skills-cleanup.
+- **Still broken / Unproven:** Mirrors contain 80 unpruned library skills until -Prune is approved; Outpost project verification pending.
