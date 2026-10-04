@@ -44,7 +44,7 @@ End with one line starting `Journal:`.
 - If you changed nothing: write `Journal: no change.`
 
 ## 7. Skill loading policy
-Only the rules in this file are always on. Do not load a skill unless the task matches its description or I type its command. If the task needs a skill that is not installed in this project (marketing, remotion, cloudflare, a UI style), say which library group it is in and ask me to install it with install-skill.ps1. Never install skills yourself.
+Only the rules in this file are always on. Do not load a skill unless the task matches its description or I type its command. If the task does not match a global skill, read LIBRARY-CATALOG.md. If a library skill matches the task, install it into this project with install-skill.ps1, tell Karan in one line which skill you installed and why, then use it. Never install more than the task needs.
 
 ## 8. Pointers
 - Project facts: ./AGENTS.md in the repo root.
