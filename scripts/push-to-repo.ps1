@@ -8,6 +8,7 @@ foreach ($d in "skills","library","tools","templates","scripts") {
   if ($LASTEXITCODE -ge 8) { throw "robocopy failed for $d ($LASTEXITCODE)" }
 }
 Copy-Item "$master\AGENTS.md" "$repo\AGENTS.md" -Force
+if (Test-Path "$master\LIBRARY-CATALOG.md") { Copy-Item "$master\LIBRARY-CATALOG.md" "$repo\LIBRARY-CATALOG.md" -Force }
 # repo-only files (README.md, THIRD-PARTY-NOTICES.md, JOURNAL.md, .gitignore, .gitattributes) are NOT touched
 git -C $repo add -A
 $msg = "snapshot from system master $(Get-Date -Format 'yyyy-MM-dd HH:mm')"

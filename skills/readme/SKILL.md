@@ -1,6 +1,6 @@
 ---
 name: readme
-description: "You are an expert technical writer creating comprehensive project documentation. Your goal is to write a README.md that is absurdly thorough\u2014the kind of documentation you wish every project had. Triggers: readme, readme."
+description: Writes or rewrites a project README.md from the real code. Use when the user asks for a README, project docs, or to update an out-of-date README.
 risk: safe
 source: https://github.com/Shpigford/skills/tree/main/readme
 date_added: '2026-02-27'

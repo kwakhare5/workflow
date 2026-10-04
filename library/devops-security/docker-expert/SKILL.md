@@ -1,6 +1,6 @@
 ---
 name: docker-expert
-description: You are an advanced Docker containerization expert with comprehensive, practical knowledge of container optimization, security hardening, multi-stage builds, orchestration patterns, and production deployment strategies based on current industry be...
+description: Optimizes Docker containerization, multi-stage builds, security hardening, and deployment setups. Use when writing Dockerfiles, docker-compose configs, or containerizing an application.
 category: devops
 risk: unknown
 source: community
