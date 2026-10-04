@@ -4,16 +4,17 @@ Karan Wakhare's agent workflow: global rules + a small global skill set + a per-
 
 ## System Master Architecture
 The real files live on C: under `C:\Users\kwakh\.agents\`. Every tool and IDE folder points at this single source of truth via NTFS junctions and hardlinks:
-- **Skills (`32 global`):** `~/.gemini/config/skills`, `~/.gemini/skills`, `~/.codex/skills`, `~/.claude/skills`, and `~/.config/opencode/skills` are NTFS junctions pointing to `C:\Users\kwakh\.agents\skills`.
+- **Skills (`33 global`):** `~/.gemini/config/skills`, `~/.gemini/skills`, `~/.codex/skills`, `~/.claude/skills`, and `~/.config/opencode/skills` are NTFS junctions pointing to `C:\Users\kwakh\.agents\skills`.
 - **Rules (`AGENTS.md`):** `~/.gemini/config/AGENTS.md`, `~/.codex/AGENTS.md`, `~/.claude/CLAUDE.md`, and `~/.config/opencode/AGENTS.md` are NTFS hardlinks of `C:\Users\kwakh\.agents\AGENTS.md`. Editing the master updates all tools simultaneously.
-- **Library (`64 skills`):** Categorized skills live in `C:\Users\kwakh\.agents\library\` across 14 groups and are copied into individual projects on-demand.
+- **Library (`69 skills`):** Categorized skills live in `C:\Users\kwakh\.agents\library\` across 14 groups and are copied into individual projects on-demand.
 - **Repository (`D:\workflow`):** A version-controlled snapshot/backup repository. Files are copied one-way from the system master to this repository when running `push-to-repo.ps1`.
 
 ## What is in here
 - `AGENTS.md` - global working rules (48 lines)
+- `PLAYBOOK.md` - how I work with AI
 - `templates/` - `AGENTS.project.md`, `GLOSSARY.md`, `JOURNAL.md`
-- `skills/` - 32 global skills (loaded everywhere)
-- `library/` - 64 per-project skills across 14 groups (`ui-styles`, `frontend-stack`, `cloudflare`, `data`, `marketing`, `media`, etc.)
+- `skills/` - 33 global skills (loaded everywhere)
+- `library/` - 69 per-project skills across 14 groups (`ui-styles`, `frontend-stack`, `cloudflare`, `data`, `marketing`, `media`, etc.)
 - skills/.system holds 5 Codex system skills (imagegen, openai-docs, review-agent, skill-creator, skill-installer).
 - `tools/` - shared marketing CLI tool registry used by `library/marketing`
 - `scripts/` - management utilities:

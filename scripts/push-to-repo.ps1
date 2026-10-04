@@ -8,6 +8,7 @@ foreach ($d in "skills","library","tools","templates","scripts") {
   if ($LASTEXITCODE -ge 8) { throw "robocopy failed for $d ($LASTEXITCODE)" }
 }
 Copy-Item "$master\AGENTS.md" "$repo\AGENTS.md" -Force
+Copy-Item "$master\PLAYBOOK.md" "$repo\PLAYBOOK.md" -Force
 if (Test-Path "$repo\LIBRARY-CATALOG.md") { Remove-Item "$repo\LIBRARY-CATALOG.md" -Force }
 # repo-only files (README.md, THIRD-PARTY-NOTICES.md, JOURNAL.md, .gitignore, .gitattributes) are NOT touched
 git -C $repo add -A

@@ -122,4 +122,11 @@
 - **Problem:** AGENTS.md had bloat and conflicting backup rules; 35 unused/duplicate skills cluttered master; 11 core stack skills were trapped in library; catalog and install scripts added indirection.
 - **Change:** Trimmed AGENTS.md to 8 tight sections (48 lines) with Git as exclusive backup; purged 35 redundant skills, promoted 11 stack skills to global, demoted 3 to tools, and imported retro, wait-what, and unslop; removed LIBRARY-CATALOG.md, install-skill.ps1, and all project skills.list files.
 - **Proof:** 32 global (+ 5 .system), 64 library across 14 groups; check-duplicates 0; check-links 9/9 OK; 101/101 valid YAML; Compare-Object master vs repo = 0 differences; verified clean local commit.
-- **Still broken / Unproven:** None. Overhaul complete, verified, and ready on main.
+- **Still broken / Unproven:** None. Overhaul complete, verified, and ready on main.
+---
+
+### 2026-10-05 - Ask-Matt, Library Tools, Playbook, and Project Rules Modernization
+- **Problem:** Missing upstream routing and architecture skills; project AGENTS.md files had lingering legacy formatting and obsolete skill names in templates; lacking explicit human playbook.
+- **Change:** Imported ask-matt (global) plus wayfinder, prototype, improve-codebase-architecture, pr, doubt-driven-development (library tools); created PLAYBOOK.md; updated AGENTS.project.md template; restructured all 9 project AGENTS.md files; updated README.md counts (33 global, 69 library).
+- **Proof:** SKILL.md counts verified (33 global + 5 .system, 69 library across 14 groups); all 5 new skills have valid YAML and helpers; audit-projects 9/9 OK; push-to-repo synced cleanly; Compare-Object 0 differences.
+- **Still broken / Unproven:** None. Local commit created on main; unpushed per instructions.

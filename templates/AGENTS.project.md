@@ -16,10 +16,10 @@
 - Done check = Test + Lint both exit 0.
 
 ## Issue tracker
-(Written by /setup-matt-pocock-skills. If empty, run it once in this repo.)
+<GitHub Issues, Linear, Jira, or None. Format: repo or project link, tool used.>
 
 ## Design source of truth
-UI-style skill for this project: `<one of taste-skill | soft-skill | brutalist-skill | minimalist-skill | impeccable | emil-design-eng | apple-design>`. Load only this one. Ignore the other UI-style skills.
+UI-style skill for this project: `<one of impeccable | emil-design-eng | taste-skill | pick-ui-library>`. Load only this one. Ignore the other UI-style skills.
 Mockups: `design/`. Fonts and colors come from the tokens file, not from the skill.
 
 ## Folder map
