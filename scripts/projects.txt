@@ -1,9 +1,7 @@
 D:\Outpost|active
 D:\Grocer|active
 D:\Portfolio|active
-D:\Big 6|active
 D:\Git for Prompts|shelved
 D:\IndieForest|shelved
 D:\Github Profile|shelved
-D:\GTM|active
 D:\preparation|active

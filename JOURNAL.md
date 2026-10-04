@@ -129,4 +129,11 @@
 - **Problem:** Missing upstream routing and architecture skills; project AGENTS.md files had lingering legacy formatting and obsolete skill names in templates; lacking explicit human playbook.
 - **Change:** Imported ask-matt (global) plus wayfinder, prototype, improve-codebase-architecture, pr, doubt-driven-development (library tools); created PLAYBOOK.md; updated AGENTS.project.md template; restructured all 9 project AGENTS.md files; updated README.md counts (33 global, 69 library).
 - **Proof:** SKILL.md counts verified (33 global + 5 .system, 69 library across 14 groups); all 5 new skills have valid YAML and helpers; audit-projects 9/9 OK; push-to-repo synced cleanly; Compare-Object 0 differences.
-- **Still broken / Unproven:** None. Local commit created on main; unpushed per instructions.
+- **Still broken / Unproven:** None. Local commit created on main; unpushed per instructions.
+---
+
+### 2026-10-05 - Project Registry Pruning & GTM Skill Retirement
+- **Problem:** Obsolete project workspaces D:\GTM and D:\Big 6 lingered with unmaintained scripts, and library/marketing/gtm was tightly coupled to local D:\GTM paths.
+- **Change:** Permanently removed D:\GTM and D:\Big 6 directories; deregistered both from projects.txt (down to 7 projects); purged library/marketing/gtm skill; updated README.md counts (68 library skills).
+- **Proof:** Test-Path confirms directories absent; audit-projects.ps1 verified 7/7 OK; master vs repo parity clean (0 differences); push-to-repo synced.
+- **Still broken / Unproven:** None. Local commit created without push.
