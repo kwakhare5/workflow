@@ -81,3 +81,10 @@
 - **Change:** Relocated source of truth to C:\Users\kwakh\.agents; linked all tool folders via NTFS junctions and hardlinks; replaced sync script with one-way push-to-repo.ps1; configured all 7 projects (Outpost, Grocer, Portfolio, Big 6, Git for Prompts, IndieForest, Github Profile) with uniform AGENTS.md and junction-installed library skills.
 - **Proof:** All 5 junctions/hardlinks verified OK via check-links.ps1; audit-projects.ps1 reported 100% OK across all 7 projects; fresh session kiwi test passed.
 - **Still broken / Unproven:** .old-<stamp> backup directories pending Karan's deletion approval; merge to main and GitHub push pending explicit confirmation.
+---
+
+### 2026-10-04 - Full Machine Sweep & Self-Triggering Library Catalog (Jobs 1 & 2)
+- **Problem:** Specialized skills in ~/.agents/library required manual discovery; stray skills folders and out-of-date AGENTS.md copies lingered in Claude, OpenCode, AO, and user home.
+- **Change:** Created LIBRARY-CATALOG.md indexing all library skills with trigger phrases; updated AGENTS.md skill loading policy; swept C: and D: drives; imported 29 unique missing skills into library/misc and updated catalog.
+- **Proof:** LIBRARY-CATALOG.md indexes 113 skills; sweep inspected drives in 3.7s; 29 skills cleanly imported and verified in library/misc and git.
+- **Still broken / Unproven:** Deletion of stray copies (~/.claude/skills, ~/.config/opencode, ~/.AGENTS.md, root zips) awaiting Karan's confirmation.
