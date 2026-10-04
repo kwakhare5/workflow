@@ -1,9 +1,6 @@
 ---
 name: github-actions-templates
-description: Production-ready GitHub Actions workflow patterns for testing, building, and deploying applications.
-risk: critical
-source: community
-date_added: '2026-02-27'
+description: "Create production-ready GitHub Actions workflows for automated testing, building, and deploying applications. Use when setting up CI/CD with GitHub Actions, automating development workflows, or cre..."
 ---
 
 # GitHub Actions Templates
@@ -20,6 +17,7 @@ Production-ready GitHub Actions workflow patterns for testing, building, and dep
 - Clarify goals, constraints, and required inputs.
 - Apply relevant best practices and validate outcomes.
 - Provide actionable steps and verification.
+- If detailed examples are required, open `resources/implementation-playbook.md`.
 
 ## Purpose
 
@@ -338,14 +336,4 @@ jobs:
 - `assets/test-workflow.yml` - Testing workflow template
 - `assets/deploy-workflow.yml` - Deployment workflow template
 - `assets/matrix-build.yml` - Matrix build template
-
-## Related Skills
-
-- `gitlab-ci-patterns` - For GitLab CI workflows
-- `deployment-pipeline-design` - For pipeline architecture
-- `secrets-management` - For secrets handling
-
-## Limitations
-- Use this skill only when the task clearly matches the scope described above.
-- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
-- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
+- `references/common-workflows.md` - Common workflow patterns
