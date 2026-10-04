@@ -1,6 +1,6 @@
 ---
 name: remotion-best-practices
-description: Router for all Remotion skills
+description: Router for all Remotion work. Use when creating, editing, rendering, captioning, animating, or upgrading Remotion videos or compositions, even if the user only says "video" or "motion graphic".
 version: 4.0.512
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: X Ghostwriter (Indie AI/Dev Twitter Niche)
+name: x-ghostwriter-indie-aidev-twitter-niche
 description: Use this skill when drafting X/Twitter posts for the Indian AI-builder / vibe-coder niche. It encodes ONLY patterns statistically verified from a 597-post sample (5 accounts, own-authored posts only, corrupted/outlier rows stripped) — not generic virality advice. Trigger whenever the user asks for a tweet, X post, or thread draft in this niche.
 ---
 

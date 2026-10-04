@@ -1,12 +1,11 @@
-# CONTEXT.md — Domain Language
+# GLOSSARY.md — Domain Language
 # Read at the START of EVERY session.
 #
 # PURPOSE: Give the AI a shared vocabulary so it names things consistently
 # across function names, variables, comments, tests, and UI labels.
 #
 # HOW TO FILL THIS IN:
-# Don't fill this manually. Run /grill at the start of a new project.
-# The AI interviews you → you answer → it writes this file automatically.
+# Don't fill this manually. Run /grill-with-docs at the start of a new project; it writes this file.
 # After that, the AI maintains it during development (Step 6 of the coding loop).
 #
 # Rule: Only terms that are non-obvious or specific to THIS app.

@@ -33,6 +33,14 @@ TDD is a verification shield for sound architecture, not a game of getting green
 
 ---
 
+## Seams (compatibility with /to-spec and /implement)
+- A seam is the public boundary where behavior is observed: an HTTP route, a CLI command, a UI flow, a public function.
+- Before writing any test, write down the seam under test. If /to-spec already agreed seams, use those. Otherwise propose the highest seam and confirm it with Karan.
+- Prefer one E2E test at the highest seam. Add an isolated invariant test only for pure logic (math, state machines, parsers) after listing its failure modes.
+- Never test internals to raise coverage. If a test needs a mock of our own module, the seam is wrong.
+
+---
+
 ## 3. The Active Loop
 
 1. **Enumerate Failure Modes:** Write down the 3–5 explicit edge cases and failure modes the domain logic must defend against.
