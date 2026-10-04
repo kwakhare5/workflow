@@ -1,4 +1,4 @@
-﻿---
+---
 name: gtm
 description: Multi-project Go-To-Market command center for Karan Wakhare. Mines commits and journals to draft authentic X and LinkedIn posts (TRIP framework), runs Agent-Reach social radar, and qualifies developer outreach leads across Git for Prompts, IndieForest, and Grocer.
 ---

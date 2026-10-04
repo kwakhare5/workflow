@@ -115,4 +115,11 @@
 - **Problem:** Shelved projects lacked skills.list; install-skill silently re-linked already installed skills; stray master .system folder broke global parity.
 - **Change:** Scaffolded skills.list across all 9 projects; added already-installed duplicate guard to install-skill.ps1; backed up and purged duplicate root .system folder in master.
 - **Proof:** All 9 projects have skills.list; install-skill throws when installing existing skill; Compare-Object master vs repo verified 100% clean (0 diffs across 133 SKILL.md).
-- **Still broken / Unproven:** None. Complete and verified.
+- **Still broken / Unproven:** None. Complete and verified.
+---
+
+### 2026-10-04 - System Master Architecture & Overhaul
+- **Problem:** AGENTS.md had bloat and conflicting backup rules; 35 unused/duplicate skills cluttered master; 11 core stack skills were trapped in library; catalog and install scripts added indirection.
+- **Change:** Trimmed AGENTS.md to 8 tight sections (48 lines) with Git as exclusive backup; purged 35 redundant skills, promoted 11 stack skills to global, demoted 3 to tools, and imported retro, wait-what, and unslop; removed LIBRARY-CATALOG.md, install-skill.ps1, and all project skills.list files.
+- **Proof:** 32 global (+ 5 .system), 64 library across 14 groups; check-duplicates 0; check-links 9/9 OK; 101/101 valid YAML; Compare-Object master vs repo = 0 differences; verified clean local commit.
+- **Still broken / Unproven:** None. Overhaul complete, verified, and ready on main.

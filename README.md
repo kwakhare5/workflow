@@ -4,25 +4,24 @@ Karan Wakhare's agent workflow: global rules + a small global skill set + a per-
 
 ## System Master Architecture
 The real files live on C: under `C:\Users\kwakh\.agents\`. Every tool and IDE folder points at this single source of truth via NTFS junctions and hardlinks:
-- **Skills (`25 global`):** `~/.gemini/config/skills`, `~/.gemini/skills`, `~/.codex/skills`, `~/.claude/skills`, and `~/.config/opencode/skills` are NTFS junctions pointing to `C:\Users\kwakh\.agents\skills`.
+- **Skills (`32 global`):** `~/.gemini/config/skills`, `~/.gemini/skills`, `~/.codex/skills`, `~/.claude/skills`, and `~/.config/opencode/skills` are NTFS junctions pointing to `C:\Users\kwakh\.agents\skills`.
 - **Rules (`AGENTS.md`):** `~/.gemini/config/AGENTS.md`, `~/.codex/AGENTS.md`, `~/.claude/CLAUDE.md`, and `~/.config/opencode/AGENTS.md` are NTFS hardlinks of `C:\Users\kwakh\.agents\AGENTS.md`. Editing the master updates all tools simultaneously.
-- **Library (`103 skills`):** Categorized skills live in `C:\Users\kwakh\.agents\library\` across 14 groups and are installed into individual projects on-demand via NTFS junctions.
+- **Library (`64 skills`):** Categorized skills live in `C:\Users\kwakh\.agents\library\` across 14 groups and are copied into individual projects on-demand.
 - **Repository (`D:\workflow`):** A version-controlled snapshot/backup repository. Files are copied one-way from the system master to this repository when running `push-to-repo.ps1`.
 
 ## What is in here
-- `AGENTS.md` - global working rules (54 lines)
+- `AGENTS.md` - global working rules (48 lines)
 - `templates/` - `AGENTS.project.md`, `GLOSSARY.md`, `JOURNAL.md`
-- `skills/` - 25 global skills (loaded everywhere)
-- `library/` - 103 per-project skills across 14 groups (`ui-styles`, `frontend-stack`, `cloudflare`, `data`, `marketing`, `media`, etc.)
+- `skills/` - 32 global skills (loaded everywhere)
+- `library/` - 64 per-project skills across 14 groups (`ui-styles`, `frontend-stack`, `cloudflare`, `data`, `marketing`, `media`, etc.)
 - skills/.system holds 5 Codex system skills (imagegen, openai-docs, review-agent, skill-creator, skill-installer).
 - `tools/` - shared marketing CLI tool registry used by `library/marketing`
 - `scripts/` - management utilities:
   - `push-to-repo.ps1`: One-way snapshot from `C:\Users\kwakh\.agents` to `D:\workflow` (use `-Push` to push to GitHub)
-  - `install-skill.ps1`: Installs library skills into a project via NTFS junctions and tracks them in `.agents/skills.list`
   - `link-tool.ps1`: Links a new IDE or tool directory to the master skills and rules
   - `check-links.ps1`: Verifies and repairs all 9 junctions and hardlinks (`-Repair`)
   - `check-duplicates.ps1`: Ensures zero duplicate skill names across global and library groups
-  - `new-project.ps1`: Scaffolds `AGENTS.md` and `.agents/skills.list` for a new repo
+  - `new-project.ps1`: Scaffolds `AGENTS.md` for a new repo
   - `audit-projects.ps1`: Audits registered projects for missing sections and broken skill links
 
 ## Working with Projects
@@ -34,9 +33,7 @@ The real files live on C: under `C:\Users\kwakh\.agents\`. Every tool and IDE fo
 Or copy `templates/AGENTS.project.md` to `<project>/AGENTS.md` and configure stack/commands.
 
 ### 2. Add Specialized Skills to a Project
-```powershell
-~/.agents/scripts/install-skill.ps1 -Skill soft-skill -Project "D:\path\to\project"
-```
+Copy the matching skill folder from `~/.agents/library/<group>/<skill>` into `<project>/.agents/skills/<skill>` when needed.
 
 ### 3. Adding a New IDE / Tool
 ```powershell
@@ -51,7 +48,7 @@ Or copy `templates/AGENTS.project.md` to `<project>/AGENTS.md` and configure sta
 ```
 
 ## Daily Flow
-`/grilling` (or `/grill-with-docs`) -> `/to-spec` -> `/to-tickets` -> `/implement` -> `/code-review` -> `/git-commit`
+`/grilling` (or `/grill-with-docs`) -> `/to-spec` -> `/to-tickets` -> `/implement` -> `/code-review`
 
 ## Sources and Credits
 | What | Source repo | Commit / Date | License |
