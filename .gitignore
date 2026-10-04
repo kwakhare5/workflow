@@ -1,0 +1,9 @@
+# Local Desktop app caches & temporary databases
+.freebuff/
+.cache/
+*.log
+tmp/
+temp/
+
+# Offline skill archive (preserved locally on disk, ignored from version control)
+archive/
