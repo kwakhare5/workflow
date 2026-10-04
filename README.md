@@ -14,6 +14,7 @@ The real files live on C: under `C:\Users\kwakh\.agents\`. Every tool and IDE fo
 - `templates/` - `AGENTS.project.md`, `GLOSSARY.md`, `JOURNAL.md`
 - `skills/` - 25 global skills (loaded everywhere)
 - `library/` - 103 per-project skills across 14 groups (`ui-styles`, `frontend-stack`, `cloudflare`, `data`, `marketing`, `media`, etc.)
+- skills/.system holds 5 Codex system skills (imagegen, openai-docs, review-agent, skill-creator, skill-installer).
 - `tools/` - shared marketing CLI tool registry used by `library/marketing`
 - `scripts/` - management utilities:
   - `push-to-repo.ps1`: One-way snapshot from `C:\Users\kwakh\.agents` to `D:\workflow` (use `-Push` to push to GitHub)

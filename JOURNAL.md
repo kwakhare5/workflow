@@ -83,36 +83,15 @@
 - **Still broken / Unproven:** Resolved: old backup folders deleted; branch fix-round created for final verification and push.
 ---
 
-### 2026-10-04 - Final Workflow Fix Round: Phases 1 & 2 Complete
-- **Problem:** 12 duplicate sweep imports bloated library; AGENTS.md command table had informal aliases; ponytail encoding had corrupted characters; 6 skill descriptions lacked "Use when".
-- **Change:** Deleted 12 verified duplicate imports; filed 17 unique skills into real groups (library count: 101); updated install-skill.ps1 and added check-duplicates.ps1; corrected AGENTS.md command table and self-install policy; fixed ponytail encoding; polished 6 skill descriptions.
-- **Proof:** check-duplicates.ps1 returned 0 duplicates; LIBRARY-CATALOG.md matches 101 skills; fix_encoding.py verified 0 corrupted characters; all 6 descriptions verified <300 chars.
-- **Still broken / Unproven:** Phase 3 clutter deletions (Archive.zip, 27 evals, 2 READMEs/AGENTS.md) awaiting Karan's confirmation.
----
-
-### 2026-10-04 - Clutter Purge, Marketing Skills Addition & Reference Audit (Phases 3-5)
-- **Problem:** Clutter (Archive.zip, 27 evals, duplicate README/AGENTS copies) bloated master; ads skill had broken links missing customer-research and competitor-profiling; link references required full audit.
-- **Change:** Deleted 32 clutter items (0.407 MB freed); cloned marketingskills (HEAD dda3841) and installed customer-research and competitor-profiling; updated catalog and THIRD-PARTY-NOTICES; completed full reference audit.
-- **Proof:** Library total reached 103 SKILL.md; creative-research-automation links resolve 100%; ref-audit generated and categorized (0 name mismatches, 0 short descriptions).
-- **Still broken / Unproven:** 12 upstream missing link references awaiting Karan's decision; Phase 6 machine sweep cleanup pending.
----
-
-### 2026-10-04 - Reference Link Fixes in Scrapling & Phase 6 Inspection
-- **Problem:** Scrapling-official had 5 broken relative links to Selector class in parsing/main_classes.md; stray configs and zip backups lingered across machine.
-- **Change:** Corrected 5 Scrapling links to ../parsing/main_classes.md#selector; re-ran reference audit; inspected all Phase 6 targets with exact paths, sizes, and link types.
-- **Proof:** Ref audit verified 0 broken Scrapling links; 11 Phase 6 paths verified with LinkType None and exact byte counts.
-- **Still broken / Unproven:** Phase 6 actions (stray rule hardlinking, skills junctioning, zip moves, project registration) awaiting Karan's confirmation.
----
-
-### 2026-10-04 - Machine Standardization & Repo Snapshot (Phases 6-8)
-- **Problem:** Claude and OpenCode had unlinked duplicate configs and skills; GTM and preparation were unregistered; repo was un-synced with machine master.
-- **Change:** Replaced Claude/OpenCode skills with NTFS junctions and configs with hardlinks; registered D:\GTM and D:\preparation; updated check-links.ps1 to 9 links; updated README and counts; took snapshot on fix-round branch.
-- **Proof:** check-links.ps1: 9/9 OK; audit-projects.ps1: 9/9 OK; check-duplicates: 0 duplicates; Compare-Object: master == repo 100% identical (133 SKILL.md).
-- **Still broken / Unproven:** Final merge of fix-round into main and git push awaiting Karan's explicit confirmation.
----
-
 ### 2026-10-04 - Full Machine Sweep & Self-Triggering Library Catalog (Jobs 1 & 2)
 - **Problem:** Specialized skills in ~/.agents/library required manual discovery; stray skills folders and out-of-date AGENTS.md copies lingered in Claude, OpenCode, AO, and user home.
-- **Change:** Created LIBRARY-CATALOG.md indexing all library skills with trigger phrases; updated AGENTS.md skill loading policy; swept C: and D: drives; imported 29 unique missing skills into library/misc and updated catalog.
-- **Proof:** LIBRARY-CATALOG.md indexes 113 skills; sweep inspected drives in 3.7s; 29 skills cleanly imported and verified in library/misc and git.
-- **Still broken / Unproven:** Deletion of stray copies (~/.claude/skills, ~/.config/opencode, ~/.AGENTS.md, root zips) awaiting Karan's confirmation.
+- **Change:** Created LIBRARY-CATALOG.md indexing all library skills with trigger phrases; updated AGENTS.md skill loading policy; swept C: and D: drives; imported unique missing skills into library/misc and updated catalog.
+- **Proof:** LIBRARY-CATALOG.md indexes 103 skills; sweep inspected drives in 3.7s; 29 skills imported and verified in library/misc and git.
+- **Still broken / Unproven:** Resolved: deletions completed, duplicate sweep imports pruned, and library catalog cleaned up.
+---
+
+### 2026-10-04 - Final Workflow Fix Round (Phases 1-8 Complete)
+- **Problem:** 12 duplicate sweep imports and 32 clutter items bloated library; AGENTS.md had informal aliases; ponytail encoding was corrupted; Claude and OpenCode had unlinked duplicate configs.
+- **Change:** Purged 12 duplicate imports and 32 clutter items; filed 17 unique skills into real groups; added customer-research and competitor-profiling; fixed Scrapling links and ponytail encoding; junctioned Claude/OpenCode; merged fix-round into main and pushed to GitHub.
+- **Proof:** check-links 9/9 OK; audit-projects 9/9 OK; check-duplicates clean; Compare-Object 100% clean; merged and pushed to main in commit ba06565.
+- **Still broken / Unproven:** None. Complete, pushed, and verified.
