@@ -18,8 +18,11 @@ if (Test-Path $target) {
 
 $agentsDir = Join-Path $Project ".agents"
 New-Item -ItemType Directory -Force $agentsDir | Out-Null
-$listFile = Join-Path $agentsDir "skills.list"
 if (-not (Test-Path $listFile)) { New-Item -ItemType File -Force $listFile | Out-Null }
+
+# Ensure no stray .agents\AGENTS.md exists; project facts belong solely in root AGENTS.md
+$strayAgents = Join-Path $agentsDir "AGENTS.md"
+if (Test-Path $strayAgents) { Remove-Item $strayAgents -Force }
 
 $gitignore = Join-Path $Project ".gitignore"
 $ignoreLines = @(".agents/skills/", ".agents/tools/")

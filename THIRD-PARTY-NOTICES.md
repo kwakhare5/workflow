@@ -8,7 +8,7 @@ This repository contains tools, skills, and templates aggregated and adapted fro
 |---|---|---|---|
 | Pocock Skills (`grilling`, `to-tickets`, `implement`, `research`, etc.) | https://github.com/mattpocock/skills | `d81f3a1` (2026-09-29) | MIT |
 | Agent Skills (`source-driven-development`, `security-and-hardening`, `shipping-and-launch`) | https://github.com/addyosmani/agent-skills | `1401c8b` (2026-10-03) | MIT |
-| Marketing Skills (10 skills + `tools/` registry) | https://github.com/coreyhaines31/marketingskills | `dda3841` (2026-10-02) | MIT |
+| Marketing Skills (28 skills + `tools/` registry) | https://github.com/coreyhaines31/marketingskills | `dda3841` (2026-10-02) | MIT |
 | GitHub Actions Templates | https://github.com/bcastelino/agent-skills-kit | `bcf1a4b` (2026-08-05) | MIT |
 
 ## Unverified / Community Sources

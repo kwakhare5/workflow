@@ -36,3 +36,5 @@ Mockups: `design/`. Fonts and colors come from the tokens file, not from the ski
 
 ## Do not touch
 - <Generated files, vendored code, migrations already applied>
+
+Global rules: read C:\Users\kwakh\.agents\AGENTS.md

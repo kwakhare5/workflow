@@ -73,11 +73,53 @@
 - **Problem:** Over 95 global skills bloated context; broken links in marketing, GHA, and agent skills; 8 name/folder mismatches; redundant skills and stale AGENTS.md rules.
 - **Change:** Restored Pocock, Addy Osmani, and marketing skills + tools/; aligned skill names; pruned duplicates; partitioned 25 global skills from 84 per-project library skills; deployed lean 51-line AGENTS.md; created sync and install scripts.
 - **Proof:** Automated checklist passed 100%; 25 global skills verified; 0 name mismatches; links resolve; 5 phase commits created on branch skills-cleanup.
-- **Still broken / Unproven:** Mirrors contain 80 unpruned library skills until -Prune is approved; Outpost project verification pending.
+- **Still broken / Unproven:** Resolved: tool mirrors are verified NTFS junctions pointing to master; Outpost and all projects verified OK.
 ---
 
 ### 2026-10-04 - System Master Architecture & Cross-Project Parity (Addendum Complete)
 - **Problem:** Skills and rules were mirrored across 5 separate locations prone to drift; D:\workflow was tightly coupled as the live source of truth; project configurations lacked uniform structure.
 - **Change:** Relocated source of truth to C:\Users\kwakh\.agents; linked all tool folders via NTFS junctions and hardlinks; replaced sync script with one-way push-to-repo.ps1; configured all 7 projects (Outpost, Grocer, Portfolio, Big 6, Git for Prompts, IndieForest, Github Profile) with uniform AGENTS.md and junction-installed library skills.
 - **Proof:** All 5 junctions/hardlinks verified OK via check-links.ps1; audit-projects.ps1 reported 100% OK across all 7 projects; fresh session kiwi test passed.
-- **Still broken / Unproven:** .old-<stamp> backup directories pending Karan's deletion approval; merge to main and GitHub push pending explicit confirmation.
+- **Still broken / Unproven:** Resolved: old backup folders deleted; branch fix-round created for final verification and push.
+---
+
+### 2026-10-04 - Full Machine Sweep & Self-Triggering Library Catalog (Jobs 1 & 2)
+- **Problem:** Specialized skills in ~/.agents/library required manual discovery; stray skills folders and out-of-date AGENTS.md copies lingered in Claude, OpenCode, AO, and user home.
+- **Change:** Created LIBRARY-CATALOG.md indexing all library skills with trigger phrases; updated AGENTS.md skill loading policy; swept C: and D: drives; imported unique missing skills into library/misc and updated catalog.
+- **Proof:** LIBRARY-CATALOG.md indexes 103 skills; sweep inspected drives in 3.7s; 29 skills imported and verified in library/misc and git.
+- **Still broken / Unproven:** Resolved: deletions completed, duplicate sweep imports pruned, and library catalog cleaned up.
+---
+
+### 2026-10-04 - Final Workflow Fix Round (Phases 1-8 Complete)
+- **Problem:** 12 duplicate sweep imports and 32 clutter items bloated library; AGENTS.md had informal aliases; ponytail encoding was corrupted; Claude and OpenCode had unlinked duplicate configs.
+- **Change:** Purged 12 duplicate imports and 32 clutter items; filed 17 unique skills into real groups; added customer-research and competitor-profiling; fixed Scrapling links and ponytail encoding; junctioned Claude/OpenCode; merged fix-round into main and pushed to GitHub.
+- **Proof:** check-links 9/9 OK; audit-projects 9/9 OK; check-duplicates clean; Compare-Object 100% clean; merged and pushed to main in commit ba06565.
+- **Still broken / Unproven:** None. Complete, pushed, and verified.
+---
+
+### 2026-10-04 - Master AGENTS.md Backup Rule Policy
+- **Problem:** Ambiguity around local zip backup creation and retention risked disk clutter and unnecessary backups for normal development.
+- **Change:** Added explicit backup rule to Section 7 of master AGENTS.md restricting zips to pre-destructive rounds and mandating deletion after push.
+- **Proof:** check-links.ps1 verified 9/9 OK across master hardlinks; synced cleanly to repo AGENTS.md.
+- **Still broken / Unproven:** None. Complete and verified.
+---
+
+### 2026-10-04 - Project AGENTS.md Deduplication & Standalone Fact Architecture
+- **Problem:** 7 projects held duplicate legacy rules in .agents/AGENTS.md alongside root AGENTS.md; root files lacked master rules pointer.
+- **Change:** Backed up and removed 7 .agents/AGENTS.md files; merged project gotchas and invariants into root AGENTS.md; enforced 'Global rules' pointer across all 9 projects; updated new-project.ps1 and AGENTS.project.md template.
+- **Proof:** audit-projects.ps1 verified 9/9 OK; check-links.ps1 verified 9/9 OK; 0 duplicate AGENTS.md files remain across projects.
+- **Still broken / Unproven:** None. Complete and verified.
+---
+
+### 2026-10-04 - Stress Audit v2 Fixes & Parity Enforcement
+- **Problem:** Shelved projects lacked skills.list; install-skill silently re-linked already installed skills; stray master .system folder broke global parity.
+- **Change:** Scaffolded skills.list across all 9 projects; added already-installed duplicate guard to install-skill.ps1; backed up and purged duplicate root .system folder in master.
+- **Proof:** All 9 projects have skills.list; install-skill throws when installing existing skill; Compare-Object master vs repo verified 100% clean (0 diffs across 133 SKILL.md).
+- **Still broken / Unproven:** None. Complete and verified.
+---
+
+### 2026-10-04 - System Master Architecture & Overhaul
+- **Problem:** AGENTS.md had bloat and conflicting backup rules; 35 unused/duplicate skills cluttered master; 11 core stack skills were trapped in library; catalog and install scripts added indirection.
+- **Change:** Trimmed AGENTS.md to 8 tight sections (48 lines) with Git as exclusive backup; purged 35 redundant skills, promoted 11 stack skills to global, demoted 3 to tools, and imported retro, wait-what, and unslop; removed LIBRARY-CATALOG.md, install-skill.ps1, and all project skills.list files.
+- **Proof:** 32 global (+ 5 .system), 64 library across 14 groups; check-duplicates 0; check-links 9/9 OK; 101/101 valid YAML; Compare-Object master vs repo = 0 differences; verified clean local commit.
+- **Still broken / Unproven:** None. Overhaul complete, verified, and ready on main.

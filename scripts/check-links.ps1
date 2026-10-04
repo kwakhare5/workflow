@@ -1,7 +1,7 @@
 param([switch]$Repair)
 $master = "$HOME\.agents"
-$skillLinks = @("$HOME\.gemini\config\skills","$HOME\.gemini\skills","$HOME\.codex\skills")
-$mdLinks    = @("$HOME\.gemini\config\AGENTS.md","$HOME\.codex\AGENTS.md")
+$skillLinks = @("$HOME\.gemini\config\skills","$HOME\.gemini\skills","$HOME\.codex\skills","$HOME\.claude\skills","$HOME\.config\opencode\skills")
+$mdLinks    = @("$HOME\.gemini\config\AGENTS.md","$HOME\.codex\AGENTS.md","$HOME\.claude\CLAUDE.md","$HOME\.config\opencode\AGENTS.md")
 foreach ($l in $skillLinks) {
   $i = Get-Item $l -Force -ErrorAction SilentlyContinue
   if ($i -and $i.LinkType -eq "Junction" -and ($i.Target -join "") -eq "$master\skills") { "OK    $l" }
