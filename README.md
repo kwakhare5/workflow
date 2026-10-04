@@ -4,22 +4,23 @@ Karan Wakhare's agent workflow: global rules + a small global skill set + a per-
 
 ## System Master Architecture
 The real files live on C: under `C:\Users\kwakh\.agents\`. Every tool and IDE folder points at this single source of truth via NTFS junctions and hardlinks:
-- **Skills (`25 global`):** `~/.gemini/config/skills`, `~/.gemini/skills`, and `~/.codex/skills` are NTFS junctions pointing to `C:\Users\kwakh\.agents\skills`.
-- **Rules (`AGENTS.md`):** `~/.gemini/config/AGENTS.md` and `~/.codex/AGENTS.md` are NTFS hardlinks of `C:\Users\kwakh\.agents\AGENTS.md`. Editing the master updates all tools simultaneously.
-- **Library (`84 skills`):** Categorized skills live in `C:\Users\kwakh\.agents\library\` and are installed into individual projects on-demand via NTFS junctions.
+- **Skills (`25 global`):** `~/.gemini/config/skills`, `~/.gemini/skills`, `~/.codex/skills`, `~/.claude/skills`, and `~/.config/opencode/skills` are NTFS junctions pointing to `C:\Users\kwakh\.agents\skills`.
+- **Rules (`AGENTS.md`):** `~/.gemini/config/AGENTS.md`, `~/.codex/AGENTS.md`, `~/.claude/CLAUDE.md`, and `~/.config/opencode/AGENTS.md` are NTFS hardlinks of `C:\Users\kwakh\.agents\AGENTS.md`. Editing the master updates all tools simultaneously.
+- **Library (`103 skills`):** Categorized skills live in `C:\Users\kwakh\.agents\library\` across 14 groups and are installed into individual projects on-demand via NTFS junctions.
 - **Repository (`D:\workflow`):** A version-controlled snapshot/backup repository. Files are copied one-way from the system master to this repository when running `push-to-repo.ps1`.
 
 ## What is in here
-- `AGENTS.md` - global working rules (53 lines)
+- `AGENTS.md` - global working rules (54 lines)
 - `templates/` - `AGENTS.project.md`, `GLOSSARY.md`, `JOURNAL.md`
 - `skills/` - 25 global skills (loaded everywhere)
-- `library/` - 84 per-project skills by group (`ui-styles`, `frontend-stack`, `cloudflare`, `data`, `marketing`, `media`, etc.)
+- `library/` - 103 per-project skills across 14 groups (`ui-styles`, `frontend-stack`, `cloudflare`, `data`, `marketing`, `media`, etc.)
 - `tools/` - shared marketing CLI tool registry used by `library/marketing`
 - `scripts/` - management utilities:
   - `push-to-repo.ps1`: One-way snapshot from `C:\Users\kwakh\.agents` to `D:\workflow` (use `-Push` to push to GitHub)
   - `install-skill.ps1`: Installs library skills into a project via NTFS junctions and tracks them in `.agents/skills.list`
   - `link-tool.ps1`: Links a new IDE or tool directory to the master skills and rules
-  - `check-links.ps1`: Verifies and repairs all junctions and hardlinks (`-Repair`)
+  - `check-links.ps1`: Verifies and repairs all 9 junctions and hardlinks (`-Repair`)
+  - `check-duplicates.ps1`: Ensures zero duplicate skill names across global and library groups
   - `new-project.ps1`: Scaffolds `AGENTS.md` and `.agents/skills.list` for a new repo
   - `audit-projects.ps1`: Audits registered projects for missing sections and broken skill links
 
