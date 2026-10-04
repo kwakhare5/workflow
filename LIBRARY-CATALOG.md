@@ -88,8 +88,37 @@ When a task matches a skill below and it is not yet installed in the current pro
 - **threejs-fundamentals** - Use when building 3D scenes, shaders, lighting, cameras, and WebGL renders with Three.js.
 
 ## Miscellaneous & Migration (`misc`)
+- **animation-vocabulary** - Use when designing or discussing UI animation principles, easing, curves, and motion vocabulary.
+- **antigravity_guide** - Use when needing reference documentation and commands for Antigravity, AGY CLI, and IDE features.
+- **api-patterns** - Use when designing REST/HTTP API contracts, endpoints, error responses, and pagination patterns.
+- **bug-reproduction-brief** - Use when writing structured bug reproduction briefs with isolated test cases and traces.
+- **cloudflare-suite** - Use when configuring and operating the full suite of Cloudflare developer tools and bindings.
+- **code-simplifier** - Use when refactoring complex, convoluted code paths into clear, simple, maintainable implementations.
+- **codebase-cleanup** - Use when removing dead code, unused exports, orphaned files, and cleaning codebase clutter.
+- **design-an-interface** - Use when drafting component contracts, props interfaces, and system boundary signatures.
 - **doc-coauthoring** - Use when co-authoring lengthy design docs, PRDs, or technical proposals through structured iteration.
+- **frontend-design** - Use when architecting frontend component hierarchies, state models, and design systems.
+- **gtm** - Use when drafting project launch posts, marketing distribution content, and developer outreach campaigns.
+- **improve-animations** - Use when auditing, tuning, and smoothing CSS/JS animations and transitions for performance.
+- **marketing-suite** - Use when preparing end-to-end marketing assets, landing copy, and launch strategy bundles.
 - **migrate-to-shoehorn** - Use when eliminating unsafe TypeScript 'as' assertions in test files using shoehorn.
+- **nodejs-best-practices** - Use when structuring Node.js runtime code, error handling, streams, and asynchronous flows.
+- **ponytail-audit** - Use when running strict YAGNI code audits to eliminate speculative abstractions and unused code.
+- **ponytail-review** - Use when reviewing pull requests and diffs specifically through the lens of minimal-code discipline.
+- **python-best-practices** - Use when writing modern, idiomatic Python code with type hints, packaging, and clean patterns.
+- **python-testing-patterns** - Use when writing pytest suites, fixtures, parameterized tests, and test isolation in Python.
+- **remotion-interactivity** - Use when adding interactive controls, player state, and event handling to Remotion videos.
+- **remotion-markup** - Use when structuring SVG, canvas, and typography markup within Remotion compositions.
+- **remotion-suite** - Use when creating programmatic video workflows and templates across the full Remotion stack.
+- **request-refactor-plan** - Use when generating a structured, phased refactoring plan before executing major code changes.
+- **resolving-merge-conflicts** - Use when systematically diagnosing and resolving git merge or rebase conflicts.
+- **typescript-best-practices** - Use when structuring TypeScript types, generics, strict compiler configs, and module boundaries.
+- **using-ao** - Use when interacting with AO decentralized compute, processes, and token handlers.
+- **vercel-cli-with-tokens** - Use when automating Vercel deployments and project links using CLI tokens and headless environments.
+- **vercel-react-best-practices** - Use when optimizing React and Next.js applications for Vercel's edge network and runtime.
+- **web-artifacts-builder** - Use when building standalone web artifacts, interactive widgets, and self-contained demos.
+- **writing-for-agents** - Use when writing clear, unambiguous prompts, guidelines, and documentation intended for AI agents.
+- **xlsx** - Use when parsing, generating, manipulating, or formatting Excel spreadsheets and OpenXML workbooks.
 
 ## Scraping & Extraction (`scraping`)
 - **apify-ultimate-scraper** - Use when building web scrapers, crawler workflows, and data pipelines on the Apify platform.
