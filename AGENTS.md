@@ -48,4 +48,6 @@ Only the rules in this file are always on. Do not load a skill unless the task m
 
 ## 8. Pointers
 - Project facts: ./AGENTS.md in the repo root.
+- If the current project has no AGENTS.md, offer to create one from ~/.agents/templates/AGENTS.project.md (script: ~/.agents/scripts/new-project.ps1). Do not create it without asking.
 - Skills: ~/.agents/skills (and mirrors). Each loads from its own description.
+- Library: ~/.agents/library (not loaded; install per project with ~/.agents/scripts/install-skill.ps1).
