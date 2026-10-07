@@ -734,7 +734,7 @@ If vertical scrolling breaks in PowerShell after running graphify, this is cause
 1. **Upgrade graphify**: Ask before upgrading (`pip install --upgrade graphifyy`), or use local analysis with what's already there
 2. **Use Windows Terminal** instead of the legacy PowerShell console — Windows Terminal handles ANSI codes correctly
 3. **Reset your terminal**: close and reopen PowerShell
-4. **Skip graspologic**: uninstall it (`pip uninstall graspologic`) and graphify will fall back to NetworkX's built-in Louvain algorithm, which produces no ANSI output
+4. **Skip graspologic**: ask the user before uninstalling it (`pip uninstall graspologic`). Only if they approve, uninstall and graphify will fall back to NetworkX's built-in Louvain algorithm, which produces no ANSI output. If they don't approve, leave it installed and pick another fix.
 
 ---
 

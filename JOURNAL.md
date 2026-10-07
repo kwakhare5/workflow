@@ -144,4 +144,12 @@
 - **Change:** Applied Pocock upstream updates (to-tickets, setup, implement, handoff); imported Emil's break-ui and mobile-native; installed create-verification-skill; swapped in revised AGENTS.md; purged 4 media skills (remotion/canvas/algorithmic-art); restored 4 library skills and repaired all 12 project junctions; synced master to repo.
 - **Proof:** check-links.ps1 reports 9/9 OK; all 12 project junctions across Outpost, Grocer, Portfolio resolve with Test-Path True; git commit verified cleanly; git push executed to origin main.
 - **Still broken / Unproven:** None. Compare passed and synced to GitHub remote.
+---
+
+### 2026-10-07 - Upstream Skill Prompt Gating & Library Sync
+- **Problem:** Skills had automatic CLI/package actions (shadcn docs/add, graphify graspologic uninstalls), cross-project palette rotation drift, promotional initial responses in break-ui/mobile-native, and stale library skill counts in README.
+- **Change:** Gated shadcn/graphify tool executions behind explicit user approvals; locked taste-skill alternatives to project approved palette; replaced promotional responses in break-ui and mobile-native with direct target inquiries; updated README counts to 63 skills across 12 groups.
+- **Proof:** git diff verified for exact line replacements across 6 files; changes committed and pushed cleanly to origin main.
+- **Still broken / Unproven:** None.
+
 

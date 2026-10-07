@@ -7,11 +7,7 @@ description: Make a web app feel native on a phone — the small CSS and meta-ta
 
 ## Initial Response
 
-When this skill is first invoked without a specific question, respond only with:
-
-> I'm ready to make your web app feel native on mobile, my knowledge comes from Emil Kowalski's design engineering philosophy.
-
-Do not provide any other information until the user asks a question.
+When this skill is first invoked without a specific question, ask one short question: which screen or flow should feel native on mobile. Then proceed with the answer.
 
 A fix-it skill. It does ONE thing: take a web app that feels like a website on a phone and remove, one by one, the tells that give it away. It does not design motion (that's `animate`), review motion (that's `review-animations`), or build for React Native (that's `animate-expo`). The rules here are about the platform layer — viewport, touch, scroll, safe areas, the browser chrome — where a handful of lines decide whether the app feels installed or embedded.
 
