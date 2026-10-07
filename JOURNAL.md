@@ -136,4 +136,12 @@
 - **Problem:** Obsolete project workspaces D:\GTM and D:\Big 6 lingered with unmaintained scripts, and library/marketing/gtm was tightly coupled to local D:\GTM paths.
 - **Change:** Permanently removed D:\GTM and D:\Big 6 directories; deregistered both from projects.txt (down to 7 projects); purged library/marketing/gtm skill; updated README.md counts (68 library skills).
 - **Proof:** Test-Path confirms directories absent; audit-projects.ps1 verified 7/7 OK; master vs repo parity clean (0 differences); push-to-repo synced.
-- **Still broken / Unproven:** None. Local commit created without push.
+- **Still broken / Unproven:** None. Local commit created without push.
+---
+
+### 2026-10-07 - Workflow Cleanup, Upstream Craft Skills, and Link Federation
+- **Problem:** Skills in master had permission leaks, unapproved git adds/deletions, unverified auto-installs, and missing upstream improvements from Pocock and Emil Kowalski; project junctions in Outpost, Grocer, and Portfolio were broken.
+- **Change:** Applied Pocock upstream updates (to-tickets, setup, implement, handoff); imported Emil's break-ui and mobile-native; installed create-verification-skill; swapped in revised AGENTS.md; purged 4 media skills (remotion/canvas/algorithmic-art); restored 4 library skills and repaired all 12 project junctions; synced master to repo.
+- **Proof:** check-links.ps1 reports 9/9 OK; all 12 project junctions across Outpost, Grocer, Portfolio resolve with Test-Path True; git commit verified cleanly; git push executed to origin main.
+- **Still broken / Unproven:** None. Compare passed and synced to GitHub remote.
+
