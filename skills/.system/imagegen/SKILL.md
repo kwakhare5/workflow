@@ -286,7 +286,7 @@ uv pip install pillow
 ```
 
 Portability note:
-- If you are using the installed skill outside this repo, install dependencies into that environment with its package manager.
+- If you are using the installed skill outside this repo, ask the user before any dependency setup, even when a CLI fallback was selected.
 - In uv-managed environments, `uv pip install ...` remains the preferred path.
 
 ### Environment

@@ -49,7 +49,7 @@ Typography is the primary structural and decorative infrastructure. Imagery is s
 ## 4. Color System
 The color architecture is uncompromising. Gradients, soft drop shadows, and modern translucency are strictly prohibited. Colors simulate physical media or primitive emissive displays.
 
-**CRITICAL: Choose ONE substrate palette per project and use it consistently. Never mix light and dark substrates within the same interface.**
+**CRITICAL: This color architecture applies only to an explicitly requested brutalist design and never replaces an existing design system by default. When active, choose ONE substrate palette per project and use it consistently. Never mix light and dark substrates within the same interface.**
 
 ### If Swiss Industrial Print (Light):
 *   **Background:** `#F4F4F0` or `#EAE8E3` (Matte, unbleached documentation paper).
@@ -68,7 +68,7 @@ The layout must appear mathematically engineered. It rejects conventional web pa
 *   **The Blueprint Grid:** Strict adherence to CSS Grid architectures. Elements do not float; they are anchored precisely to grid tracks and intersections.
 *   **Visible Compartmentalization:** Extensive utilization of solid borders (`1px` or `2px solid`) to delineate distinct zones of information. Horizontal rules (`<hr>`) frequently span the entire container width to segregate operational units.
 *   **Bimodal Density:** Layouts oscillate between extreme data density (tightly packed monospace metadata clustered together) and vast expanses of calculated negative space framing macro-typography.
-*   **Geometry:** Absolute rejection of `border-radius`. All corners must be exactly 90 degrees to enforce mechanical rigidity.
+*   **Geometry:** Absolute rejection of `border-radius` (90-degree corners) applies only when executing a requested brutalist design; it never replaces an existing project design system by default.
 
 ## 6. UI Components and Symbology
 Standard web UI conventions are replaced with utilitarian, industrial graphic elements.

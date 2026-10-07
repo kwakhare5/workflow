@@ -96,11 +96,11 @@ Note: `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID` must be set together — setting o
 
 ## CLI Setup
 
-Ensure the Vercel CLI is installed and up to date:
+Check the installed CLI first and ask before any setup or update:
 
 ```bash
-npm install -g vercel
 vercel --version
+# If not installed or update needed, ask the user before running: npm install -g vercel
 ```
 
 ## Deploying a Project
@@ -179,10 +179,10 @@ If the project is already linked, check `orgId` in `.vercel/project.json` or `.v
 
 Git pushes trigger automatic Vercel deployments.
 
-1. **Ask the user before pushing.** Never push without explicit approval.
-2. Commit and push:
+1. **Ask the user before pushing.** Make the commit and push scope explicit to the user, and never push without explicit approval.
+2. Commit and push (stage only reviewed task files, never `git add .`):
    ```bash
-   git add .
+   git add <reviewed-task-files>
    git commit -m "deploy: <description of changes>"
    git push
    ```
@@ -303,7 +303,7 @@ Full details: https://vercel.com/docs/plans/pro-plan
 - **Default to preview deployments.** Only deploy to production when explicitly asked.
 - **Ask before pushing to git.** Never push commits without the user's approval.
 - **Do not modify `.vercel/` files directly.** The CLI manages this directory. Reading them (e.g. to verify `orgId`) is fine.
-- **Do not curl/fetch deployed URLs to verify.** Just return the link to the user.
+- **Permit live/browser verification.** Open and inspect the deployed UI instead of treating a deploy link as proof; label as unverified if uninspected.
 - **Use `--format json`** when structured output will help with follow-up steps.
 - **Use `-y`** on commands that prompt for confirmation to avoid interactive blocking.
 

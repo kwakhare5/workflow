@@ -203,7 +203,7 @@ Win-loss analysis turns CRM outcomes, call transcripts, and buyer interviews int
 3. **Segment before you count.** Split by competitor, segment, deal size, and stage lost. "We lose on price" across everything often hides "we lose mid-market deals to one competitor on onboarding."
 4. **Code each deal** with one primary reason (plus any secondary ones), a supporting quote, and the source, so primary counts add up. Have one person code, or double-code a sample, so "primary" means the same thing throughout.
 5. **Report counts with sample sizes.** "6 of 9 losses to Acme cite onboarding time" beats "onboarding is a top theme." State n every time. Small slices are directional, and under ~5 deals it's a signal to watch, not a finding.
-6. **Turn findings into assets.** A deal with only a one-word CRM reason is low-confidence: confirm it with transcripts or interviews before it changes a battle card. Then update battle cards, the objection library, and discovery questions, and send product gaps to the product team.
+6. **Turn findings into assets.** A deal with only a one-word CRM reason is low-confidence: confirm it with transcripts or interviews before it changes a battle card. Then update battle cards, the objection library, and discovery questions, and prepare a summary of product gaps, confirming recipients and content with the user before sending.
 
 **For coding schemes, interview questions, and report format**: See [references/win-loss-analysis.md](references/win-loss-analysis.md)
 

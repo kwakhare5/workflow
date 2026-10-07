@@ -10,8 +10,8 @@ Name: Premium Utilitarian Minimalism & Editorial UI
 Description: An advanced frontend engineering directive for generating highly refined, ultra-minimalist, "document-style" web interfaces analogous to top-tier workspace platforms. This protocol strictly enforces a high-contrast warm monochrome palette, bespoke typographic hierarchies, meticulous structural macro-whitespace, bento-grid layouts, and an ultra-flat component architecture with deliberate muted pastel accents. It actively rejects standard generic SaaS design trends.
 
 ## 2. Absolute Negative Constraints (Banned Elements)
-The AI must strictly avoid the following generic web development defaults:
-- DO NOT use the "Inter", "Roboto", or "Open Sans" typefaces.
+This aesthetic activates only when explicitly selected. Existing approved tokens in the project take priority over these constraints:
+- DO NOT use the "Inter", "Roboto", or "Open Sans" typefaces unless already approved in existing project tokens.
 - DO NOT use generic, thin-line icon libraries like "Lucide", "Feather", or standard "Heroicons".
 - DO NOT use Tailwind's default heavy drop shadows (e.g., `shadow-md`, `shadow-lg`, `shadow-xl`). Shadows must be practically non-existent or heavily customized to be ultra-diffuse and low opacity (< 0.05).
 - DO NOT use primary colored backgrounds for large elements or sections (e.g., no bright blue, green, or red hero sections).
@@ -22,14 +22,14 @@ The AI must strictly avoid the following generic web development defaults:
 - DO NOT use AI copywriting clichés: "Elevate", "Seamless", "Unleash", "Next-Gen", "Game-changer", "Delve". Write plain, specific language.
 
 ## 3. Typographic Architecture
-The interface must rely on extreme typographic contrast and premium font selection to establish an editorial feel.
+When this aesthetic is selected (and not overridden by existing approved project tokens), the interface relies on typographic contrast:
 - Primary Sans-Serif (Body, UI, Buttons): Use clean, geometric, or system-native fonts with character. Target: `font-family: 'SF Pro Display', 'Geist Sans', 'Helvetica Neue', 'Switzer', sans-serif`.
 - Editorial Serif (Hero Headings & Quotes): Target: `font-family: 'Lyon Text', 'Newsreader', 'Playfair Display', 'Instrument Serif', serif`. Apply tight tracking (`letter-spacing: -0.02em` to `-0.04em`) and tight line-height (`1.1`).
 - Monospace (Code, Keystrokes, Meta-data): Target: `font-family: 'Geist Mono', 'SF Mono', 'JetBrains Mono', monospace`.
 - Text Colors: Body text must never be absolute black (`#000000`). Use off-black/charcoal (`#111111` or `#2F3437`) with a generous `line-height` of `1.6` for legibility. Secondary text should be muted gray (`#787774`).
 
 ## 4. Color Palette (Warm Monochrome + Spot Pastels)
-Color is a scarce resource, utilized only for semantic meaning or subtle accents.
+This aesthetic and palette activate only when selected; existing approved tokens in the project take priority over it. Color is a scarce resource, utilized only for semantic meaning or subtle accents.
 - Canvas / Background: Pure White `#FFFFFF` or Warm Bone/Off-White `#F7F6F3` / `#FBFBFA`.
 - Primary Surface (Cards): `#FFFFFF` or `#F9F9F8`.
 - Structural Borders / Dividers: Ultra-light gray `#EAEAEA` or `rgba(0,0,0,0.06)`.

@@ -71,13 +71,15 @@ Let them edit before writing.
 
 ### 4. Write
 
-**Pick the file to edit:**
+**Protected global file rule:** Never edit the global AGENTS file (`~/.agents/AGENTS.md` or `C:\Users\kwakh\.agents\AGENTS.md`). Only edit project-local steering files, and only after the user explicitly approves the setup.
 
-- If `CLAUDE.md` exists, edit it.
-- Else if `AGENTS.md` exists, edit it.
+**Pick the project file to edit:**
+
+- If project-local `CLAUDE.md` exists, edit it.
+- Else if project-local `AGENTS.md` exists, edit it.
 - If neither exists, ask the user which one to create; don't pick for them.
 
-Never create `AGENTS.md` when `CLAUDE.md` already exists (or vice versa); always edit the one that's already there.
+Never create `AGENTS.md` when `CLAUDE.md` already exists (or vice versa); always edit the one that's already there, and only after explicit user approval.
 
 If an `## Agent skills` block already exists in the chosen file, update its contents in-place rather than appending a duplicate. Don't overwrite user edits to the surrounding sections.
 

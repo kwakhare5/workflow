@@ -403,7 +403,7 @@ You already had a good glimpse of what the library can do. Use the references be
 - `references/migrating_from_beautifulsoup.md` - A quick API comparison between scrapling and Beautifulsoup
 - `https://github.com/D4Vinci/Scrapling/tree/main/docs` - Full official docs in Markdown for quick access (use only if current references do not look up-to-date).
 
-This skill encapsulates almost all the published documentation in Markdown, so don't check external sources or search online without the user's permission.
+Bundled docs serve as initial leads; verify current authoritative docs freely without an extra research gate.
 
 ## Guardrails (Always)
 - Only scrape content you're authorized to access.

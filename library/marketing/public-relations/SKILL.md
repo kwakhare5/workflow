@@ -69,7 +69,7 @@ Four modes. Most teams over-index on one. Run at least three.
 
 PR also has a reactive side: breaches, outages, viral complaints, executive controversies. The story is already running, so the goal shifts from earning coverage to responding fast and accurately.
 
-Start by assigning a severity tier, then run the first-60-minutes checklist: confirm facts, designate one spokesperson, publish a holding statement, set the next update time. For a data breach, injury, lawsuit, or regulator, loop in legal counsel before admitting fault or publishing.
+Start by assigning a severity tier, then run the first-60-minutes checklist: confirm facts, designate one spokesperson, draft a holding statement for user review (publish only if explicitly approved), set the next update time. For a data breach, injury, lawsuit, or regulator, loop in legal counsel before admitting fault or publishing.
 
 **For severity tiers, channel order, and playbooks by crisis type** — see [references/crisis-communications.md](references/crisis-communications.md)
 

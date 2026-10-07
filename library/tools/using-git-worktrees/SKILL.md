@@ -11,7 +11,7 @@ Git worktrees create isolated workspaces sharing the same repository, allowing w
 
 **Core principle:** Systematic directory selection + safety verification = reliable isolation.
 
-**Announce at start:** "I'm using the using-git-worktrees skill to set up an isolated workspace."
+**Status output:** Report only the useful worktree result or status; do not announce the skill by name.
 
 ## Directory Selection Process
 
@@ -63,7 +63,7 @@ git check-ignore -q .worktrees 2>/dev/null || git check-ignore -q worktrees 2>/d
 
 Per Jesse's rule "Fix broken things immediately":
 1. Add appropriate line to .gitignore
-2. Commit the change
+2. Ask before committing the change
 3. Proceed with worktree creation
 
 **Why critical:** Prevents accidentally committing worktree contents to repository.
@@ -100,21 +100,14 @@ cd "$path"
 
 ### 3. Run Project Setup
 
-Auto-detect and run appropriate setup:
+Read-only checks run freely, but ask before installing dependencies:
 
 ```bash
-# Node.js
-if [ -f package.json ]; then npm install; fi
-
-# Rust
-if [ -f Cargo.toml ]; then cargo build; fi
-
-# Python
-if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-if [ -f pyproject.toml ]; then poetry install; fi
-
-# Go
-if [ -f go.mod ]; then go mod download; fi
+# Detect project files freely, but ask user before installing dependencies:
+# Node.js: [ -f package.json ] -> ask before running npm install
+# Rust: [ -f Cargo.toml ] -> ask before running cargo build
+# Python: [ -f requirements.txt ] / [ -f pyproject.toml ] -> ask before pip install / poetry install
+# Go: [ -f go.mod ] -> ask before running go mod download
 ```
 
 ### 4. Verify Clean Baseline

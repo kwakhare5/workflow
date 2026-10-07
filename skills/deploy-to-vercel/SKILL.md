@@ -63,8 +63,9 @@ This is the ideal state. The project is linked and has git integration.
    ```
 
 2. **Commit and push:**
+   Stage only the task's files (never `git add .`). Confirm the branch and deployment target (preview vs. production) with the user before pushing:
    ```bash
-   git add .
+   git add <task-files>
    git commit -m "deploy: <description of changes>"
    git push
    ```
@@ -108,10 +109,10 @@ The CLI is working but the project isn't linked yet. This is the opportunity to 
 
 1. **Ask the user which team to deploy to.** Present the team slugs from Step 1 as a bulleted list. If there's only one team (or just a personal account), skip this step.
 
-2. **Once a team is selected, proceed directly to linking.** Tell the user what will happen but do not ask for separate confirmation:
+2. **Request explicit approval for project creation and linking.** Do not link automatically; project creation and automatic deployments on future pushes must each be explicitly approved by the user:
    ```
-   Linking this project to <team name> on Vercel. This will create a Vercel
-   project to deploy to and enable automatic deployments on future git pushes.
+   Linking this project to <team name> on Vercel will create a new Vercel
+   project and enable automatic deployments on future git pushes. Do you approve both?
    ```
 
 3. **If a git remote exists**, use repo-based linking with the selected team scope:
@@ -137,9 +138,7 @@ The CLI is working but the project isn't linked yet. This is the opportunity to 
 The Vercel CLI isn't set up at all.
 
 1. **Install the CLI (if not already installed):**
-   ```bash
-   npm install -g vercel
-   ```
+   Ask the user before running installation (`npm install -g vercel`), or offer the existing fallback below.
 
 2. **Authenticate:**
    ```bash
@@ -263,7 +262,7 @@ Always show the user the deployment URL.
   To transfer this deployment to your Vercel account, visit the Claim URL.
   ```
 
-**Do not** curl or fetch the deployed URL to verify it works. Just return the link.
+Inspect the build status and open the deployed UI to verify, or explicitly label the live site as unverified.
 
 ---
 

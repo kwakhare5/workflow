@@ -36,7 +36,7 @@ TDD is a verification shield for sound architecture, not a game of getting green
 ## Seams (compatibility with /to-spec and /implement)
 - A seam is the public boundary where behavior is observed: an HTTP route, a CLI command, a UI flow, a public function.
 - Before writing any test, write down the seam under test. If /to-spec already agreed seams, use those. Otherwise propose the highest seam and confirm it with Karan.
-- Prefer one E2E test at the highest seam. Add an isolated invariant test only for pure logic (math, state machines, parsers) after listing its failure modes.
+- Prefer one E2E test at the highest seam. Add an isolated invariant test only for pure logic (math, state machines, parsers) after listing its failure modes, and only when covering the behavior through the UI or highest seam is slow or hard.
 - Never test internals to raise coverage. If a test needs a mock of our own module, the seam is wrong.
 
 ---
@@ -44,7 +44,7 @@ TDD is a verification shield for sound architecture, not a game of getting green
 ## 3. The Active Loop
 
 1. **Enumerate Failure Modes:** Write down the 3–5 explicit edge cases and failure modes the domain logic must defend against.
-2. **Red First:** Write a focused test verifying these invariants. Execute the test command in the terminal and confirm it fails for the expected reason.
+2. **Red First (Bugs & Approved Invariants):** Red-first is required for bug fixes and approved isolated failure modes (write a focused test, execute it in the terminal, and confirm it fails for the expected reason). Ordinary new features follow the build-then-verify-then-E2E order from AGENTS.md section 5.
 3. **Sound Green:** Implement the general architectural logic required to satisfy the invariant. Generalization over over-fitting: never write shortcuts just to pass fixtures.
-4. **Immediate Refactor:** Clean technical debt, eliminate duplicate logic, tighten types, and confirm tests remain green before moving to the next feature slice.
+4. **Immediate Refactor:** Limit refactoring to the touched logic required by the current slice (eliminate duplicate logic, tighten types), and confirm tests remain green before moving to the next feature slice.
 5. **Execution Proof:** Run the terminal test command. Confirm exit code 0 on the actual assertion before declaring complete.
