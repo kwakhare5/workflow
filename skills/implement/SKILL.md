@@ -14,4 +14,4 @@ Run typechecking regularly, single test files regularly, and the full test suite
 
 Once done, call the Skill tool with "code-review" to review the work.
 
-Leave changes uncommitted unless the user explicitly says save or commit.
+Commit your work to the current branch.

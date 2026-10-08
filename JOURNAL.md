@@ -152,4 +152,92 @@
 - **Proof:** git diff verified for exact line replacements across 6 files; changes committed and pushed cleanly to origin main.
 - **Still broken / Unproven:** None.
 
-
+
+
+---
+
+### 2026-10-08 - Testing Pack Hardening, Poteto Principles & Workflow Cleanup
+- **Problem:** AGENTS.md had weak testing rules easily gamed by models, lacked Poteto's anti-bloat principles, to-tickets required external Linear/Jira trackers, and create-verification-skill was trapped in library storage.
+- **Change:** Added Laziness Protocol and Subtract Before You Add to AGENTS.md; integrated comprehensive 8-point testing pack with red-first bug reproduction; promoted create-verification-skill and wayfinder into active skills; configured to-tickets for local Markdown; purged graphify-out and setup-matt-pocock-skills; synchronized to global C:\Users\kwakh\.agents.
+- **Proof:** git status shows clean deletions; git diff --stat shows 23 insertions, 318 deletions; Test-Path confirms active skills in both D:\workflow\skills and C:\Users\kwakh\.agents\skills.
+- **Still broken / Unproven:** None. Changes uncommitted per Rule 6 until approved.
+
+---
+
+### 2026-10-08 - Lean Core Pruning & Skills Categorization
+- **Problem:** 27 skills remained permanently loaded in global context, consuming context tokens on planning and duplicate tools.
+- **Change:** Deduplicated unslop into no-ai-slop and grilling into grill-with-docs; moved 8 planning skills (ask-matt, wayfinder, to-spec, to-tickets, graphify, build-in-public, grill-with-docs, implement) to library/planning; updated PLAYBOOK.md; retained 17 S/A-tier active global skills.
+- **Proof:** Test-Path confirms 17 active skills in C:\Users\kwakh\.agents\skills and D:\workflow\skills; check-links.ps1 reports all symlinks OK (exit code 0); git status confirms directory restructuring.
+- **Still broken / Unproven:** None. Changes uncommitted per Rule 6 until approved.
+
+---
+
+### 2026-10-08 - Restoration of Full Global Core & Master Sync
+- **Problem:** Moving planning tools to library made /grilling, /grill-with-docs, and /graphify inaccessible in the UI slash command menu.
+- **Change:** Restored all 27 core skills directly to Master (C:\Users\kwakh\.agents\skills) and mirrored to D:\workflow\skills; updated PLAYBOOK.md; verified all 9 global symlinks.
+- **Proof:** Get-ChildItem confirms all 27 skills exist in C:\Users\kwakh\.agents\skills and C:\Users\kwakh\.gemini\config\skills; check-links.ps1 reports 9/9 OK (exit code 0); robocopy synced with exit code 0.
+- **Still broken / Unproven:** None. Changes uncommitted per Rule 6 until approved.
+
+---
+
+### 2026-10-08 - FastApi & LangGraph Global Promotion & Playbook Humanization
+- **Problem:** fastapi-best-practices and langgraph were locked in library cold storage, and PLAYBOOK.md was too complex with unrealistic prompts.
+- **Change:** Promoted fastapi-best-practices and langgraph directly to Master skills (C:\Users\kwakh\.agents\skills); rewrote PLAYBOOK.md with simple everyday English, exact usage conditions, and realistic 1-line prompts.
+- **Proof:** Test-Path confirms fastapi-best-practices and langgraph exist in C:\Users\kwakh\.agents\skills; C:\Users\kwakh\.agents\PLAYBOOK.md verified written cleanly.
+- **Still broken / Unproven:** None. Changes uncommitted per Rule 6 until approved.
+
+---
+
+### 2026-10-08 - Finalized Master Playbook with What, Why & Real Prompts
+- **Problem:** PLAYBOOK.md lacked clear, concise "What It Does" and "Why It Exists" definitions for each skill, making tool selection ambiguous.
+- **Change:** Rewrote PLAYBOOK.md in C:\Users\kwakh\.agents with plain-English 4-point entries (What it does, Why it exists, When to use it, How you prompt it) across all 29 global skills; mirrored to D:\workflow.
+- **Proof:** C:\Users\kwakh\.agents\PLAYBOOK.md verified with 29 skills documented; Test-Path returned True in both Master and backup.
+- **Still broken / Unproven:** None. Changes uncommitted per Rule 6 until approved.
+
+---
+
+### 2026-10-08 - Tabular Scannable Playbook Refactor
+- **Problem:** Long bulleted paragraphs in PLAYBOOK.md were slow to read and impossible to scan quickly during coding sessions.
+- **Change:** Refactored PLAYBOOK.md into clean, section-wise tables (Skill & Command, What It Does & Why, When to Use It, Natural Prompt Example) in C:\Users\kwakh\.agents; mirrored to D:\workflow.
+- **Proof:** Verified 8 sections rendered in Markdown tables; Test-Path returned True in both Master and backup.
+- **Still broken / Unproven:** None. Changes uncommitted per Rule 6 until approved.
+
+---
+
+### 2026-10-08 - Lean Master AGENTS.md Hardening
+- **Problem:** AGENTS.md had redundant proof rules, rigid Git commands, and testing loopholes that models could exploit.
+- **Change:** Updated C:\Users\kwakh\.agents\AGENTS.md with lean 6-section structure; added anti-cheat testing rules; enabled natural "save to GitHub" syntax; mirrored to D:\workflow.
+- **Proof:** check-links.ps1 reports 9/9 OK; C:\Users\kwakh\.agents\AGENTS.md and D:\workflow\AGENTS.md verified matching.
+- **Still broken / Unproven:** None. Changes uncommitted per Rule 5 until approved.
+
+---
+
+### 2026-10-08 - Master to Backup Parity Synchronization
+- **Problem:** Master hub (C:\Users\kwakh\.agents) and Git backup repo (D:\workflow) needed verification and sync across AGENTS.md, PLAYBOOK.md, skills, and library.
+- **Change:** Executed safe robocopy sync from Master to D:\workflow for skills and library; copied AGENTS.md and PLAYBOOK.md; verified all 9 platform symlinks; skipped project roots per instruction.
+- **Proof:** Robocopy exit code 0 for both skills and library; check-links.ps1 reports 9/9 OK; git status confirms clean working tree mirrors Master.
+- **Still broken / Unproven:** None. Changes uncommitted per Rule 5 until approved.
+
+---
+
+### 2026-10-08 - System-Wide Deduplication & Anomaly Cleanup
+- **Problem:** Nested subfolder glitch in grill-with-docs, redundant duplicate skills in library groups, obsolete THIRD-PARTY-NOTICES.md, and duplicate local skills across Grocer/Outpost/Portfolio.
+- **Change:** Removed recursive grill-with-docs folder; pruned 15 duplicate skills from library/planning, tools, frontend-stack, ai-infra, and backend-python; deleted THIRD-PARTY-NOTICES.md; updated README.md counts (29 global, 52 library); pruned local duplicate skills in Grocer, Outpost, and Portfolio; mirrored Master to D:\workflow.
+- **Proof:** Robocopy exit code 2 (clean mirror deletion); check-links.ps1 reports 9/9 OK; Test-Path confirms nested folders and library duplicates absent.
+- **Still broken / Unproven:** None. Changes uncommitted per Rule 5 until approved.
+
+---
+
+### 2026-10-08 - Git Removal of Duplicate Project AGENTS.md
+- **Problem:** D:\Grocer had both AGENTS.md and .agents/AGENTS.md committed in Git, causing Git to continually resurrect the duplicate file on restore/checkout.
+- **Change:** Executed git rm on D:\Grocer\.agents\AGENTS.md; verified every project across D:\ has strictly one single root AGENTS.md and zero .agents/AGENTS.md.
+- **Proof:** Test-Path confirms D:\Grocer\.agents\AGENTS.md is False; git status in Grocer shows clean staged deletion 'rm .agents/AGENTS.md'.
+- **Still broken / Unproven:** None. Changes uncommitted per Rule 5 until approved.
+
+---
+
+### 2026-10-08 - Scaffolding Template Modernization
+- **Problem:** AGENTS.project.md template still referenced obsolete pick-ui-library skill.
+- **Change:** Updated AGENTS.project.md in Master templates to reference active craft skills (taste-skill, impeccable, emil-design-eng, shadcn); mirrored to D:\workflow; ran project audits.
+- **Proof:** check-duplicates.ps1 exited with 0 duplicates; audit-projects.ps1 reported all 7 registered projects OK; Test-Path confirmed clean template sync.
+- **Still broken / Unproven:** None. Changes uncommitted per Rule 5 until approved.
