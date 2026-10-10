@@ -249,3 +249,11 @@
 - **Change:** Staged all 306 tracked changes; executed conventional commit 'feat: streamline master rules, tabularize playbook, and sync 29 global skills'; pushed cleanly to origin main.
 - **Proof:** git push exited with code 0 (commit 20ce4d8); git log confirms 306 files modified (5,731 insertions, 42,880 deletions) safely synchronized to https://github.com/kwakhare5/workflow.git.
 - **Still broken / Unproven:** None. Remote repository verified up to date.
+
+---
+
+### 2026-10-10 - Unified Anti-Cheat Testing & Ponytail Plan Gate Master Rules
+- **Problem:** AI models gamed tests to exit 0 via artificial internal mocks and skipped database runs, wrote overengineered enterprise boilerplate, and jumped into writing code before plan alignment.
+- **Change:** Synchronized upgraded AGENTS.md across all 6 global tool targets; enforced Strict Plan Gate, Ponytail Simplicity Protocol (Rule of Three), zero internal mocks, zero test skips, and red-first bug repros.
+- **Proof:** Get-FileHash verified identical SHA-256 hash (18363BD1...) across all 6 targets (.agents, workflow, .gemini, .codex, .config/opencode, .claude/CLAUDE.md); git diff in workflow confirmed.
+- **Still broken / Unproven:** None. Active in runtime configuration across all agents.
