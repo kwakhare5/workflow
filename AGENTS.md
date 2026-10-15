@@ -35,6 +35,7 @@ Master configuration lives at C:\Users\kwakh\.agents; d:\workflow is the version
   - Zero arbitrary sleep timers: Wait on explicit DOM or state predicates.
 
 ## 5. Subagents Strategy
+- Read/Audit Delegation: Whenever reading large files (>300 lines), scanning directories, or auditing codebases, ALWAYS spawn a read-only research subagent. The subagent reads and returns a concise summary so the main context window stays clean.
 - Explorer reads, worker edits, reviewer only reports and never edits.
 - One task per subagent with a clear done condition.
 - Never assign two agents to edit the same file simultaneously.

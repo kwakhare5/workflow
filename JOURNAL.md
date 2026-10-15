@@ -257,3 +257,11 @@
 - **Change:** Synchronized upgraded AGENTS.md across all 6 global tool targets; enforced Strict Plan Gate, Ponytail Simplicity Protocol (Rule of Three), zero internal mocks, zero test skips, and red-first bug repros.
 - **Proof:** Get-FileHash verified identical SHA-256 hash (18363BD1...) across all 6 targets (.agents, workflow, .gemini, .codex, .config/opencode, .claude/CLAUDE.md); git diff in workflow confirmed.
 - **Still broken / Unproven:** None. Active in runtime configuration across all agents.
+
+---
+
+### 2026-10-15 - Subagents Read/Audit Delegation Rule
+- **Problem:** Main model context was polluted by dumping large files and broad codebase audits directly into the primary conversation.
+- **Change:** Added explicit Read/Audit Delegation rule to Section 5 of AGENTS.md mandating read-only research subagents for large files (>300 lines) and directory audits; synchronized across all 6 tool mirrors.
+- **Proof:** Get-FileHash verified identical SHA-256 hash (8E6C8CD5...) across all 6 targets (.agents, workflow, .gemini, .codex, .config/opencode, .claude/CLAUDE.md).
+- **Still broken / Unproven:** None.
