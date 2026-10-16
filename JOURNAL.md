@@ -265,3 +265,11 @@
 - **Change:** Added explicit Read/Audit Delegation rule to Section 5 of AGENTS.md mandating read-only research subagents for large files (>300 lines) and directory audits; synchronized across all 6 tool mirrors.
 - **Proof:** Get-FileHash verified identical SHA-256 hash (8E6C8CD5...) across all 6 targets (.agents, workflow, .gemini, .codex, .config/opencode, .claude/CLAUDE.md).
 - **Still broken / Unproven:** None.
+
+---
+
+### 2026-10-16 - Plain Language & Anti-Jargon Rule Enforcement
+- **Problem:** Agents defaulted to overcomplicated explanations, dumping code plumbing, internal variables, and dramatic jargon (e.g. "cryptographic lock").
+- **Change:** Expanded Plain words first in Section 1 and added a lesson in AGENTS.md mandating simple everyday terms and banning unsolicited code mechanics; synced across all targets.
+- **Proof:** Get-FileHash verified identical SHA-256 match between C:\Users\kwakh\.agents\AGENTS.md and D:\workflow\AGENTS.md; check-links.ps1 verified all hardlinks OK.
+- **Still broken / Unproven:** None. Active across all agent runtimes.
