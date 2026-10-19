@@ -1,6 +1,6 @@
 # PLAYBOOK - Quick Skills Cheat Sheet
 
-A clean, scannable guide to all 27 global skills and on-demand library skills. Find what you need at a glance.
+A clean, scannable guide to all 28 global skills and on-demand library skills. Find what you need at a glance.
 
 ---
 
@@ -76,6 +76,7 @@ A clean, scannable guide to all 27 global skills and on-demand library skills. F
 | **`code-review`**<br>`/code-review` | Dual sub-agents auditing git diffs: one checks project rules (`AGENTS.md`), one checks spec alignment. | Auditing uncommitted changes or PRs before merging. | *"/code-review check my uncommitted changes"* |
 | **`no-ai-slop` / `unslop`**<br>`/no-ai-slop` | Strips robotic AI words ("seamless", "delve"), em-dashes, and buzzwords from text. | Editing READMEs, documentation, commit messages, or landing page copy. | *"/no-ai-slop rewrite this copy"* |
 | **`build-in-public`**<br>`/build-in-public` | Turns real git commits and `JOURNAL.md` cards into proof-first posts for X and LinkedIn. | After shipping a feature or fixing a bug to share progress online. | *"/build-in-public write a post on this ship"* |
+| **`handoff`**<br>`/handoff` | Compacts active conversation into a structured markdown document in `%TEMP%` for fresh session takeover. | Context window nearing capacity or switching tasks. | *"/handoff save state for next session"* |
 
 ---
 
@@ -87,7 +88,7 @@ A clean, scannable guide to all 27 global skills and on-demand library skills. F
 |---|---|---|
 | **AI Infrastructure** | `mcp-builder`, `writing-for-agents` | Building custom MCP servers or writing prompt specifications. |
 | **Web Scraping** | `scrapling-official`, `defuddle` | Writing scrapers to bypass anti-bot shields and extract markdown. |
-| **Tools, PRs & Git** | `improve-codebase-architecture`, `pr`, `prototype`, `readme`, `using-git-worktrees`, `doubt-driven-development`, `shipping-and-launch` | Managing architecture refactors, pull requests, parallel git branches, or prototypes. |
+| **Tools, PRs & Git** | `domain-modeling`, `blast-radius`, `correct`, `wait-what`, `bro`, `ketchup`, `improve-codebase-architecture`, `pr`, `prototype`, `readme`, `using-git-worktrees`, `doubt-driven-development`, `shipping-and-launch` | Managing architecture refactors, pull requests, parallel git branches, or prototypes. |
 | **UI Sub-Styles & Motion** | `apple-design`, `break-ui`, `brutalist-skill`, `minimalist-skill`, `mobile-native`, `animation-vocabulary`, `improve-animations` | Explicitly building an Apple-style, brutalist, or mobile-first web app with custom motion. |
 | **Frontend Performance** | `web-perf` | Auditing web vitals, bundle size, and browser rendering bottlenecks. |
 | **Marketing (25 Skills)** | `copywriting`, `cold-email`, `seo-audit`, `ai-seo`, `cro`, `pricing`, `ads`, `onboarding` | Launching a product, running outbound sales, or optimizing conversion rates. |
