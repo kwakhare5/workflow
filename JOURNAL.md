@@ -281,3 +281,12 @@
 - **Change:** Corrected the /e2e command in Section 6, expanded Section 8 library categories to index all on-disk tools, and synced to master.
 - **Proof:** Get-FileHash verified identical SHA-256 hash match between C:\Users\kwakh\.agents\PLAYBOOK.md and D:\workflow\PLAYBOOK.md; git diff confirmed.
 - **Still broken / Unproven:** None.
+
+
+---
+
+### 2026-10-20 - Purged 8 Bloat Skills and Synced Master Catalog
+- **Problem:** Catalog contained 8 bloat skills (`vercel-optimize`, `vercel-cli-with-tokens`, `langgraph`, `github-actions-templates`, `react-view-transitions`, `marketing-ideas`, `content-strategy`, `launch`) full of tutorial boilerplate, telemetry locks, and unstable canary APIs.
+- **Change:** Deleted all 8 folders (182 files, 23,585 lines), kept the 6 requested skills, updated PLAYBOOK.md and README.md counts to 27 global and 46 library skills, and fixed obsolete `tools` reference in `push-to-repo.ps1`.
+- **Proof:** `check-duplicates.ps1` exited with 0 duplicates; `check-links.ps1` verified all 9 junctions and hardlinks OK; `push-to-repo.ps1` committed locally cleanly with exit code 0.
+- **Still broken / Unproven:** None. Active across system master and workflow repo.
