@@ -3,7 +3,7 @@ $ErrorActionPreference = "Stop"
 $master = "$HOME\.agents"; $repo = "D:\workflow"
 if (-not (Test-Path "$repo\.git")) { throw "repo not found: $repo" }
 if (-not $AllowUncommitted -and (git -C $repo status --porcelain)) { "Repo has uncommitted changes BEFORE the copy:"; git -C $repo status --short; throw "Commit or stash them first." }
-foreach ($d in "skills","library","tools","templates","scripts") {
+foreach ($d in "skills","library","templates","scripts") {
   robocopy "$master\$d" "$repo\$d" /MIR /XD .git .disabled node_modules /NFL /NDL /NJH /NP /R:1 /W:1
   if ($LASTEXITCODE -ge 8) { throw "robocopy failed for $d ($LASTEXITCODE)" }
 }

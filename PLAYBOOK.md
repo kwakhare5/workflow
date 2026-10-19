@@ -1,6 +1,6 @@
 # PLAYBOOK - Quick Skills Cheat Sheet
 
-A clean, scannable guide to all 29 global skills and on-demand library skills. Find what you need at a glance.
+A clean, scannable guide to all 27 global skills and on-demand library skills. Find what you need at a glance.
 
 ---
 
@@ -25,7 +25,6 @@ A clean, scannable guide to all 29 global skills and on-demand library skills. F
 | **`ponytail`**<br>`/ponytail` | Enforces the smallest working diff, native APIs, and zero speculative wrapper bloat. | Anytime you want simple, clean code without AI over-engineering. | *"Be lazy. Use ponytail."* |
 | **`implement`**<br>`/implement` | Builds tickets one by one, checking types and running tests after every slice. | Building features step-by-step from tickets in `.scratch/issues/`. | *"/implement ticket 01"* |
 | **`fastapi-best-practices`**<br>`/fastapi-best-practices` | Enforces async handlers, Pydantic v2 schemas, and dependency injection in Python. | Writing or editing Python FastAPI routes, background tasks, or webhooks. | *"Build this webhook in FastAPI"* |
-| **`langgraph`**<br>`/langgraph` | Builds deterministic AI state machines with checkpoints and human approval interrupts. | Building multi-step AI agents, chatbots, or tools that trigger external actions. | *"Wire this agent loop with LangGraph"* |
 
 ---
 
@@ -35,7 +34,6 @@ A clean, scannable guide to all 29 global skills and on-demand library skills. F
 |---|---|---|---|
 | **`nextjs-best-practices`**<br>`/nextjs-best-practices` | Enforces App Router patterns: Server Components by default, Suspense, caching, and Server Actions. | Building pages, layouts, data fetching, or route handlers in Next.js. | *"Fetch this using Next.js best practices"* |
 | **`react-best-practices`**<br>`/react-best-practices` | Applies 70+ Vercel rules to kill unnecessary re-renders, hook leaks, and data waterfalls. | A React component feels slow, re-renders too much, or has messy state. | *"Optimize this component's performance"* |
-| **`react-view-transitions`**<br>`/react-view-transitions` | Smooth native React 19 layout and page transitions without heavy animation libraries. | Switching tabs, navigating pages, or expanding cards with a native feel. | *"Add a smooth view transition here"* |
 | **`tailwind-patterns`**<br>`/tailwind-patterns` | Enforces modern Tailwind v4 theme variables, container queries, and structured utility classes. | Styling components or layouts with Tailwind CSS. | *"Style this with Tailwind v4"* |
 
 ---
@@ -66,7 +64,7 @@ A clean, scannable guide to all 29 global skills and on-demand library skills. F
 |---|---|---|---|
 | **`diagnosing-bugs`**<br>`/diagnosing-bugs` | 4-step debugging loop: isolate cause, write a failing repro test first (Red), apply minimal fix (Green). | Any error, crash, or unexpected behavior occurs. | *"Diagnose this error"* |
 | **`tdd`**<br>`/tdd` | Invariant TDD enforcing Failure-Mode Enumeration (FME); bans fake tautological tests. | Building critical business logic (payments, auth, orders, cart calculations). | *"Write this cart logic with TDD"* |
-| **`e2e-testing`**<br>`/e2e-testing` | Playwright browser runner that clicks and tests the app like a real human user. | Verifying critical user flows (login, checkout, onboarding) before release. | *"Run the e2e test suite"* |
+| **`e2e`** (`e2e-testing`)<br>`/e2e` | Playwright browser runner that clicks and tests the app like a real human user. | Verifying critical user flows (login, checkout, onboarding) before release. | *"/e2e run the test suite"* |
 | **`create-verification-skill`**<br>`/create-verification-skill` | Generates a one-command health check runner (`verify-<app>`) with doctor checks and tests. | Starting a new project or standardizing checks across an existing repo. | *"Set up verification for this repo"* |
 
 ---
@@ -89,7 +87,7 @@ A clean, scannable guide to all 29 global skills and on-demand library skills. F
 |---|---|---|
 | **AI Infrastructure** | `mcp-builder`, `writing-for-agents` | Building custom MCP servers or writing prompt specifications. |
 | **Web Scraping** | `scrapling-official`, `defuddle` | Writing scrapers to bypass anti-bot shields and extract markdown. |
-| **DevOps & Deploy** | `github-actions-templates`, `vercel-cli-with-tokens`, `vercel-optimize` | Setting up CI/CD workflows or configuring production Vercel tokens. |
-| **Tools & Git** | `using-git-worktrees`, `doubt-driven-development`, `prototype`, `readme` | Managing parallel git branches or setting up quick prototypes. |
-| **UI Sub-Styles** | `apple-design`, `break-ui`, `brutalist-skill`, `minimalist-skill`, `mobile-native` | Explicitly building an Apple-style, brutalist, or mobile-first web app. |
-| **Marketing (28 Skills)** | `copywriting`, `cold-email`, `seo-audit`, `ai-seo`, `cro`, `pricing`, `ads`, `onboarding` | Launching a product, running outbound sales, or optimizing conversion rates. |
+| **Tools, PRs & Git** | `improve-codebase-architecture`, `pr`, `prototype`, `readme`, `using-git-worktrees`, `doubt-driven-development`, `shipping-and-launch` | Managing architecture refactors, pull requests, parallel git branches, or prototypes. |
+| **UI Sub-Styles & Motion** | `apple-design`, `break-ui`, `brutalist-skill`, `minimalist-skill`, `mobile-native`, `animation-vocabulary`, `improve-animations` | Explicitly building an Apple-style, brutalist, or mobile-first web app with custom motion. |
+| **Frontend Performance** | `web-perf` | Auditing web vitals, bundle size, and browser rendering bottlenecks. |
+| **Marketing (25 Skills)** | `copywriting`, `cold-email`, `seo-audit`, `ai-seo`, `cro`, `pricing`, `ads`, `onboarding` | Launching a product, running outbound sales, or optimizing conversion rates. |

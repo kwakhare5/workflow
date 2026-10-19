@@ -273,3 +273,11 @@
 - **Change:** Expanded Plain words first in Section 1 and added a lesson in AGENTS.md mandating simple everyday terms and banning unsolicited code mechanics; synced across all targets.
 - **Proof:** Get-FileHash verified identical SHA-256 match between C:\Users\kwakh\.agents\AGENTS.md and D:\workflow\AGENTS.md; check-links.ps1 verified all hardlinks OK.
 - **Still broken / Unproven:** None. Active across all agent runtimes.
+
+---
+
+### 2026-10-17 - Playbook Accuracy & Library Sync
+- **Problem:** PLAYBOOK.md listed /e2e-testing instead of /e2e and omitted new on-demand library skills (tools, motion, web-perf).
+- **Change:** Corrected the /e2e command in Section 6, expanded Section 8 library categories to index all on-disk tools, and synced to master.
+- **Proof:** Get-FileHash verified identical SHA-256 hash match between C:\Users\kwakh\.agents\PLAYBOOK.md and D:\workflow\PLAYBOOK.md; git diff confirmed.
+- **Still broken / Unproven:** None.
