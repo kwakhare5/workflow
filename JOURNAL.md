@@ -299,3 +299,12 @@
 - **Change:** Fetched exact upstream files from `mattpocock/skills` and `backnotprop/pstack`; installed `handoff` into Global (28 total) and the other 6 into Library (52 total); synchronized PLAYBOOK.md and README.md.
 - **Proof:** `check-duplicates.ps1` verified 0 duplicates; `check-links.ps1` verified all 9 NTFS links OK; git status clean and committed in d:\workflow.
 - **Still broken / Unproven:** None. Active across system master and workflow repository.
+
+
+---
+
+### 2026-10-20 - Deep Clean of Unwanted Root Artifacts and Codex System Skills
+- **Problem:** `d:\workflow` contained orphan clutter: an empty `graphify-out/` folder and 6 obsolete Codex system skills in `skills/.system/` totaling 8,793 lines.
+- **Change:** Removed `graphify-out/` and `skills/.system/` across master and repo; updated `README.md` to remove `.system` bullet point; preserved two-tier layout, scripts, templates, and marketing skills.
+- **Proof:** `check-duplicates.ps1` returned 0 duplicates; `check-links.ps1` verified all 9 junctions and hardlinks OK; git commit 0561bda removed 55 clutter files cleanly.
+- **Still broken / Unproven:** None. Active across system master and workflow repo.
