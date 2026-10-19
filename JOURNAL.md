@@ -290,3 +290,12 @@
 - **Change:** Deleted all 8 folders (182 files, 23,585 lines), kept the 6 requested skills, updated PLAYBOOK.md and README.md counts to 27 global and 46 library skills, and fixed obsolete `tools` reference in `push-to-repo.ps1`.
 - **Proof:** `check-duplicates.ps1` exited with 0 duplicates; `check-links.ps1` verified all 9 junctions and hardlinks OK; `push-to-repo.ps1` committed locally cleanly with exit code 0.
 - **Still broken / Unproven:** None. Active across system master and workflow repo.
+
+
+---
+
+### 2026-10-20 - Imported 7 Missing Engineering Skills to Master and Workflow
+- **Problem:** 7 high-value skills (`handoff`, `domain-modeling`, `wait-what`, `blast-radius`, `bro`, `ketchup`, `correct`) were missing from disk.
+- **Change:** Fetched exact upstream files from `mattpocock/skills` and `backnotprop/pstack`; installed `handoff` into Global (28 total) and the other 6 into Library (52 total); synchronized PLAYBOOK.md and README.md.
+- **Proof:** `check-duplicates.ps1` verified 0 duplicates; `check-links.ps1` verified all 9 NTFS links OK; git status clean and committed in d:\workflow.
+- **Still broken / Unproven:** None. Active across system master and workflow repository.
