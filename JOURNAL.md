@@ -356,3 +356,11 @@
 - **Change:** Removed all 15 stale files/directories across `.claude`, `.gemini`, `.codex`, and `.config/opencode`; terminated 3 idle subagents.
 - **Proof:** PowerShell verification confirms all 15 paths deleted; 0 active subagents running; master NTFS junctions and hardlinks 100% clean.
 - **Still broken / Unproven:** None. Verified clean across Drive C.
+
+---
+
+### 2026-10-20 - Rewrote PLAYBOOK.md with Daily 5-Step Loop and Complete Skill Guide
+- **Problem:** `PLAYBOOK.md` lacked a clear step-by-step operational loop and did not cleanly explain how/when to use the finalized 22 global and 26 library skills.
+- **Change:** Rewrote `PLAYBOOK.md` into 4 structured sections: Daily 5-Step Loop (Grill -> Spec -> Tickets -> TDD -> Ship), Global Catalog (22 skills across 5 domains), On-Demand Library Catalog (26 skills across 5 domains), and Emergency/Speed Invariants (`bro`, `ketchup`, Circuit Breaker, Handoff); synced to master `C:\Users\kwakh\.agents`.
+- **Proof:** File diff verified; committed to git and pushed to `origin main`.
+- **Still broken / Unproven:** None. Active and verified.
