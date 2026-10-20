@@ -332,3 +332,19 @@
 - **Change:** Deleted `skills/no-ai-slop` and `library/scraping/defuddle`; updated `PLAYBOOK.md` and `README.md` to reflect 29 global and 69 library skills (98 total).
 - **Proof:** Directory counts confirm 29 global and 69 library skills; git status confirms clean deletions; changes committed and pushed to origin main.
 - **Still broken / Unproven:** None. Verified clean.
+
+---
+
+### 2026-10-20 - Updated Master AGENTS.md with Bro Voice and Unified Habits
+- **Problem:** `AGENTS.md` lacked the user's practical habits ("THE BLOCK"), had rigid rules on skipped tests/network permissions, and needed to absorb habits from redundant skills.
+- **Change:** Updated `AGENTS.md` with bro-style default voice, proactive grilling, user's scope and testing invariants, refined permissions (read/test vs mutating network calls), and circuit breaker.
+- **Proof:** File diff verified; synced to `C:\Users\kwakh\.agents\AGENTS.md`.
+- **Still broken / Unproven:** None. Active across system master and workflow backup.
+
+---
+
+### 2026-10-20 - Purged 50 Redundant Skills, Retained Ponytail, and Synced Docs
+- **Problem:** Catalog contained 98 skills with token bloat, broken dependencies (`how`, `why`, `using-ao`), and redundant micro-prompts whose rules were absorbed into `AGENTS.md`.
+- **Change:** Deleted 50 obsolete skills across `d:\workflow` and master `~/.agents`; preserved `ponytail`, `grilling`, and `grill-with-docs`; updated `README.md` and `PLAYBOOK.md` to reflect 22 global and 26 library skills (48 total).
+- **Proof:** Directory counts confirm 22 global and 26 library skills; `git status` clean and verified; committed and pushed to `origin main`.
+- **Still broken / Unproven:** None. Cleanly verified in `d:\workflow` and `C:\Users\kwakh\.agents`.
