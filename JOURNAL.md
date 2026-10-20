@@ -316,3 +316,11 @@
 - **Change:** Deleted `scripts/` and `templates/` from `d:\workflow` and system master; streamlined `README.md` to 34 lines focused strictly on rules and skills.
 - **Proof:** `git status` confirms deletion of 13 files and update to `README.md`; repository root now contains exclusively `skills/`, `library/`, and core workflow markdown files.
 - **Still broken / Unproven:** None. Active and verified.
+
+---
+
+### 2026-10-20 - Restored Markdown Templates, Upstream Refresh, and Installed Companion Skills
+- **Problem:** Markdown templates (`AGENTS.project.md`, `ARCHITECTURE.md`, `GLOSSARY.md`, `JOURNAL.md`) were deleted by mistake; skills across the repo needed fresh pulls from official upstream sources; workflows referenced missing companion skills.
+- **Change:** Restored the 4 markdown templates (excluding prettier/editorconfig); refreshed all global and library skills directly from upstream repositories (`mattpocock/skills`, `emilkowalski/skills`, `coreyhaines31/marketingskills`, `vercel-labs/agent-skills`, `supabase/agent-skills`, `Leonxlnx/taste-skill`, `tester-army/e2e`, `backnotprop/pstack`, `addyosmani/agent-skills`, `humanlayer/skills`); installed missing companion skills (`retro`, `triage`, `codebase-design`, `implement-spec`, `teach`, `wizard`, `to-questionnaire`, `animate`, `review-animations`, `animate-expo`, `show-me`, `show-me-your-work`, `figure-it-out`, `how`, `why`, `observability-and-instrumentation`, `security-and-hardening`, `performance-optimization`, `debugging-and-error-recovery`, `directory-submissions`); updated `PLAYBOOK.md` and `README.md` to reflect 30 global and 70 library skills (100 total).
+- **Proof:** `git status` verifies clean tree; 285 files updated/added in commit `23b01b1`; 30 global skills verified in `skills/` and 70 library skills verified in `library/`; 4 markdown templates restored in `templates/`.
+- **Still broken / Unproven:** None. Cleanly verified in `d:\workflow`.
