@@ -324,3 +324,11 @@
 - **Change:** Restored the 4 markdown templates (excluding prettier/editorconfig); refreshed all global and library skills directly from upstream repositories (`mattpocock/skills`, `emilkowalski/skills`, `coreyhaines31/marketingskills`, `vercel-labs/agent-skills`, `supabase/agent-skills`, `Leonxlnx/taste-skill`, `tester-army/e2e`, `backnotprop/pstack`, `addyosmani/agent-skills`, `humanlayer/skills`); installed missing companion skills (`retro`, `triage`, `codebase-design`, `implement-spec`, `teach`, `wizard`, `to-questionnaire`, `animate`, `review-animations`, `animate-expo`, `show-me`, `show-me-your-work`, `figure-it-out`, `how`, `why`, `observability-and-instrumentation`, `security-and-hardening`, `performance-optimization`, `debugging-and-error-recovery`, `directory-submissions`); updated `PLAYBOOK.md` and `README.md` to reflect 30 global and 70 library skills (100 total).
 - **Proof:** `git status` verifies clean tree; 285 files updated/added in commit `23b01b1`; 30 global skills verified in `skills/` and 70 library skills verified in `library/`; 4 markdown templates restored in `templates/`.
 - **Still broken / Unproven:** None. Cleanly verified in `d:\workflow`.
+
+---
+
+### 2026-10-20 - Removed no-ai-slop and defuddle Skills
+- **Problem:** `no-ai-slop` and `defuddle` were redundant and no longer desired in the active catalog.
+- **Change:** Deleted `skills/no-ai-slop` and `library/scraping/defuddle`; updated `PLAYBOOK.md` and `README.md` to reflect 29 global and 69 library skills (98 total).
+- **Proof:** Directory counts confirm 29 global and 69 library skills; git status confirms clean deletions; changes committed and pushed to origin main.
+- **Still broken / Unproven:** None. Verified clean.

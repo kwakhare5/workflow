@@ -1,6 +1,6 @@
 # PLAYBOOK - Quick Skills Cheat Sheet
 
-A clean, scannable guide to all 30 global skills and 70 on-demand library skills. Find what you need at a glance.
+A clean, scannable guide to all 29 global skills and 69 on-demand library skills. Find what you need at a glance.
 
 ---
 
@@ -75,7 +75,7 @@ A clean, scannable guide to all 30 global skills and 70 on-demand library skills
 | Skill & Command | What It Does & Why | When to Use It | Natural Prompt Example |
 |---|---|---|---|
 | **`code-review`**<br>`/code-review` | Dual sub-agents auditing git diffs: one checks project rules (`AGENTS.md`), one checks spec alignment. | Auditing uncommitted changes or PRs before merging. | *"/code-review check my uncommitted changes"* |
-| **`no-ai-slop` / `unslop`**<br>`/no-ai-slop` | Strips robotic AI words ("seamless", "delve"), em-dashes, and buzzwords from text. | Editing READMEs, documentation, commit messages, or landing page copy. | *"/no-ai-slop rewrite this copy"* |
+| **`unslop`**<br>`/unslop` | Strips robotic AI words ("seamless", "delve"), em-dashes, and buzzwords from text. | Editing READMEs, documentation, commit messages, or assistant prose. | *"/unslop rewrite this copy"* |
 | **`build-in-public`**<br>`/build-in-public` | Turns real git commits and `JOURNAL.md` cards into proof-first posts for X and LinkedIn. | After shipping a feature or fixing a bug to share progress online. | *"/build-in-public write a post on this ship"* |
 | **`handoff`**<br>`/handoff` | Compacts active conversation into a structured markdown document in `%TEMP%` for fresh session takeover. | Context window nearing capacity or switching tasks. | *"/handoff save state for next session"* |
 | **`retro`**<br>`/retro` | Audits agent session failures to suggest automated checks and AGENTS.md improvements. | After a build or debugging session to prevent repeating the same mistake. | *"/retro what broke and how do we prevent it?"* |
@@ -89,7 +89,7 @@ A clean, scannable guide to all 30 global skills and 70 on-demand library skills
 | Category | Skills Included | When to Pull It In |
 |---|---|---|
 | **AI Infrastructure (2)** | `mcp-builder`, `writing-for-agents` | Building custom MCP servers or writing prompt specifications. |
-| **Web Scraping (2)** | `scrapling-official`, `defuddle` | Writing scrapers to bypass anti-bot shields and extract markdown. |
+| **Web Scraping (1)** | `scrapling-official` | Writing scrapers to bypass anti-bot shields and extract markdown. |
 | **Tools, Architecture & Git (29)** | `domain-modeling`, `codebase-design`, `improve-codebase-architecture`, `implement-spec`, `figure-it-out`, `doubt-driven-development`, `debugging-and-error-recovery`, `blast-radius`, `how`, `why`, `correct`, `ketchup`, `bro`, `show-me`, `show-me-your-work`, `pr`, `prototype`, `readme`, `shipping-and-launch`, `observability-and-instrumentation`, `security-and-hardening`, `performance-optimization`, `using-git-worktrees`, `using-ao`, `antigravity_guide`, `wait-what`, `teach`, `wizard`, `to-questionnaire` | Managing architecture refactors, pull requests, parallel git branches, or prototypes. |
 | **UI Sub-Styles & Motion (10)** | `animate`, `animate-expo`, `review-animations`, `animation-vocabulary`, `improve-animations`, `apple-design`, `break-ui`, `brutalist-skill`, `minimalist-skill`, `mobile-native` | Explicitly building an Apple-style, brutalist, or mobile-first web app with custom motion. |
 | **Frontend Performance (1)** | `web-perf` | Auditing web vitals, bundle size, and browser rendering bottlenecks. |
