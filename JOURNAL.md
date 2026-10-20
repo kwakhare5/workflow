@@ -348,3 +348,11 @@
 - **Change:** Deleted 50 obsolete skills across `d:\workflow` and master `~/.agents`; preserved `ponytail`, `grilling`, and `grill-with-docs`; updated `README.md` and `PLAYBOOK.md` to reflect 22 global and 26 library skills (48 total).
 - **Proof:** Directory counts confirm 22 global and 26 library skills; `git status` clean and verified; committed and pushed to `origin main`.
 - **Still broken / Unproven:** None. Cleanly verified in `d:\workflow` and `C:\Users\kwakh\.agents`.
+
+---
+
+### 2026-10-20 - Purged Stale Artifacts and Terminated Subagents
+- **Problem:** Tool directories on Drive C contained 15 obsolete artifacts: 10 old diverged/backup rule files, 2 stale backup skill folders, 2 unlinked playbook copies, and 1 stale templates directory.
+- **Change:** Removed all 15 stale files/directories across `.claude`, `.gemini`, `.codex`, and `.config/opencode`; terminated 3 idle subagents.
+- **Proof:** PowerShell verification confirms all 15 paths deleted; 0 active subagents running; master NTFS junctions and hardlinks 100% clean.
+- **Still broken / Unproven:** None. Verified clean across Drive C.
