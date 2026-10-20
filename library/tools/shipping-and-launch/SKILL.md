@@ -7,7 +7,7 @@ description: Prepares production launches. Use when preparing to deploy to produ
 
 ## Overview
 
-Ship with confidence. The goal is not just to deploy — it's to deploy safely, with monitoring in place, a rollback plan ready, and a clear understanding of what success looks like. Every launch should be reversible, observable, and incremental.
+Ship with confidence. The goal is not just to deploy � it's to deploy safely, with monitoring in place, a rollback plan ready, and a clear understanding of what success looks like. Every launch should be reversible, observable, and incremental.
 
 ## When to Use
 
@@ -94,11 +94,11 @@ return null;
 **Feature flag lifecycle:**
 
 ```
-1. DEPLOY with flag OFF     → Code is in production but inactive
-2. ENABLE for team/beta     → Internal testing in production environment
-3. GRADUAL ROLLOUT          → 5% → 25% → 50% → 100% of users
-4. MONITOR at each stage    → Watch error rates, performance, user feedback
-5. CLEAN UP                 → Remove flag and dead code path after full rollout
+1. DEPLOY with flag OFF     ? Code is in production but inactive
+2. ENABLE for team/beta     ? Internal testing in production environment
+3. GRADUAL ROLLOUT          ? 5% ? 25% ? 50% ? 100% of users
+4. MONITOR at each stage    ? Watch error rates, performance, user feedback
+5. CLEAN UP                 ? Remove flag and dead code path after full rollout
 ```
 
 **Rules:**
@@ -113,30 +113,30 @@ return null;
 
 ```
 1. DEPLOY to staging
-   └── Full test suite in staging environment
-   └── Manual smoke test of critical flows
+   +-- Full test suite in staging environment
+   +-- Manual smoke test of critical flows
 
 2. DEPLOY to production (feature flag OFF)
-   └── Verify deployment succeeded (health check)
-   └── Check error monitoring (no new errors)
+   +-- Verify deployment succeeded (health check)
+   +-- Check error monitoring (no new errors)
 
 3. ENABLE for team (flag ON for internal users)
-   └── Team uses the feature in production
-   └── 24-hour monitoring window
+   +-- Team uses the feature in production
+   +-- 24-hour monitoring window
 
 4. CANARY rollout (flag ON for 5% of users)
-   └── Monitor error rates, latency, user behavior
-   └── Compare metrics: canary vs. baseline
-   └── 24-48 hour monitoring window
-   └── Advance only if all thresholds pass (see table below)
+   +-- Monitor error rates, latency, user behavior
+   +-- Compare metrics: canary vs. baseline
+   +-- 24-48 hour monitoring window
+   +-- Advance only if all thresholds pass (see table below)
 
 5. GRADUAL increase (25% -> 50% -> 100%)
-   └── Same monitoring at each step
-   └── Ability to roll back to previous percentage at any point
+   +-- Same monitoring at each step
+   +-- Ability to roll back to previous percentage at any point
 
 6. FULL rollout (flag ON for all users)
-   └── Monitor for 1 week
-   └── Clean up feature flag
+   +-- Monitor for 1 week
+   +-- Clean up feature flag
 ```
 
 ### Rollout Decision Thresholds
@@ -165,24 +165,24 @@ Roll back immediately if:
 
 ```
 Application metrics:
-├── Error rate (total and by endpoint)
-├── Response time (p50, p95, p99)
-├── Request volume
-├── Active users
-└── Key business metrics (conversion, engagement)
++-- Error rate (total and by endpoint)
++-- Response time (p50, p95, p99)
++-- Request volume
++-- Active users
++-- Key business metrics (conversion, engagement)
 
 Infrastructure metrics:
-├── CPU and memory utilization
-├── Database connection pool usage
-├── Disk space
-├── Network latency
-└── Queue depth (if applicable)
++-- CPU and memory utilization
++-- Database connection pool usage
++-- Disk space
++-- Network latency
++-- Queue depth (if applicable)
 
 Client metrics:
-├── Core Web Vitals (LCP, INP, CLS)
-├── JavaScript errors
-├── API error rates from client perspective
-└── Page load time
++-- Core Web Vitals (LCP, INP, CLS)
++-- JavaScript errors
++-- API error rates from client perspective
++-- Page load time
 ```
 
 ### Error Reporting
@@ -190,6 +190,12 @@ Client metrics:
 ```typescript
 // Set up error boundary with reporting
 class ErrorBoundary extends React.Component {
+  state = { hasError: false };
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
   componentDidCatch(error: Error, info: React.ErrorInfo) {
     // Report to error tracking service
     reportError(error, {
@@ -237,16 +243,16 @@ In the first hour after launch:
 
 ## Error Budget Release Gate
 
-Your service's error budget — the fraction of requests or time your SLO allows to fail — determines whether it's safe to ship. Use it as an objective gate — not a negotiation:
+Your service's error budget � the fraction of requests or time your SLO allows to fail � determines whether it's safe to ship. Use it as an objective gate � not a negotiation:
 
 ```
-Budget remaining > 20%  →  Ship normally; monitor closely
-Budget remaining 0–20%  →  Slow rollouts only; no high-risk changes
-Budget exhausted        →  Freeze feature work; focus entirely on reliability
-Budget resets           →  Resume normal pace; bake in the fix that recovered it
+Budget remaining > 20%  ?  Ship normally; monitor closely
+Budget remaining 0�20%  ?  Slow rollouts only; no high-risk changes
+Budget exhausted        ?  Freeze feature work; focus entirely on reliability
+Budget resets           ?  Resume normal pace; bake in the fix that recovered it
 ```
 
-A high burn rate during a canary (consuming budget faster than the baseline pace) is a **hold** signal in the rollout thresholds table above — treat it the same as an elevated error rate.
+A high burn rate during a canary (consuming budget faster than the baseline pace) is a **hold** signal in the rollout thresholds table above � treat it the same as an elevated error rate.
 
 ## Rollback Strategy
 
@@ -263,7 +269,7 @@ Every deployment needs a rollback plan before it happens:
 ### Rollback Steps
 1. Disable feature flag (if applicable)
    OR
-1. Deploy previous version: Present rollback plan and require user approval for scoped `git revert <commit>` and `git push` before executing
+1. Deploy previous version: `git revert <commit> && git push`
 2. Verify rollback: health check, error monitoring
 3. Communicate: notify team of rollback
 
@@ -278,10 +284,10 @@ Every deployment needs a rollback plan before it happens:
 ```
 ## See Also
 
-- For the project-wide Definition of Done that every change must clear before this checklist, see `references/definition-of-done.md`
-- For security pre-launch checks, see `references/security-checklist.md`
-- For performance pre-launch checklist, see `references/performance-checklist.md`
-- For accessibility verification before launch, see `references/accessibility-checklist.md`
+- For the project-wide Definition of Done that every change must clear before this checklist, see `../../references/definition-of-done.md`
+- For security pre-launch checks, see `../../references/security-checklist.md`
+- For performance pre-launch checklist, see `../../references/performance-checklist.md`
+- For accessibility verification before launch, see `../../references/accessibility-checklist.md`
 - For the alerting rules and SLO-tied thresholds, see `observability-and-instrumentation`
 
 ## Common Rationalizations

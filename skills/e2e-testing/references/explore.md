@@ -13,9 +13,19 @@ npx e2e explore 'Hunt for broken forms' --video
 npx e2e explore --session admin 'Explore the admin settings'
 ```
 
+## Contents
+
+- What a run does
+- Start signed in
+- Flags
+- Reading the result
+- When it does not fit
+
 ## What a run does
 
-1. Opens the app on the target's URL.
+1. Opens the app: the target's URL, or on a device the pinned app, launched
+   fresh. Explore installs no build, so a local device target needs
+   `app.bundleId`; an `appPath` alone leaves nothing to launch.
 2. Plans one step: a structured model call reads the goal, the steps and
    findings so far, and the current screen, and answers with a title and a
    concrete charter for one flow, or decides the goal is covered.
@@ -41,7 +51,7 @@ secrets; otherwise the agent skips signing in and says so in the step summary.
 (`test.setup('...', { sessions: ['admin'] }, ...)` and `session.save('admin')`,
 topic `writing-tests`). The run collects the config's test files, runs exactly
 the setup that declares the session, then restores it into the exploration
-and, on a target with a URL, opens the app, as a test with
+and opens the app, as a test with
 `{ session: 'admin' }` does. No other test runs. The setup runs as for
 `e2e run`, with the configured agents, cache, and retries; only the
 exploration runs as the explorer. The planner and the agent are told they
@@ -84,7 +94,7 @@ issues decide the verdict. Other errors use `2` and `3` as for `run`.
 
 The terminal shows each step by its title with its duration, actions, and
 findings, and each finding the moment it is reported as
-`⚑ high issue  Title (/path)`. At the end a `Findings` section lists every
+`? high issue  Title (/path)`. At the end a `Findings` section lists every
 finding, issues first and the most severe first, each with where it was seen,
 its screenshot path, expected against actual, and the steps that reach it;
 then the `Assessment` and the `run` summary with `Findings` and `Steps` in

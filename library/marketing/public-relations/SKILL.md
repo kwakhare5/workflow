@@ -2,7 +2,7 @@
 name: public-relations
 description: "When the user wants help with public relations, earned media, press coverage, journalist outreach, or media strategy (not pull requests). Also use when the user mentions 'PR,' 'press,' 'press release,' 'media outreach,' 'pitch a journalist,' 'get featured,' 'media list,' 'media kit,' 'press kit,' 'newsjacking,' 'news hijack,' 'HARO,' 'Qwoted,' 'Featured,' 'reporter request,' 'tech press,' 'TechCrunch,' 'thought leadership placement,' 'op-ed,' 'guest article,' 'press contacts,' 'podcast prep,' 'podcast guest,' 'prep me for this podcast,' 'how do I get press,' 'PR crisis,' 'crisis communications,' 'respond to backlash,' 'we got hacked,' 'data breach statement,' or 'holding statement.' Also covers crisis response when something goes wrong. For startup/SaaS/AI directory submissions, see directory-submissions. For product launches, see launch. For social-media engagement, see social. For cold-email outreach to prospects, see cold-email."
 metadata:
-  version: 1.2.0
+  version: 1.2.1
 ---
 
 # Public Relations & Earned Media
@@ -69,7 +69,7 @@ Four modes. Most teams over-index on one. Run at least three.
 
 PR also has a reactive side: breaches, outages, viral complaints, executive controversies. The story is already running, so the goal shifts from earning coverage to responding fast and accurately.
 
-Start by assigning a severity tier, then run the first-60-minutes checklist: confirm facts, designate one spokesperson, draft a holding statement for user review (publish only if explicitly approved), set the next update time. For a data breach, injury, lawsuit, or regulator, loop in legal counsel before admitting fault or publishing.
+Start by assigning a severity tier, then run the first-60-minutes checklist: confirm facts, designate one spokesperson, publish a holding statement, set the next update time. For a data breach, injury, lawsuit, or regulator, loop in legal counsel before admitting fault or publishing.
 
 **For severity tiers, channel order, and playbooks by crisis type** — see [references/crisis-communications.md](references/crisis-communications.md)
 
@@ -152,3 +152,6 @@ Go to [podcast-guest-prep.md](references/podcast-guest-prep.md): research the sh
 
 ### "Build my press page"
 Use the checklist above. Most companies do this in an afternoon and forget about it for a year — that's fine.
+
+### "Get us more backlinks"
+PR earns the highest-ceiling links but takes the most effort. For reclamation, partner pages, best-X lists, and the rest of a link program, use the **link-building** skill and treat PR as one of its tactics.
