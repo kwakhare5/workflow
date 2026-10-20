@@ -308,3 +308,11 @@
 - **Change:** Removed `graphify-out/` and `skills/.system/` across master and repo; updated `README.md` to remove `.system` bullet point; preserved two-tier layout, scripts, templates, and marketing skills.
 - **Proof:** `check-duplicates.ps1` returned 0 duplicates; `check-links.ps1` verified all 9 junctions and hardlinks OK; git commit 0561bda removed 55 clutter files cleanly.
 - **Still broken / Unproven:** None. Active across system master and workflow repo.
+
+---
+
+### 2026-10-20 - Removed Maintenance Scripts and Template Clutter
+- **Problem:** `d:\workflow` contained unneeded boilerplate: 7 PowerShell maintenance scripts in `scripts/` and 6 starter templates in `templates/` (including `.prettierrc.json` and `.editorconfig`).
+- **Change:** Deleted `scripts/` and `templates/` from `d:\workflow` and system master; streamlined `README.md` to 34 lines focused strictly on rules and skills.
+- **Proof:** `git status` confirms deletion of 13 files and update to `README.md`; repository root now contains exclusively `skills/`, `library/`, and core workflow markdown files.
+- **Still broken / Unproven:** None. Active and verified.
