@@ -364,3 +364,11 @@
 - **Change:** Rewrote `PLAYBOOK.md` into 4 structured sections: Daily 5-Step Loop (Grill -> Spec -> Tickets -> TDD -> Ship), Global Catalog (22 skills across 5 domains), On-Demand Library Catalog (26 skills across 5 domains), and Emergency/Speed Invariants (`bro`, `ketchup`, Circuit Breaker, Handoff); synced to master `C:\Users\kwakh\.agents`.
 - **Proof:** File diff verified; committed to git and pushed to `origin main`.
 - **Still broken / Unproven:** None. Active and verified.
+
+---
+
+### 2026-10-21 - Fixed UTF-8 Encoding Across All Markdown and Skill Files
+- **Problem:** `create-verification-skill/SKILL.md` failed frontmatter parsing with `invalid leading UTF-8 octet` due to legacy Windows-1252 bytes (`0x97`, `0xa6`, etc.) in frontmatter and references.
+- **Change:** Converted all affected markdown files (`create-verification-skill`, `show-me`, and 3 `e2e-testing` references) to pure UTF-8 without BOM; verified all 333 markdown files in `d:\workflow` and 350 files in `~/.agents` decode with zero errors.
+- **Proof:** Python full-tree validation exits with 0 errors across 333 files; git diff confirmed; committed and pushed to `origin main`.
+- **Still broken / Unproven:** None. Cleanly verified in `d:\workflow` and `C:\Users\kwakh\.agents`.

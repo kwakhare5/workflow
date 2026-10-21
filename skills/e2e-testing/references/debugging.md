@@ -132,7 +132,7 @@ jq '.run.results[] | select(.selected and .status != "passed") | .attempts[-1]
 - Load timing: `retries` masks it; `--workers 1 --headed` shows it.
 - Measure a fix: `npx e2e run <file> --repeat-each 10 --retries 0`
   (`--no-cache` for agent steps). `Repeats` reads `0 of 1 test passed all
-  10 runs` over `3/10 passed · repeat 0 ASSERTION_FAILED · ...` (0-based)
+  10 runs` over `3/10 passed Â· repeat 0 ASSERTION_FAILED Â· ...` (0-based)
   before, `1 of 1 test passed all 10 runs` after.
 
 ## Is it the app?
