@@ -1,6 +1,6 @@
 # PLAYBOOK - Quick Skills Cheat Sheet
 
-A clean, scannable guide to all 22 global skills and 26 on-demand library skills. Find what you need at a glance.
+A clean, scannable guide to all 23 global skills and 26 on-demand library skills (49 total). Find what you need at a glance.
 
 ---
 
@@ -26,11 +26,12 @@ Follow this rhythm for any non-trivial feature, API route, or database change:
 
 ---
 
-## 2. Global Skills Catalog (22 Skills Loaded Everywhere)
+## 2. Global Skills Catalog (23 Skills Loaded Everywhere)
 
 ### Planning & Architecture
 | Skill & Command | What It Does & Why | When to Use It | Natural Prompt Example |
 |---|---|---|---|
+| **`find-skills`**<br>`/find-skills` | Discovers, evaluates, and installs community skills from skills.sh with verification and install counts. | You need a capability that doesn't exist in global skills or the local library. | *"Find a skill for Docker deployment"* |
 | **`grilling`**<br>`/grilling` | Socratic interview that maps out decisions to kill hidden assumptions before coding. | You have an idea or plan, but haven't settled the trade-offs. | *"Grill me on this feature plan"* |
 | **`grill-with-docs`**<br>`/grill-with-docs` | Grilling with doc verification so the agent never hallucinates fake endpoints. | Integrating 3rd-party APIs (Stripe, Clerk, Supabase, Twilio). | *"/grill-with-docs integrate Stripe checkout"* |
 | **`to-spec`**<br>`/to-spec` | Turns messy chat discussions into an immutable, locked specification document. | You just agreed on a feature and need a written contract before coding. | *"/to-spec write the spec for this"* |

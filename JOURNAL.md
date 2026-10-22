@@ -372,3 +372,12 @@
 - **Change:** Converted all affected markdown files (`create-verification-skill`, `show-me`, and 3 `e2e-testing` references) to pure UTF-8 without BOM; verified all 333 markdown files in `d:\workflow` and 350 files in `~/.agents` decode with zero errors.
 - **Proof:** Python full-tree validation exits with 0 errors across 333 files; git diff confirmed; committed and pushed to `origin main`.
 - **Still broken / Unproven:** None. Cleanly verified in `d:\workflow` and `C:\Users\kwakh\.agents`.
+
+---
+
+### 2026-10-22 - Global find-skills Integration, Simplified Permissions, and Real Testing Invariants
+- **Problem:** Agent defaulted to robotic/academic explanations, lacked clear path awareness for `skills/` vs `library/`, fell back to fake mocks instead of running real external API/MCP checks, and could not discover open-source community skills when hitting capability gaps.
+- **Change:** Updated `AGENTS.md` with non-negotiable 8th-grade bro voice, simplified permissions to read-only vs state-changing, enforced zero-mocking with live user-approved calls, made skills/library physical paths explicit with library-first lookup, and added `find-skills` globally (now 23 global skills, 49 total); updated `README.md` and `PLAYBOOK.md`.
+- **Proof:** Hardlinks verified identical across 5 IDE paths (`nlink=5`, inode `17732923532882520`); `find-skills/SKILL.md` present in `d:\workflow` and all 5 tool directories; `README.md` and `PLAYBOOK.md` updated and synced to `C:\Users\kwakh\.agents`; git committed and pushed cleanly to `origin main`.
+- **Still broken / Unproven:** None. Active across master and repository.
+
