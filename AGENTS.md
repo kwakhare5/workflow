@@ -25,6 +25,7 @@ Master configuration lives at C:\Users\kwakh\.agents; d:\workflow is the version
 - Before you call a change safe, prove it by running real code. If you didn't, write "unproven".
 - If I correct the same mistake twice, tell me and fix it at the root, not with a note.
 - Hard Invariants: Secrets live strictly in environment variables. Parameterized queries only (no raw SQL string concatenation).
+- Project Memory (6 Docs): Non-trivial projects maintain 6 core docs in the project root (`PRD.md`, `ARCHITECTURE.md`, `DESIGN.md`, `AGENTS.md` [instructions + rules], `TASKS.md`, `JOURNAL.md` [proof log]) seeded from `C:\Users\kwakh\.agents\templates\` so the AI follows your plan and never guesses.
 
 ## 4. Evidence & Testing (Zero Loopholes & Real Calls)
 - Bugs, money, safety, permissions, and data: write the test first and watch it fail. Fix it, watch it pass. Show me both runs.
@@ -33,7 +34,8 @@ Master configuration lives at C:\Users\kwakh\.agents; d:\workflow is the version
 - Real Calls Over Mocks: Zero mocking of project code, databases, APIs, or MCP tools. Mocks hide real bugs. For external services and MCP calls, ask the user for permission to run the real call live. If credentials or services are missing, ask the user to provide them—never silently mock.
 - No browser tests unless it's a UI project.
 - Two-Fail Circuit Breaker: Never mask symptoms with `any`, unknown casts, or empty `try/catch` blocks. If a test or build fails twice on the same fix attempt, stop immediately, state the underlying conflict plainly, and ask for direction.
-- Verification Proof: A task is "Done" ONLY when the project test command exits 0 with pasted raw terminal output.
+- The Verify Script & Closed Loop (Lauren Tan Method): Every project must have a runnable verification command (e.g., `.\verify.ps1` or project test script) that checks types, build, and runtime behavior. Run it before declaring any task complete. If it fails, read the error, fix the code, and re-run until it passes.
+- Verification Proof: A task is "Done" ONLY when the project test/verify command exits 0 with pasted raw terminal output.
 - Skipped tests: report each one by name and reason. Never delete or weaken a test to get green.
 
 ## 5. Subagents Strategy
@@ -45,8 +47,9 @@ Master configuration lives at C:\Users\kwakh\.agents; d:\workflow is the version
 
 ## 6. Environment, Skills & House Rules
 - OS is Windows PowerShell: Write valid PowerShell syntax only (no bash syntax, no export, no && chaining). Always quote paths with spaces (e.g., `"D:\Git for Prompts"`).
-- Skills & Library Architecture:
+- Skills, Templates & Library Architecture:
   - Active Global Skills live at `C:\Users\kwakh\.agents\skills\` (NTFS linked to all tool folders).
+  - Templates live at `C:\Users\kwakh\.agents\templates\` (synced with `d:\workflow\templates\`).
   - On-Demand Library lives at `C:\Users\kwakh\.agents\library\` across 5 categories (`tools`, `marketing`, `ui-styles`, `ai-infra`, `scraping`).
   - Library First Rule: When a task needs specialized capabilities (scraping, MCP builder, animations, comparison pages, SEO), ALWAYS inspect `C:\Users\kwakh\.agents\library\` first before searching the web or claiming you don't have it.
   - Missing Capability Rule (`find-skills`): If a required capability does not exist in `skills/` or `library/`, use `find-skills` to search `skills.sh`, show the top community skill with its install count, and ask: "I don't have a skill for [topic]. Found [skill-name] by [author] with [X] installs. Do you want me to run `npx skills add` to install it?" Never auto-install without approval.

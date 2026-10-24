@@ -1,40 +1,50 @@
-# AGENTS.md - <Project name>
-# Project facts only. Global working rules are in the global AGENTS.md.
+# AGENTS.md — <Project name>
+# NOTE FOR AI: Treat this file as AGENTS.md + RULES.md combined.
+# It defines both the project facts AND the hard invariant rules for this codebase.
+# Global master working rules live at C:\Users\kwakh\.agents\AGENTS.md.
 
-## What this is
+## 1. What this is
 <One sentence: what it does and who uses it.>
 
-## Stack
+## 2. Stack
 - <Language / framework / DB / hosting, one line each>
 
-## Commands (the agent must use exactly these)
+## 3. Project Commands & Self-Verification
 - Install: `<cmd>`
-- Dev server: `<cmd>`   (runs on <port>)
+- Dev server: `<cmd>` (runs on `<port>`)
 - Test (all): `<cmd>`
 - E2E: `<cmd>`
-- Lint / typecheck: `<cmd>`
-- Done check = Test + Lint both exit 0.
+- Lint / Typecheck: `<cmd>`
+- Verification runner: `.\verify.ps1` (checks types, tests, and build)
+- Done check = `.\verify.ps1` exits 0 with pasted raw terminal output.
 
-## Issue tracker
-<GitHub Issues, Linear, Jira, or None. Format: repo or project link, tool used.>
+## 4. Hard Rules & Invariants (What the AI must ALWAYS do)
+- Always run `.\verify.ps1` before declaring any task complete.
+- Always handle loading, empty, and error states for every async call.
+- Always use strict types (no `any` or loose casts).
+- Always follow design tokens and component standards in `DESIGN.md`.
 
-## Design source of truth
-UI-style skill for this project: `<one of taste-skill | impeccable | emil-design-eng | shadcn>`. Load only this one. Ignore the other UI-style skills.
-Mockups: `design/`. Fonts and colors come from the tokens file, not from the skill.
+## 5. What the AI must NEVER do
+- Never commit hardcoded secrets, passwords, or API keys (use `.env`).
+- Never write inline styles (use design tokens in `DESIGN.md`).
+- Never modify or delete existing database migrations that have already run.
+- Never delete or weaken a test just to get green.
 
-## Folder map
-- `<path>/`: <what lives here>
-- `<path>/`: <what lives here>
+## 6. Design Source of Truth
+- UI-style skill for this project: `<one of taste-skill | impeccable | emil-design-eng | shadcn>`. Load only this one.
+- Design tokens & vibe: Follow `DESIGN.md`.
+
+## 7. Folder Map
 - `<path>/`: <what lives here>
 - `<path>/`: <what lives here>
 - `<path>/`: <what lives here>
 
-## Gotchas
+## 8. Gotchas & Known Traps
 - <Thing that broke before and the rule that prevents it, one line each>
 - <Env vars that must be set; what happens if they are missing>
 - <Anything the agent cannot infer from the code>
 
-## Do not touch
+## 9. Do Not Touch
 - <Generated files, vendored code, migrations already applied>
 
-Global rules: read C:\Users\kwakh\.agents\AGENTS.md
+Global master rules: read C:\Users\kwakh\.agents\AGENTS.md

@@ -1,6 +1,8 @@
-# Product Journal
+# Product Journal & Progress Log
 
-A chronological, append-only record of real product work and its evidence. This journal feeds engineering continuity and build-in-public drafts. Record facts, not marketing copy.
+A chronological, append-only record of real product work, completed features, and verification evidence.
+NOTE FOR AI: This file acts as the project's living PROGRESS tracker and truth log.
+Record facts, not marketing copy.
 
 ---
 

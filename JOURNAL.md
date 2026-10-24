@@ -381,3 +381,17 @@
 - **Proof:** Hardlinks verified identical across 5 IDE paths (`nlink=5`, inode `17732923532882520`); `find-skills/SKILL.md` present in `d:\workflow` and all 5 tool directories; `README.md` and `PLAYBOOK.md` updated and synced to `C:\Users\kwakh\.agents`; git committed and pushed cleanly to `origin main`.
 - **Still broken / Unproven:** None. Active across master and repository.
 
+---
+
+### 2026-10-24 - Added 6-Doc Project Templates and Lauren Tan Verification Loop
+- **Problem:** Projects lacked a standardized 6-doc memory structure and an automated closed-loop self-verification script, allowing agents to guess project context and claim features were complete without proving them.
+- **Change:** Added `PRD.md`, `DESIGN.md`, `TASKS.md`, and `verify.ps1` to `templates/` (joining existing `ARCHITECTURE.md`, `AGENTS.project.md`, `JOURNAL.md`, and `GLOSSARY.md`); created NTFS directory junctions for `templates/` across all 4 tool directories (`.gemini/config`, `.claude`, `.codex`, `.config/opencode`); updated `AGENTS.md` Sections 3 & 4 with 6-doc memory standards and the Lauren Tan verify loop; updated `README.md` and `PLAYBOOK.md`.
+- **Proof:** All 8 templates verified in `D:\workflow\templates`, `C:\Users\kwakh\.agents\templates`, and across all 4 tool junctions; NTFS hardlinks on `AGENTS.md` verified across 5 IDE files (inode `17732923532882520`, `nlink=5`); git committed and pushed to `origin main`.
+- **Still broken / Unproven:** None. Verified clean across both drives and all IDE directories.
+
+#### Work card 2: Unified AGENTS.md + Rules and Journal as Progress
+- **Problem / tension:** Naming templates `RULES.md` and `PROGRESS.md` risked tools ignoring them because agent harnesses natively look for `AGENTS.md` in project roots.
+- **Change / decision:** Standardized on `AGENTS.md` (instructions + rules combined) and `JOURNAL.md` (work log + proof); updated `AGENTS.project.md` template with invariant rules and verification commands; updated `AGENTS.md` and `PLAYBOOK.md`.
+- **Proof:** Hardlinks on `AGENTS.md` verified across 5 IDE files (inode `17732923532882520`, `nlink=5`); `templates/AGENTS.project.md` updated and synced to `C:\Users\kwakh\.agents\templates\`; git committed and pushed cleanly.
+- **Still broken / unproven:** None. Active across master and repository.
+

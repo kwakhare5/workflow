@@ -1,4 +1,5 @@
 # Local Desktop app caches & temporary databases
+.scratch/
 .freebuff/
 .cache/
 *.log

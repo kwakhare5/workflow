@@ -131,3 +131,17 @@ Follow this rhythm for any non-trivial feature, API route, or database change:
 * **"ketchup":** Tell the agent to give you a <100 word recap of what changed and what decisions are waiting on you.
 * **Two-Fail Circuit Breaker:** If a test or build fails twice on the same fix attempt, the agent must stop guessing and ask for direction.
 * **Session Handoff:** When wrapping up or pausing, the agent writes a 5-line summary to `.scratch/HANDOFF.md` so a new session resumes instantly.
+
+---
+
+## 5. Project Memory & Templates (The 6-Doc System)
+
+For any non-trivial project, seed these starter templates from `templates/` into the project root so the AI never guesses:
+
+1. **`PRD.md`**: What you are building, target users, core features, and what is out of scope.
+2. **`ARCHITECTURE.md`**: Tech stack, folder structure, database schema, and data flows.
+3. **`DESIGN.md`**: Color palette tokens, typography, component rules, and anti-slop standards.
+4. **`AGENTS.md`**: Project instructions + hard rules & invariants (seeded from `AGENTS.project.md`).
+5. **`TASKS.md`**: Active, ordered checklist of atomic tasks with verification criteria.
+6. **`JOURNAL.md`**: Living work log + terminal verification proof (acts as progress tracker).
+7. **`verify.ps1`**: One-command automated test runner (typecheck, tests, build).
