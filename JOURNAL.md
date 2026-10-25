@@ -395,3 +395,11 @@
 - **Proof:** Hardlinks on `AGENTS.md` verified across 5 IDE files (inode `17732923532882520`, `nlink=5`); `templates/AGENTS.project.md` updated and synced to `C:\Users\kwakh\.agents\templates\`; git committed and pushed cleanly.
 - **Still broken / unproven:** None. Active across master and repository.
 
+---
+
+### 2026-10-25 - Tightened AGENTS.md with Blunt Voice and De-Bloated Rules
+- **Problem / tension:** Voice rule allowed conversational sycophancy and filler, while several rules in Sections 3, 4, and 6 repeated the same constraints across multiple bullets.
+- **Change / decision:** Replaced bro voice with Blunt, Terse Voice (first word is answer, zero glaze, 2-3 sentences); collapsed redundant minimalism bullets; merged verification rules in Section 4; merged repeat-mistake triggers into Lessons.
+- **Proof:** Hardlinks on `AGENTS.md` verified across 5 IDE files (inode `17732923532882520`, `nlink=5`, size 6057); git committed and pushed to `origin main`.
+- **Still broken / unproven:** None. Active across master and repository.
+
