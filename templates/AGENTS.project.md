@@ -1,7 +1,6 @@
 # AGENTS.md — <Project name>
-# NOTE FOR AI: Treat this file as AGENTS.md + RULES.md combined.
-# It defines both the project facts AND the hard invariant rules for this codebase.
-# Global master working rules live at C:\Users\kwakh\.agents\AGENTS.md.
+# MANDATORY: You must ALWAYS read and follow the global master rules at C:\Users\kwakh\.agents\AGENTS.md before doing anything.
+# NOTE FOR AI: Treat this file as AGENTS.md + RULES.md combined. It defines project-specific facts and invariants.
 
 ## 1. What this is
 <One sentence: what it does and who uses it.>

@@ -403,3 +403,29 @@
 - **Proof:** Hardlinks on `AGENTS.md` verified across 5 IDE files (inode `17732923532882520`, `nlink=5`, size 6057); git committed and pushed to `origin main`.
 - **Still broken / unproven:** None. Active across master and repository.
 
+---
+
+### 2026-10-26 - Added Mandatory Global Rules Header to Project AGENTS.md Files
+- **Problem / tension:** Project-root `AGENTS.md` files lacked an imperative top header requiring agents to read the master rules first, causing agents to miss global standards.
+- **Change / decision:** Added mandatory top-level header to `templates/AGENTS.project.md` and 7 active project `AGENTS.md` files on Drive D without modifying existing project facts.
+- **Proof:** Header verified across all 7 project files (`Git for Prompts`, `Github Profile`, `Grocer-v5`, `IndieForest`, `Outpost`, `Outpost V1`, `Portfolio`); synced to `~/.agents/templates`; git committed and pushed to `origin main`.
+- **Still broken / unproven:** None. Active across master and projects.
+
+#### Work card 2: Aligned Skill Frontmatter Names with Folder Names
+- **Problem / tension:** Four global skills (`e2e-testing`, `postgres-best-practices`, `react-best-practices`, `taste-skill`) had frontmatter `name:` fields that diverged from their folder names, risking command resolution bugs in agent harnesses.
+- **Change / decision:** Updated the `name:` field in all four `SKILL.md` files to match their folder names exactly; synced to `C:\Users\kwakh\.agents\skills\`.
+- **Proof:** Python full audit confirms 0 mismatches across all 23 global skills and 26 library skills (49 total); git committed and pushed to `origin main`.
+- **Still broken / unproven:** None. Active across master and repository.
+
+#### Work card 3: Federated Qoder and Freebuff into System Master
+- **Problem / tension:** Qoder and Freebuff desktop installations lacked direct hardlinks to `AGENTS.md` and junctions for `skills/` and `templates/`, causing configuration drift.
+- **Change / decision:** Created NTFS hardlinks for `AGENTS.md` (now sharing inode `17732923532882520`, `nlink=9`) and NTFS junctions for `skills/` and `templates/` across `C:\Users\kwakh\.qoder` and `C:\Users\kwakh\.config\freebuff-desktop`; updated `README.md`.
+- **Proof:** Python audit confirms 9 identical hardlinks across all IDE paths and 7 live template junctions; committed and pushed to `origin main`.
+- **Still broken / unproven:** None. Active across all 7 tool environments.
+
+#### Work card 4: Shifted domain-modeling and codebase-design to Global Skills
+- **Problem / tension:** Domain vocabulary modeling and deep module design boundaries were locked in the library, preventing the AI from proactively suggesting clean architecture and entities during daily work.
+- **Change / decision:** Moved `domain-modeling` and `codebase-design` from `library/tools/` to `skills/` globally (both model-invoked); synced across Drive C junctions; updated `README.md` and `PLAYBOOK.md` catalogs (25 global, 24 library, 49 total).
+- **Proof:** Python audit confirms 25 global and 24 library skills with zero mismatches; synced to `C:\Users\kwakh\.agents\skills\`; git committed and pushed to `origin main`.
+- **Still broken / unproven:** None. Active across all tool junctions.
+
