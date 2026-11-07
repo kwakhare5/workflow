@@ -429,3 +429,12 @@
 - **Proof:** Python audit confirms 25 global and 24 library skills with zero mismatches; synced to `C:\Users\kwakh\.agents\skills\`; git committed and pushed to `origin main`.
 - **Still broken / unproven:** None. Active across all tool junctions.
 
+---
+
+### 2026-11-07 - Upgraded Impeccable and Scrapling with Freebuff File Limits Preserved
+- **Problem / tension:** Skills `impeccable` (v3.9.1) and `scrapling-official` (v0.4.11) lagged behind upstream releases (`v4.8.0` and `v0.5.1`), while Freebuff Desktop's cloud sync required strictly isolating files over 100 KB.
+- **Change / decision:** Upgraded `impeccable` to v4.8.0 (placing the engine binary in `.impeccable/bin` and large browser/font assets in `skill-assets`, keeping skill files <100 KB) and `scrapling-official` to v0.5.1; verified `ponytail` already matched upstream v5.3.3; synced across master, repo, and all 7 IDE junctions.
+- **Proof:** `impeccable.cmd --version` returns 4.8.0 with zero files >100 KB in the skill directory; Python audit verifies 31 scrapling files at v0.5.1 and 100% sync across all 7 IDE junctions.
+- **Still broken / unproven:** None. Active across all 7 tool environments.
+
+
