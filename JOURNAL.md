@@ -438,3 +438,11 @@
 - **Still broken / unproven:** None. Active across all 7 tool environments.
 
 
+
+### 2026-11-12 - Streamlined Global AGENTS.md Rules
+- **Problem:** Global `AGENTS.md` had accumulated redundant rules and verbose wording across sections.
+- **Change:** Replaced `C:\Users\kwakh\.agents\AGENTS.md` in-place and synced `D:\workflow\AGENTS.md` with the concise 5-section ruleset, `templates\`/`verify.ps1` pointers, `JOURNAL.md` guard, and `## Lessons` section.
+- **Proof:** `Get-FileHash` confirms identical SHA256 (`AD25987A...21D7C`) across master, `D:\workflow\AGENTS.md`, and all 8 NTFS hardlinked tool files.
+- **Still broken:** None (Antigravity's separate UI `user_global` rule, if cached outside `.gemini\config\AGENTS.md`, may need manual refresh).
+
+---
