@@ -446,3 +446,10 @@
 - **Still broken:** None (Antigravity's separate UI `user_global` rule, if cached outside `.gemini\config\AGENTS.md`, may need manual refresh).
 
 ---
+
+### 2026-11-15 - Synchronized Skills, Installed maintain-verification-skill, and Pruned Drift
+- **Problem:** `D:\workflow\skills` had drifted from master `~/.agents/skills` (missing `generative-engine-optimization`, extra `react-best-practices/AGENTS.md`, outdated `taste-skill` json and `shadcn` assets); `verify.ps1` was redundant complexity; `verify-grocer` leaked into global skills; companion `maintain-verification-skill` was missing; and 8 skills were hidden from AI invocation by `disable-model-invocation: true`.
+- **Change:** Deleted `verify.ps1` from templates and rules; moved `verify-grocer` out of global skills into `D:\Grocer-v5\.agents\skills\`; installed `maintain-verification-skill` from upstream `cursor/plugins/pstack`; enabled model invocation across 8 core skills; pruned file drift in `react-best-practices`, `taste-skill`, and `shadcn`; committed and pushed clean sync to GitHub.
+- **Proof:** `Compare-Object` verifies 0 directory or hash differences across all 27 global skills between `C:\Users\kwakh\.agents\skills` and `D:\workflow\skills`; `git push origin main` clean; `Test-Path` confirms `verify-grocer` purged from global and preserved in `D:\Grocer-v5`.
+- **Still broken:** None. Master and Git backup are 100% synchronized.
+
