@@ -6,8 +6,8 @@
 # RULES FOR THE AI:
 # 1. Do NOT work on multiple tasks at once.
 # 2. Pick the top unchecked task `[ ]`.
-# 3. Write the code, run `.\verify.ps1`.
-# 4. Only mark `[x]` when the verification script passes with exit code 0.
+# 3. Write the code, run tests or feature verification.
+# 4. Only mark `[x]` when verification or tests pass with exit code 0.
 # 5. Log the verified result in `PROGRESS.md`.
 
 ---
@@ -40,8 +40,8 @@
   - _Verification:_ UI renders skeletons during network delay test.
 - [ ] **Task 3.2:** Verify mobile responsiveness across 375px and 768px breakpoints.
   - _Verification:_ Browser check confirms zero horizontal overflow.
-- [ ] **Task 3.3:** Run end-to-end sanity check and verify script.
-  - _Verification:_ `.\verify.ps1` exits 0.
+- [ ] **Task 3.3:** Run feature verification or test suite.
+  - _Verification:_ Feature drive or test command exits 0.
 
 ---
 

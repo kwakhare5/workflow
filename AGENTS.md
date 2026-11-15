@@ -20,7 +20,8 @@ Master: C:\Users\kwakh\.agents. Backup: d:\workflow. Project details go in each 
 - "ketchup": what changed in under 100 words, then calls waiting on me with your pick.
 
 ## 4. Checks
-- Bugs, money, safety, permissions, data: failing test first, fix, show both runs. Normal features: build, then one real run with fixed expected values.
+- Bugs, money, safety, permissions, data: failing test first, fix, show both runs. Normal features: build, then drive the changed feature via its verification skill (.agents/skills/verify-<app>) or tests, then show the run.
+- Verification: Every project uses a local verification skill (.agents/skills/verify-<app>). If missing, run create-verification-skill to scaffold it. When modifying code, drive only the affected feature from .agents/skills/verify-<app>/features/. If a feature journey changes, run maintain-verification-skill to update the map.
 - No mocking project code, databases, APIs or MCP tools. Never silently mock. No browser tests unless it is a UI project.
 - Pick checks by what changed and its callers. Go broader only for shared code, dependencies, build config or wide impact. No full UI/backend or full suite for unrelated edits.
 - Never hide failures with `any`, unknown casts or empty try/catch. Never weaken or delete tests. Same fix fails twice: stop and ask.

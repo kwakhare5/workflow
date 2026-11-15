@@ -453,3 +453,12 @@
 - **Proof:** `Compare-Object` verifies 0 directory or hash differences across all 27 global skills between `C:\Users\kwakh\.agents\skills` and `D:\workflow\skills`; `git push origin main` clean; `Test-Path` confirms `verify-grocer` purged from global and preserved in `D:\Grocer-v5`.
 - **Still broken:** None. Master and Git backup are 100% synchronized.
 
+---
+
+### 2026-11-15 - Verification Skill Automation and Complete Leftover Purge
+- **Problem:** Agents lacked an explicit autonomous trigger for creating and maintaining verification skills, and leftover references to `verify.ps1` lingered across `templates/TASKS.md`, `Grocer-v5`, `Outpost V1`, and `Beam`.
+- **Change:** Added explicit autonomous verification invariant to Section 4 of `AGENTS.md` (drive affected feature via `.agents/skills/verify-<app>`, scaffold if missing, update via `maintain-verification-skill`); updated `templates/TASKS.md`; purged obsolete `verify.ps1` docs in `Grocer-v5` and `Outpost V1`; wrapped Beam's test harness into `.agents/skills/verify-beam/`; committed and pushed across all 4 repos.
+- **Proof:** All 4 repos (`workflow`, `Grocer`, `Outpost`, `Beam`) pushed clean to GitHub; 0 active `verify.ps1` templates remain.
+- **Still broken:** None. Full system aligned to verification skill standard.
+
+
