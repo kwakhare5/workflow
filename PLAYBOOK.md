@@ -1,6 +1,6 @@
 # PLAYBOOK - Quick Skills Cheat Sheet
 
-A clean, scannable guide to all 25 global skills and 24 on-demand library skills (49 total). Find what you need at a glance.
+A clean, scannable guide to all 27 global skills and 24 on-demand library skills (51 total). Find what you need at a glance.
 
 ---
 
@@ -26,7 +26,7 @@ Follow this rhythm for any non-trivial feature, API route, or database change:
 
 ---
 
-## 2. Global Skills Catalog (25 Skills Loaded Everywhere)
+## 2. Global Skills Catalog (27 Skills Loaded Everywhere)
 
 ### Planning & Architecture
 | Skill & Command | What It Does & Why | When to Use It | Natural Prompt Example |
@@ -50,6 +50,7 @@ Follow this rhythm for any non-trivial feature, API route, or database change:
 | **`diagnosing-bugs`**<br>`/diagnosing-bugs` | 4-step debugging loop: isolate cause, write a failing repro test first, minimal fix. | Any error, crash, or unexpected behavior occurs. | *"Diagnose this error"* |
 | **`e2e-testing`**<br>`/e2e` | Playwright browser runner that clicks and tests the app like a real human user. | Verifying critical user flows (login, checkout, onboarding) before release. | *"/e2e run the test suite"* |
 | **`create-verification-skill`**<br>`/create-verification-skill` | Generates a one-command health check runner (`verify-<app>`) with doctor checks. | Starting a new project or standardizing checks across an existing repo. | *"Set up verification for this repo"* |
+| **`maintain-verification-skill`**<br>`/maintain-verification-skill` | Upkeep loop that audits and updates the feature map when app code changes. | Auditing or updating the verify skill after feature work or refactors. | *"/maintain-verification-skill"* |
 
 ### Backend, Database & Performance
 | Skill & Command | What It Does & Why | When to Use It | Natural Prompt Example |
@@ -144,4 +145,3 @@ For any non-trivial project, seed these starter templates from `templates/` into
 4. **`AGENTS.md`**: Project instructions + hard rules & invariants (seeded from `AGENTS.project.md`).
 5. **`TASKS.md`**: Active, ordered checklist of atomic tasks with verification criteria.
 6. **`JOURNAL.md`**: Living work log + terminal verification proof (acts as progress tracker).
-7. **`verify.ps1`**: One-command automated test runner (typecheck, tests, build).

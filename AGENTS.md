@@ -30,7 +30,7 @@ Master: C:\Users\kwakh\.agents. Backup: d:\workflow. Project details go in each 
 - Windows PowerShell only: no bash syntax, no &&. Quote paths with spaces.
 - Large investigations: read-only explorer subagent returns a short summary; reviewers never edit; one editor per file. Verify its key claims before relying on them.
 - Missing capability: inspect C:\Users\kwakh\.agents\skills\ and C:\Users\kwakh\.agents\library\ first. Then pick a skills.sh skill by fit and access, not install count alone. Ask before `npx skills add`.
-- Non-trivial projects keep PRD.md, ARCHITECTURE.md, DESIGN.md, AGENTS.md, TASKS.md, JOURNAL.md (seed from C:\Users\kwakh\.agents\templates\; run verify.ps1). Update only affected ones. Read ADRs and ARCHITECTURE.md before design questions.
+- Non-trivial projects keep PRD.md, ARCHITECTURE.md, DESIGN.md, AGENTS.md, TASKS.md, JOURNAL.md (seed from C:\Users\kwakh\.agents\templates\). Update only affected ones. Read ADRs and ARCHITECTURE.md before design questions.
 - Search inside files first, then read needed parts plus callers. Show diffs, not whole files. Don't repeat settled decisions.
 - Pausing or switching to an unrelated or heavy task: write .scratch\HANDOFF.md (Goal, Changes, Passing Tests, Next Action) and suggest a fresh session.
 - After meaningful file changes in projects with JOURNAL.md: add a 4-line card (Problem / Change / Proof / Still broken). Ask about /build-in-public once per meaningful work session.

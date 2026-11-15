@@ -252,3 +252,8 @@ npx shadcn@latest view @shadcn/button
 - Use this skill only when the task clearly matches the scope described above.
 - Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
 - Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.
+
+## Resources moved outside the skill folder
+Freebuff's cloud copy only accepts text files, so the two PNG logos live outside this folder:
+- `assets/shadcn.png` -> `C:\Users\kwakh\.agents\skill-assets\shadcn\assets\shadcn.png`
+- `assets/shadcn-small.png` -> `C:\Users\kwakh\.agents\skill-assets\shadcn\assets\shadcn-small.png`
