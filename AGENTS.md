@@ -29,7 +29,7 @@ Master: C:\Users\kwakh\.agents. Backup: d:\workflow. Project details go in each 
 
 ## 5. Environment
 - Windows PowerShell only: no bash syntax, no &&. Quote paths with spaces.
-- Large investigations: read-only explorer subagent returns a short summary; reviewers never edit; one editor per file. Verify its key claims before relying on them.
+- Subagent Delegation: Always delegate to a read-only research subagent when: (1) an investigation or search requires exploring more than 3 files, (2) diagnosing a bug across unfamiliar modules, or (3) auditing code against specs. The subagent reads the files and returns only a concise summary with exact citations so the main context stays clean; reviewers never edit; one editor per file. Verify its key claims before relying on them.
 - Missing capability: inspect C:\Users\kwakh\.agents\skills\ and C:\Users\kwakh\.agents\library\ first. Then pick a skills.sh skill by fit and access, not install count alone. Ask before `npx skills add`.
 - Non-trivial projects keep PRD.md, ARCHITECTURE.md, DESIGN.md, AGENTS.md, TASKS.md, JOURNAL.md (seed from C:\Users\kwakh\.agents\templates\). Update only affected ones. Read ADRs and ARCHITECTURE.md before design questions.
 - Search inside files first, then read needed parts plus callers. Show diffs, not whole files. Don't repeat settled decisions.

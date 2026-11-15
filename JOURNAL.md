@@ -461,4 +461,13 @@
 - **Proof:** All 4 repos (`workflow`, `Grocer`, `Outpost`, `Beam`) pushed clean to GitHub; 0 active `verify.ps1` templates remain.
 - **Still broken:** None. Full system aligned to verification skill standard.
 
+---
+
+### 2026-11-15 - Concrete Subagent Delegation Invariant
+- **Problem:** Agents did not autonomously spawn research subagents due to subjective "large investigations" phrasing and inline tool defaults.
+- **Change:** Updated Section 5 of global `AGENTS.md` with explicit numerical and situational triggers: delegate to a read-only research subagent when exploring >3 files, diagnosing across unfamiliar modules, or auditing against specs.
+- **Proof:** `Get-FileHash` confirms identical SHA256 (`BA5FBFC6...886C43`) across master, `D:\workflow\AGENTS.md`, Claude Code (`~/.claude/CLAUDE.md`), Codex (`~/.codex/AGENTS.md`), and Antigravity (`~/.gemini/config/AGENTS.md`).
+- **Still broken:** None. Active across all model environments.
+
+
 
