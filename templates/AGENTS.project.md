@@ -8,17 +8,17 @@
 ## 2. Stack
 - <Language / framework / DB / hosting, one line each>
 
-## 3. Project Commands & Self-Verification
+## 3. Project Commands & Verification
 - Install: `<cmd>`
 - Dev server: `<cmd>` (runs on `<port>`)
 - Test (all): `<cmd>`
-- E2E: `<cmd>`
+- Build: `<cmd>`
 - Lint / Typecheck: `<cmd>`
-- Verification runner: `.\verify.ps1` (checks types, tests, and build)
-- Done check = `.\verify.ps1` exits 0 with pasted raw terminal output.
+- Verification skill: `.agents/skills/verify-<app>/` (run via `/verify-<app>`)
+- Done check = Verification skill doctor + drive passes with pasted proof (or tests + build pass).
 
 ## 4. Hard Rules & Invariants (What the AI must ALWAYS do)
-- Always run `.\verify.ps1` before declaring any task complete.
+- Always run verification (`/verify-<app>` or tests) before declaring any task complete.
 - Always handle loading, empty, and error states for every async call.
 - Always use strict types (no `any` or loose casts).
 - Always follow design tokens and component standards in `DESIGN.md`.
