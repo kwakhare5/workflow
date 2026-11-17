@@ -1,49 +1,54 @@
-# AGENTS.md — <Project name>
-# MANDATORY: You must ALWAYS read and follow the global master rules at C:\Users\kwakh\.agents\AGENTS.md before doing anything.
-# NOTE FOR AI: Treat this file as AGENTS.md + RULES.md combined. It defines project-specific facts and invariants.
+# AGENTS.md - <Project name>
+
+Global rules: read C:\Users\kwakh\.agents\AGENTS.md first. This file adds project-specific rules. It can make global limits stricter, never looser. Do not repeat global rules here.
 
 ## 1. What this is
-<One sentence: what it does and who uses it.>
+- One-line promise: what it does and who uses it.
+- What is out of scope.
 
-## 2. Stack
-- <Language / framework / DB / hosting, one line each>
-
-## 3. Project Commands & Verification
+## 2. Stack and commands
+- Stack: language, framework, database, hosting (one line each).
 - Install: `<cmd>`
-- Dev server: `<cmd>` (runs on `<port>`)
-- Test (all): `<cmd>`
+- Dev server: `<cmd>` (port `<port>`)
+- Test: `<cmd>`
 - Build: `<cmd>`
-- Lint / Typecheck: `<cmd>`
-- Verification skill: `.agents/skills/verify-<app>/` (run via `/verify-<app>`)
-- Done check = Verification skill doctor + drive passes with pasted proof (or tests + build pass).
+- Lint / typecheck: `<cmd>`
+- Database / seed: `<cmd>` (if the project has one)
+- Environment variable names. No secrets or values.
 
-## 4. Hard Rules & Invariants (What the AI must ALWAYS do)
-- Always run verification (`/verify-<app>` or tests) before declaring any task complete.
-- Always handle loading, empty, and error states for every async call.
-- Always use strict types (no `any` or loose casts).
-- Always follow design tokens and component standards in `DESIGN.md`.
+## 3. Project rules
+- Data contract.
+- Invariants and gotchas: things that broke before and the rule that prevents them.
+- Strict types: no `any` or loose casts.
+- Never commit secrets, passwords or API keys. Keep them in an untracked `.env` or environment variables.
+- Required env vars and what happens when one is missing.
+- (Only with a database) never modify or delete migrations that have already run.
+- Security and privacy rules.
+- (Only if the project has them) modes, claims and gates, and what is real, assumed, test or simulated data.
 
-## 5. What the AI must NEVER do
-- Never commit hardcoded secrets, passwords, or API keys (use `.env`).
-- Never write inline styles (use design tokens in `DESIGN.md`).
-- Never modify or delete existing database migrations that have already run.
-- Never delete or weaken a test just to get green.
+## 4. UI rules (only for projects with a UI)
+- Design source of truth: one UI-style skill, `<name>`. Load only this one.
+- Follow design tokens and components in DESIGN.md. No inline styles.
+- Handle loading, empty and error states for every async call.
 
-## 6. Design Source of Truth
-- UI-style skill for this project: `<one of taste-skill | impeccable | emil-design-eng | shadcn>`. Load only this one.
-- Design tokens & vibe: Follow `DESIGN.md`.
+## 5. Surfaces and verification
+- Screen or endpoint map.
+- Verification skill path.
+- Feature list and how to drive each one.
+- Done check: verification skill passes with pasted proof, or tests plus build pass. Check what changed and its callers by default; go broader only for shared code, dependencies, build config or wide impact.
 
-## 7. Folder Map
-- `<path>/`: <what lives here>
-- `<path>/`: <what lives here>
-- `<path>/`: <what lives here>
+## 6. Project-specific stops
+- The phase checklist (Plan -> Scout -> Build -> Review -> Fix -> Verify -> Close) lives in TASKS.md, not here.
+- Stops this project adds on top of the global approval limits (for example: never touch table X, never call the live payment API). Do not repeat global stops.
 
-## 8. Gotchas & Known Traps
-- <Thing that broke before and the rule that prevents it, one line each>
-- <Env vars that must be set; what happens if they are missing>
-- <Anything the agent cannot infer from the code>
+## 7. Folder map
+- `<path>/`: what lives here.
 
-## 9. Do Not Touch
-- <Generated files, vendored code, migrations already applied>
+## 8. Open decisions
+- Unresolved choices.
 
-Global master rules: read C:\Users\kwakh\.agents\AGENTS.md
+## 9. Do not touch
+- Locked files, generated or vendored code, applied migrations.
+
+## 10. Doc map
+- List only documents that actually exist, with their paths.
