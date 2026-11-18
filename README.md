@@ -1,41 +1,35 @@
 # workflow
 
-Karan Wakhare's agent workflow: global rules + a small global skill set + a per-project skill library.
+Karan Wakhare's coding-agent workflow: global rules + 28 core active skills + on-demand library catalog.
 
 ## System Master Architecture
-The real files live on C: under `C:\Users\kwakh\.agents\`. Every tool and IDE folder points at this single source of truth via NTFS junctions and hardlinks:
-- **Skills (`27 global`):** `~/.gemini/config/skills`, `~/.gemini/skills`, `~/.codex/skills`, `~/.claude/skills`, `~/.config/opencode/skills`, `~/.qoder/skills`, and `~/.config/freebuff-desktop/skills` are NTFS junctions pointing to `C:\Users\kwakh\.agents\skills`.
-- **Rules (`AGENTS.md`):** `~/.gemini/config/AGENTS.md`, `~/.codex/AGENTS.md`, `~/.claude/CLAUDE.md`, `~/.config/opencode/AGENTS.md`, `~/.qoder/AGENTS.md`, and `~/.config/freebuff-desktop/AGENTS.md` are NTFS hardlinks of `C:\Users\kwakh\.agents\AGENTS.md`. Editing the master updates all tools simultaneously.
-- **Templates (`7 templates`):** `~/.gemini/config/templates`, `~/.codex/templates`, `~/.claude/templates`, `~/.config/opencode/templates`, `~/.qoder/templates`, and `~/.config/freebuff-desktop/templates` are NTFS junctions pointing to `C:\Users\kwakh\.agents\templates`.
-- **Library (`24 skills`):** Categorized on-demand skills live in `C:\Users\kwakh\.agents\library\` across groups and are copied into individual projects on-demand.
-- **Repository (`D:\workflow`):** A version-controlled repository containing rules and skills.
+The live global files live on C: under `C:\Users\kwakh\.agents\`. Every tool and IDE folder points at this single source of truth via NTFS junctions and hardlinks:
+- **Skills (`28 global`):** `~/.gemini/config/skills`, `~/.codex/skills`, `~/.claude/skills`, `~/.qoder/skills` are NTFS junctions pointing to `C:\Users\kwakh\.agents\skills`.
+- **Rules (`AGENTS.md`):** `~/.gemini/config/AGENTS.md`, `~/.codex/AGENTS.md`, `~/.claude/CLAUDE.md`, `~/.qoder/AGENTS.md` are NTFS hardlinks of `C:\Users\kwakh\.agents\AGENTS.md`. Editing the master updates all tools simultaneously.
+- **Templates (`7 templates`):** `~/.gemini/config/templates`, `~/.codex/templates`, `~/.claude/templates`, `~/.qoder/templates` are NTFS junctions pointing to `C:\Users\kwakh\.agents\templates`.
+- **Library (`5 domains`):** Categorized on-demand skills live in `C:\Users\kwakh\.agents\library\` across 5 domains (`ai-infra`, `scraping`, `seo-and-marketing`, `tools`, `ui-styles`).
+- **Repository (`D:\workflow`):** Version-controlled repository on D: for backup and pushing to GitHub (mirrored from master).
 
 ## What is in here
-- `AGENTS.md` - global working rules (Master rules)
-- `PLAYBOOK.md` - quick skills cheat sheet (tables)
-- `templates/` - 7 starter project templates (`PRD.md`, `ARCHITECTURE.md`, `DESIGN.md`, `AGENTS.project.md`, `TASKS.md`, `JOURNAL.md`, `GLOSSARY.md`)
-- `skills/` - 27 global skills (loaded everywhere)
-- `library/` - 24 per-project skills across groups (`tools`, `marketing`, `ui-styles`, `ai-infra`, `scraping`)
+- `AGENTS.md` - Global working rules (12-step flow + strict safety guardrails)
+- `PLAYBOOK.md` - Quick skills cheat sheet & reference guide
+- `templates/` - 7 project starter templates (`AGENTS.template.md`, `TASKS.md`, `ARCHITECTURE.md`, `DESIGN.md`, `GLOSSARY.md`, `JOURNAL.md`, `PRD.md`)
+- `skills/` - 28 active global skills (loaded everywhere)
+- `library/` - Categorized reference skills across 5 domains
 
-## Working with Projects
-
-### Add Specialized Skills to a Project
-Copy the matching skill folder from `library/<group>/<skill>` into `<project>/.agents/skills/<skill>` when needed.
-
-## Daily Flow
-`/grilling` (or `/grill-with-docs`) -> `/to-spec` -> `/to-tickets` -> `/tdd` -> `/code-review`
+## The Engineering Loop
+`grill-with-docs` -> `codebase-design` -> `to-spec` -> `to-tickets` -> `implement` / `tdd` -> `diagnosing-bugs` -> `code-review` -> `verify` -> `pr` -> `handoff`
 
 ## Sources and Credits
 | What | Source repo | Commit / Date | License |
 |---|---|---|---|
-| Pocock skills | https://github.com/mattpocock/skills | latest | MIT |
-| Agent skills | https://github.com/addyosmani/agent-skills | latest | MIT |
-| Marketing skills | https://github.com/coreyhaines31/marketingskills | latest | MIT |
-| pstack skills | https://github.com/backnotprop/pstack | latest | MIT |
+| Engineering loop skills | https://github.com/mattpocock/skills | 5863806 (2026-11-18) | MIT |
+| Code quality & refactoring | https://github.com/caldoai/skills | d5b68da (2026-11-18) | MIT |
+| Technical & Programmatic SEO | https://github.com/Illyism/seo-skills | 99d51a3 (2026-11-16) | MIT |
 | UI Craft & Motion | https://github.com/emilkowalski/skills | latest | MIT |
-| Taste skill | https://github.com/Leonxlnx/taste-skill | latest | MIT |
-| Visual PR summary | https://github.com/humanlayer/skills | latest | MIT |
+| Taste skill (v2) | https://github.com/Leonxlnx/taste-skill | latest | MIT |
 | Ponytail | https://github.com/DietrichGebert/ponytail | latest | MIT |
 | E2E Testing | https://github.com/tester-army/e2e | latest | MIT |
-| Supabase & Postgres | https://github.com/supabase/agent-skills | latest | MIT |
-| React & Next.js Best Practices | https://github.com/vercel-labs/agent-skills | latest | MIT |
+| Supabase & Postgres | https://github.com/supabase/agent-skills | v0.1.9 | MIT |
+| React & Next.js Best Practices | https://github.com/vercel-labs/agent-skills | v1.0.0 | MIT |
+

@@ -1,50 +1,28 @@
 # TASKS.md — Active Implementation Checklist
-#
-# PURPOSE: Tracks the ordered sequence of small, verifiable tasks.
-# The AI works through one task at a time and runs verification before checking it off.
-#
-# RULES FOR THE AI:
-# 1. Do NOT work on multiple tasks at once.
-# 2. Pick the top unchecked task `[ ]`.
-# 3. Write the code, run tests or feature verification.
-# 4. Only mark `[x]` when verification or tests pass with exit code 0.
-# 5. Log the verified result in `PROGRESS.md`.
+
+PURPOSE: Tracks the strictly ordered sequence of small, verifiable tasks.
+The agent works through one task at a time and runs verification before checking it off.
+
+RULES FOR THE AGENT:
+1. Do NOT work on multiple tasks at once.
+2. Pick the top unchecked task `[ ]`.
+3. Write the code, run tests or feature verification.
+4. Only mark `[x]` when verification or tests pass with exit code 0 and pasted output.
+5. Ordered tasks only. No dates, week maps, or later backlog buckets.
 
 ---
 
-## Current Sprint / Milestone
+## Current Milestone
 **Goal:** <One clear sentence stating what this milestone delivers.>
 
 ---
 
-## Phase 1: Setup & Foundations
-- [ ] **Task 1.1:** Initialize project repo, configure Tailwind, and set up basic layout.
-  - _Verification:_ `npm run build` exits 0.
-- [ ] **Task 1.2:** Configure database connection / client helpers and verify connection.
-  - _Verification:_ Test script logs database ping success.
-
----
-
-## Phase 2: Core Feature Implementation
-- [ ] **Task 2.1:** <Feature A name: description of the atomic step>.
+## Ordered Tasks
+- [ ] **Task 1:** <Clear atomic step description>.
   - _Verification:_ <Exact command or check that proves it works>.
-- [ ] **Task 2.2:** <Feature B name: description of the atomic step>.
+- [ ] **Task 2:** <Clear atomic step description>.
   - _Verification:_ <Exact command or check that proves it works>.
-- [ ] **Task 2.3:** <Feature C name: description of the atomic step>.
+- [ ] **Task 3:** <Clear atomic step description>.
   - _Verification:_ <Exact command or check that proves it works>.
-
----
-
-## Phase 3: Polish & Edge Cases
-- [ ] **Task 3.1:** Add empty states and loading skeletons for all list views.
-  - _Verification:_ UI renders skeletons during network delay test.
-- [ ] **Task 3.2:** Verify mobile responsiveness across 375px and 768px breakpoints.
-  - _Verification:_ Browser check confirms zero horizontal overflow.
-- [ ] **Task 3.3:** Run feature verification or test suite.
-  - _Verification:_ Feature drive or test command exits 0.
-
----
-
-## Backlog / Future Ideas (Do not touch in this milestone)
-- [ ] Future Idea 1: Description
-- [ ] Future Idea 2: Description
+- [ ] **Task 4:** <Clear atomic step description>.
+  - _Verification:_ <Exact command or check that proves it works>.
