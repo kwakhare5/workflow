@@ -471,3 +471,11 @@
 
 
 
+
+---
+
+### 2026-11-18 - Upgraded Workflow to 12-Step Loop with 28 Skills and Full Parity
+- **Problem:** Skills, rules, and templates needed upstream refresh to Matt Pocock loop, removal of redundant overlapping skills, elimination of OS temp paths, and clean repository root layout.
+- **Change:** Restructured D:\workflow to match master C:\Users\kwakh\.agents; updated 14 Matt Pocock skills, installed CaldoAI and Illyism skills; purged 6 dead skills; established 5-way NTFS hardlinks for AGENTS.md; renamed AGENTS.template.md; verified Phase 4 acceptance walk.
+- **Proof:** Commit 9b608af pushed cleanly to origin main; Compare-Object and Get-FileHash verify 100% sync across rules, 7 templates, 28 skills, 5 library domains, and docs; 0 broken links.
+- **Still broken:** None. All tools linked and live.
