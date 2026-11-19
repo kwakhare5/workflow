@@ -1,5 +1,5 @@
 # AGENTS.md - How to work (Global)
-Master: C:\Users\kwakh\.agents. Repository: D:\workflow. Project details go in each project's AGENTS.md.
+Master: C:\Users\kwakh\.agents. Project details go in each project's AGENTS.md.
 
 ## Voice
 - Simple everyday English. Answer first, fewest words needed; more only when the task needs it.
@@ -35,7 +35,6 @@ Master: C:\Users\kwakh\.agents. Repository: D:\workflow. Project details go in e
 - Least code that does the job. Standard library first. No new dependencies without asking.
 - Never cut validation, error handling, security, or requested features.
 - Fix root causes, not symptoms. Find every caller before changing shared code.
-- UI work always starts from user-provided image, mockup, or existing reference; never invent styling from scratch.
 - Commits show only Karan: no bot attribution, no Co-authored-by, no backdated commits.
 
 ## Checks & Testing
@@ -53,9 +52,9 @@ Master: C:\Users\kwakh\.agents. Repository: D:\workflow. Project details go in e
 - Ordered tasks only in TASKS.md. No dates, week maps, or later buckets. Read project ADRs and ARCHITECTURE.md before design.
 
 ## Environment
-- Windows, PowerShell only. Quote paths with spaces. Rules and skills live in C:\Users\kwakh\.agents.
+- Shell: Use the active environment shell (PowerShell on Windows, bash in WSL/Linux). Quote paths with spaces. Rules and skills live in C:\Users\kwakh\.agents.
+- Project skills: Any skill downloaded for a specific project lives strictly in that project's `.agents/skills/` folder, never in the global master.
 - Missing capability: 1) search C:\Users\kwakh\.agents\skills\; 2) search C:\Users\kwakh\.agents\library\; 3) research via /find-skills, inspect license/source, propose it, and install via npx skills add only with my approval.
-- Search inside files first; show diffs, not whole files. Don't repeat settled decisions.
 - Pausing/switching sessions: write .scratch\HANDOFF.md (skill: handoff). Ask about /build-in-public once per session.
 - Corrected twice: fix root cause, add one "When X, do Y" line below.
 

@@ -81,6 +81,7 @@ Follow this workflow for non-trivial features, refactors, and bug fixes:
 Specialized reference guides and tools loaded as needed:
 * **`ai-infra/`**: `mcp-builder` (MCP server development), `writing-for-agents` (prompt mechanics).
 * **`scraping/`**: `scrapling-official` (stealth web scraping with Python Scrapling).
+* **`security/`**: `security-audit` (Cloudflare defensive security guidance, vulnerability review, attack classes, and report validation).
 * **`seo-and-marketing/`**: Comprehensive 30+ skill suite for programmatic SEO, technical audits, title tags, schema, and competitor research.
 * **`tools/`**: `blast-radius`, `using-git-worktrees`, `improve-codebase-architecture`, `prototype`, `wizard`.
 * **`ui-styles/`**: `animate`, `animate-expo`, `break-ui`, `mobile-native`, `review-animations`.

@@ -7,7 +7,7 @@ The live global files live on C: under `C:\Users\kwakh\.agents\`. Every tool and
 - **Skills (`28 global`):** `~/.gemini/config/skills`, `~/.codex/skills`, `~/.claude/skills`, `~/.qoder/skills` are NTFS junctions pointing to `C:\Users\kwakh\.agents\skills`.
 - **Rules (`AGENTS.md`):** `~/.gemini/config/AGENTS.md`, `~/.codex/AGENTS.md`, `~/.claude/CLAUDE.md`, `~/.qoder/AGENTS.md` are NTFS hardlinks of `C:\Users\kwakh\.agents\AGENTS.md`. Editing the master updates all tools simultaneously.
 - **Templates (`7 templates`):** `~/.gemini/config/templates`, `~/.codex/templates`, `~/.claude/templates`, `~/.qoder/templates` are NTFS junctions pointing to `C:\Users\kwakh\.agents\templates`.
-- **Library (`5 domains`):** Categorized on-demand skills live in `C:\Users\kwakh\.agents\library\` across 5 domains (`ai-infra`, `scraping`, `seo-and-marketing`, `tools`, `ui-styles`).
+- **Library (`6 domains`):** Categorized on-demand skills live in `C:\Users\kwakh\.agents\library\` across 6 domains (`ai-infra`, `scraping`, `security`, `seo-and-marketing`, `tools`, `ui-styles`).
 - **Repository (`D:\workflow`):** Version-controlled repository on D: for backup and pushing to GitHub (mirrored from master).
 
 ## What is in here
@@ -15,7 +15,7 @@ The live global files live on C: under `C:\Users\kwakh\.agents\`. Every tool and
 - `PLAYBOOK.md` - Quick skills cheat sheet & reference guide
 - `templates/` - 7 project starter templates (`AGENTS.template.md`, `TASKS.md`, `ARCHITECTURE.md`, `DESIGN.md`, `GLOSSARY.md`, `JOURNAL.md`, `PRD.md`)
 - `skills/` - 28 active global skills (loaded everywhere)
-- `library/` - Categorized reference skills across 5 domains
+- `library/` - Categorized reference skills across 6 domains
 
 ## The Engineering Loop
 `grill-with-docs` -> `codebase-design` -> `to-spec` -> `to-tickets` -> `implement` / `tdd` -> `diagnosing-bugs` -> `code-review` -> `verify` -> `pr` -> `handoff`
@@ -30,6 +30,7 @@ The live global files live on C: under `C:\Users\kwakh\.agents\`. Every tool and
 | Taste skill (v2) | https://github.com/Leonxlnx/taste-skill | latest | MIT |
 | Ponytail | https://github.com/DietrichGebert/ponytail | latest | MIT |
 | E2E Testing | https://github.com/tester-army/e2e | latest | MIT |
+| Security Audit (Cloudflare) | https://github.com/cloudflare/security-audit-skill | c1c8a8c (2026-11-19) | Apache-2.0 |
 | Supabase & Postgres | https://github.com/supabase/agent-skills | v0.1.9 | MIT |
 | React & Next.js Best Practices | https://github.com/vercel-labs/agent-skills | v1.0.0 | MIT |
 
